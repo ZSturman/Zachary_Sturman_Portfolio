@@ -1,6 +1,8 @@
 .DS_Store
 reference_to_delete
+reference_to_delete/*
 zas_portfolio_env
 .env
 app/__pycache__
 __pycache__
+*zs_app

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}" type="text/css">
+
+
+
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('main.home') }}">
+                <svg id="logo-svg" width="50" height="50" viewBox="0 0 1832 1832" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="logo_v1" clip-path="url(#clip0_4_3)">
+                        <path id="triangle-one"
+                            d="M12.7885 940.711C9.11523 1136.29 74.0535 1326.21 197.294 1480.32L933 940L12.7885 940.711Z"
+                            fill="#00747B" />
+                        <path id="triangle-two"
+                            d="M1715 940C1715 822.94 1685.89 707.536 1630.04 603.193C1574.19 498.851 1493.18 408.523 1393.62 339.571L933 940H1715Z"
+                            fill="#00C9A5" />
+                        <circle id="ring-main" cx="916" cy="916" r="440" stroke="#182A45" stroke-width="200" />
+                        <path id="inner-ring-thick"
+                            d="M916 478C973.519 478 1030.47 489.329 1083.62 511.341C1136.76 533.352 1185.04 565.615 1225.71 606.287C1266.38 646.959 1298.65 695.244 1320.66 748.385C1342.67 801.525 1354 858.481 1354 916L1353.53 916C1353.53 858.542 1342.22 801.647 1320.23 748.563C1298.24 695.479 1266.01 647.245 1225.38 606.616C1184.75 565.987 1136.52 533.759 1083.44 511.771C1030.35 489.783 973.458 478.465 916 478.465L916 478Z"
+                            stroke="#C7FFFF" stroke-width="100" stroke-linejoin="round" />
+                        <path id="inner-ring-thin"
+                            d="M916 478C1005.55 478 1092.95 505.448 1166.42 556.647C1239.89 607.846 1295.9 680.334 1326.91 764.345C1357.91 848.355 1362.42 939.851 1339.83 1026.5C1317.24 1113.16 1268.63 1190.8 1200.55 1248.98C1132.47 1307.16 1048.2 1343.07 959.081 1351.88C869.965 1360.68 780.291 1341.96 702.141 1298.24C623.991 1254.52 561.121 1187.89 522.002 1107.34C482.883 1026.78 469.395 936.174 483.355 847.718L483.815 847.791C469.869 936.152 483.343 1026.66 522.42 1107.13C561.498 1187.6 624.301 1254.16 702.368 1297.83C780.435 1341.51 870.014 1360.21 959.035 1351.41C1048.06 1342.61 1132.24 1306.74 1200.25 1248.63C1268.25 1190.51 1316.81 1112.95 1339.38 1026.39C1361.95 939.826 1357.44 848.427 1326.47 764.506C1295.5 680.584 1239.54 608.173 1166.15 557.029C1092.76 505.885 1005.45 478.465 916 478.465L916 478Z"
+                            stroke="#C7D6FF" stroke-width="50" stroke-linejoin="round" />
+                        <path id="triangle-three"
+                            d="M1081.22 1685.39C1189.17 1662.56 1290.52 1614.06 1377.54 1543.59C1464.56 1473.12 1534.93 1382.55 1583.28 1278.81L933 940L1081.22 1685.39Z"
+                            fill="#005889" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_4_3">
+                            <rect width="1832" height="1832" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end w-auto" id="navbarSupportedContent">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Zachary Sturman</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-5 gap-3 ps-4">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('projects.portfolio') }}">Portfolio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu ms-1">
+                            <li><a class="dropdown-item" href="{{ url_for('services.data_analytics') }}">Data Analytics</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('services.front_end') }}">User Interface
+                                    Development</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('services.back_end') }}">Back-end Engineering</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.about') }}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.contact') }}">Contact</a>
+                    </li>
+                    <li>
+                        <a id="resume-nav-btn" href="../static/assets/Zachary_Sturman_Resume_2023.pdf" target="_blank"
+                    class="btn btn-outline-secondary">Resume</a>
+                    </li>
+                </ul>
+
+                
+
+            </div>
+        </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+    {% block content %}
+    {% endblock content %}
+
+    <!-- footer -->
+
+    <p>footer</p>
+
+</body>
+
+</html>

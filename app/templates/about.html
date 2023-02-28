@@ -1,0 +1,280 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container-fluid">
+
+    <section class="container">
+        <div class="display-4 text-center my-5 py-5">
+            <div data-aos="fade-down" data-aos-duration="900">
+                <span class="fw-lighter">Get To Know </span>Zachary Sturman
+            </div>
+            <hr data-aos="fade" data-aos-duration="600" data-aos-delay="600">
+            <div class="row">
+                <div class="d-inline-flex justify-content-center gap-5">
+                    <a class="btn btn-outline-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center"
+                        href="https://www.linkedin.com/in/zacharysturman/" target="_blank" data-aos="fade"
+                        data-aos-duration="1500" data-aos-delay="500">
+                        <i class="fa-brands fa-linkedin fa-lg"></i>
+                    </a>
+                    <a class="btn btn-outline-info rounded-circle btn-lg  perf-circle-sm d-flex justify-content-center align-items-center"
+                        href="https://twitter.com/zachary_sturman" target="_blank" data-aos="fade"
+                        data-aos-duration="1500" data-aos-delay="600">
+                        <i class="fa-brands fa-twitter fa-lg"></i>
+                    </a>
+                    <a class="btn btn-outline-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center"
+                        href="mailto:zacharysturman@zsdynamics.com?subject={{ email_subject_line }}&body={{ email_body }}"
+                        data-aos="fade" data-aos-duration="1500" data-aos-delay="700">
+                        <i class="fa-solid fa-envelope fa-lg"></i>
+                    </a>
+                    <a class="btn btn-outline-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center"
+                        href="https://github.com/ZSturman" target="_blank" data-aos="fade" data-aos-duration="1500" data-aos-delay="800">
+                        <i class="fa-brands fa-github fa-lg"></i>
+                    </a>
+                    <a class="btn btn-outline-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center"
+                        href="../static/assets/Zachary_Sturman_Resume_2023.pdf" target="_blank" data-aos="fade" data-aos-duration="1500" data-aos-delay="800">
+                        <i class="fa-solid fa-file-contract fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row my-5" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
+            <div class="col-12 col-md-5">
+                <img src="../static/images/Zachary_Sturman_Headshot_2022.PNG" alt="Zachary Sturman Headshot">
+            </div>
+            <div class="col">
+
+                <p class="d-none d-lg-block fw-light lead">
+                    As the founder of ZSDynamics, a one-stop-shop for data science based in Denver, Colorado, I bring a
+                    unique blend of passion, expertise and experience to the field.
+                    My background in storytelling, 3D simulations and scientific data analysis, and my desire to find
+                    creative solutions to complex problems, have driven me to start ZSDynamics.
+                    <br>
+                    <br>
+                    My goal is to help employers navigate the often daunting task of understanding and utilizing the
+                    data
+                    they have collected, by providing actionable strategies and solutions. I am excited to use my skills
+                    and
+                    experience to help organizations make the most of their data.
+
+                </p>
+
+                <p class="fw-light d-block d-lg-none">
+                    As the founder of ZSDynamics, a one-stop-shop for data science based in Denver, Colorado, I bring a
+                    unique blend of passion, expertise and experience to the field.
+                    My background in storytelling, 3D simulations and scientific data analysis, and my desire to find
+                    creative solutions to complex problems, have driven me to start ZSDynamics.
+                    <br>
+                    <br>
+                    My goal is to help employers navigate the often daunting task of understanding and utilizing the
+                    data
+                    they have collected, by providing actionable strategies and solutions. I am excited to use my skills
+                    and
+                    experience to help organizations make the most of their data.
+
+                </p>
+
+                <div class="d-inline-flex gap-3">
+                    <a class="btn btn-success rounded-5" href="{{ url_for('main.contact') }}">Contact Me</a>
+                    <a class="btn btn-outline-info rounded-5" href="{{ url_for('projects.portfolio') }}">See how other business
+                        have
+                        benefited</a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+    <div class="bg-cc-blue py-5">
+
+        <div class="container d-none d-lg-block">
+            <img class="float-img-left" src="../static/images/hours_a_day.png" alt="" style="width: 25vw;">
+            <h4>My Story:
+            </h4>
+            <p class="lead">
+                What attracted me to data science the most was my skills with <a href="https://www.blender.org/" target="_blank"> Blender</a>, an opensource,
+                3D
+                animation software which can be used for almost any and every need you may have with data visualization.
+                I
+                knew the math and the software, now I just had to learn the language.
+            </p>
+            <p class="lead">
+                After doing a bit of research I discovered that Python was the language for me. I jumped on YouTube and
+                started watching tutorials from the fundamentals of strings and booleans to neuroscience computation and everything in between.
+                Through
+                plenty of trial and error I created a note-taking and studying strategy that worked for
+                me.
+            </p>
+            <p class="lead">Needing to still bring home a paycheck to survive I switched to part-time as a casino dealer and logged
+                anywhere from 4 to 12 hours a day watching tutorials, reading documentation, creating projects and
+                drinking
+                lot's of coffee. After several months of confusion and pulling out my hair I finally got to a point where I was ready to show the world what I was capable of.</p>
+
+        </div>
+
+        <div class="container d-block d-lg-none">
+            <img class="float-img-left" src="../static/images/hours_a_day.png" alt="" style="width: 50vw;">
+            <h4>My Story:
+            </h4>
+            <p>
+                What attracted me to data science the most was my skills with <a href="https://www.blender.org/" target="_blank"> Blender</a>, an opensource,
+                3D
+                animation software which can be used for almost any and every need you may have with data visualization.
+                I
+                knew the math and the software, now I just had to learn the language.
+            </p>
+            <p>
+                After doing a bit of research I discovered that Python was the language for me. I jumped on YouTube and
+                started watching tutorials from the fundamentals of strings and booleans to neuroscience computation and everything in between.
+                Through
+                plenty of trial and error I created a note-taking and studying strategy that worked for
+                me.
+            </p>
+            <p>Needing to still bring home a paycheck to survive I switched to part-time as a casino dealer and logged
+                anywhere from 4 to 12 hours a day watching tutorials, reading documentation, creating projects and
+                drinking
+                lot's of coffee. After several months of confusion and pulling out my hair I finally got to a point where I was ready to show the world what I was capable of.</p>
+
+        </div>
+    </div>
+
+
+    <br>
+    <br>
+
+  
+
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-5">
+                <img src="../static/images/outside_the_box.jpeg" alt="">
+            </div>
+            <div class="col order-first-md d-block d-lg-none">
+                <h4>A Competitive Advantage:</h4>
+                <p>As a data science professional, I differentiate myself from many of my peers who have only received
+                    training through coding bootcamps. While these programs provide a strong foundation in executing
+                    projects, they do not fully prepare individuals for the challenges faced in real-world scenarios
+                    that
+                    require innovative problem-solving techniques.</p>
+                <p>
+                    Instead of relying on a structured curriculum, I have honed my skills through self-directed learning
+                    and
+                    have been able to tackle complex problems that others may not be equipped to handle. This has
+                    resulted
+                    in additional time and effort in my professional development, but has also equipped me with a skill
+                    set
+                    that sets me apart in the industry.
+                </p>
+            </div>
+
+            <div class="col order-first-md d-none d-lg-block">
+                <h4>A Competitive Advantage:</h4>
+                <p class="lead">As a data science professional, I differentiate myself from many of my peers who have only received
+                    training through coding bootcamps. While these programs provide a strong foundation in executing
+                    projects, they do not fully prepare individuals for the challenges faced in real-world scenarios
+                    that
+                    require innovative problem-solving techniques.</p>
+                <p class="lead">
+                    Instead of relying on a structured curriculum, I have honed my skills through self-directed learning
+                    and
+                    have been able to tackle complex problems that others may not be equipped to handle. This has
+                    resulted
+                    in additional time and effort in my professional development, but has also equipped me with a skill
+                    set
+                    that sets me apart in the industry.
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+
+
+
+
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-md-auto">
+                <svg id="logo-svg" width="150" height="150" viewBox="0 0 1832 1832" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="logo_v1" clip-path="url(#clip0_4_3)">
+                        <path id="triangle-one"
+                            d="M12.7885 940.711C9.11523 1136.29 74.0535 1326.21 197.294 1480.32L933 940L12.7885 940.711Z"
+                            fill="#00747B" />
+                        <path id="triangle-two"
+                            d="M1715 940C1715 822.94 1685.89 707.536 1630.04 603.193C1574.19 498.851 1493.18 408.523 1393.62 339.571L933 940H1715Z"
+                            fill="#00C9A5" />
+                        <circle id="ring-main" cx="916" cy="916" r="440" stroke="#182A45" stroke-width="200" />
+                        <path id="inner-ring-thick"
+                            d="M916 478C973.519 478 1030.47 489.329 1083.62 511.341C1136.76 533.352 1185.04 565.615 1225.71 606.287C1266.38 646.959 1298.65 695.244 1320.66 748.385C1342.67 801.525 1354 858.481 1354 916L1353.53 916C1353.53 858.542 1342.22 801.647 1320.23 748.563C1298.24 695.479 1266.01 647.245 1225.38 606.616C1184.75 565.987 1136.52 533.759 1083.44 511.771C1030.35 489.783 973.458 478.465 916 478.465L916 478Z"
+                            stroke="#C7FFFF" stroke-width="100" stroke-linejoin="round" />
+                        <path id="inner-ring-thin"
+                            d="M916 478C1005.55 478 1092.95 505.448 1166.42 556.647C1239.89 607.846 1295.9 680.334 1326.91 764.345C1357.91 848.355 1362.42 939.851 1339.83 1026.5C1317.24 1113.16 1268.63 1190.8 1200.55 1248.98C1132.47 1307.16 1048.2 1343.07 959.081 1351.88C869.965 1360.68 780.291 1341.96 702.141 1298.24C623.991 1254.52 561.121 1187.89 522.002 1107.34C482.883 1026.78 469.395 936.174 483.355 847.718L483.815 847.791C469.869 936.152 483.343 1026.66 522.42 1107.13C561.498 1187.6 624.301 1254.16 702.368 1297.83C780.435 1341.51 870.014 1360.21 959.035 1351.41C1048.06 1342.61 1132.24 1306.74 1200.25 1248.63C1268.25 1190.51 1316.81 1112.95 1339.38 1026.39C1361.95 939.826 1357.44 848.427 1326.47 764.506C1295.5 680.584 1239.54 608.173 1166.15 557.029C1092.76 505.885 1005.45 478.465 916 478.465L916 478Z"
+                            stroke="#C7D6FF" stroke-width="50" stroke-linejoin="round" />
+                        <path id="triangle-three"
+                            d="M1081.22 1685.39C1189.17 1662.56 1290.52 1614.06 1377.54 1543.59C1464.56 1473.12 1534.93 1382.55 1583.28 1278.81L933 940L1081.22 1685.39Z"
+                            fill="#005889" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_4_3">
+                            <rect width="1832" height="1832" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+            <div class="col d-block d-lg-none">
+
+                <h4>The Intersection of Science, Storytelling, and Animal Advocacy</h4>
+                <p >As a passionate animal lover, I strive to make a positive impact by promoting animal welfare in any way possible. From supporting free-range and humanely raised animal products to exploring the potential of lab-grown meat, I am dedicated to the cause.</p>
+
+                <p >But my interests go beyond just animal welfare. I have a fascination with the complexities of science and the seemingly magical world that exists at the quantum level. I am constantly amazed by the strange and fascinating concepts of particles that aren't particles, faster than light communication, and the possibility of time-travel.</p>
+                    
+                    <p >I also have a creative side, having pursued a career as a writer and even having my <a href="../static/assets/Cassie_by_Zachary_Sturman.pdf"
+                    target="_blank">short story</a> published in Aviator magazine back in 2012 then my <a href="https://www.amazon.com/Timeline-7-Zachary-Sturman/dp/1521044708" target="_blank">novel</a> in 2017. My love for storytelling led me to animation, where I created a TV pilot called <a
+                    href="https://www.youtube.com/watch?v=QTkuCfIJOps" target="_blank">Greenhorn</a> (viewer discretion advised). With my unique combination of scientific curiosity and creative talent, I am eager to share my story and continue making a positive impact in the world.</p>
+
+            </div>
+            <div class="col d-none d-lg-block">
+
+                <h4>The Intersection of Science, Storytelling, and Animal Advocacy</h4>
+                <p class="lead">As a passionate animal lover, I strive to make a positive impact by promoting animal welfare in any way possible. From supporting free-range and humanely raised animal products to exploring the potential of lab-grown meat, I am dedicated to the cause.</p>
+
+                <p class="lead">But my interests go beyond just animal welfare. I have a fascination with the complexities of science and the seemingly magical world that exists at the quantum level. I am constantly amazed by the strange and fascinating concepts of particles that aren't particles, faster than light communication, and the possibility of time-travel.</p>
+                    
+                    <p class="lead">I also have a creative side, having pursued a career as a writer and even having my <a href="../static/assets/Cassie_by_Zachary_Sturman.pdf"
+                    target="_blank">short story</a> published in Aviator magazine back in 2012 then my <a href="https://www.amazon.com/Timeline-7-Zachary-Sturman/dp/1521044708" target="_blank">novel</a> in 2017. My love for storytelling led me to animation, where I created a TV pilot called <a
+                    href="https://www.youtube.com/watch?v=QTkuCfIJOps" target="_blank">Greenhorn</a> (viewer discretion advised). With my unique combination of scientific curiosity and creative talent, I am eager to share my story and continue making a positive impact in the world.</p>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row text-center py-5 mt-5">
+        <div class="row justify-content-center my-4">
+            <a class="btn btn-lg btn-success w-auto" href="{{ url_for('main.contact') }}">Let's create something great</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+
+<section>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col text-start">
+        <h1 class="display-1">Portfolio</h1>
+        <h1 class="display-1" data-aos="fade">Portfolio</h1>
+      </div>
+     
+
+      <hr>
+
+
+
+
+
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+
+        <div class="col" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out-back">
+          <div class="card h-100">
+            <img src="../static/images/portfolio_project_thumbnails/temp_tip_redistribution.png" class="card-img-top"
+              alt="'Examining the Effectiveness of Tip Redistributing in the Casino Industry' Thumbnail">
+            <div class="card-body">
+              <h5 class="card-title">Examining the Effectiveness of Tip Redistributing in the Casino Industry</h5>
+              <p class="card-text">A Data-Driven Approach Revisiting The Impact of Current Tipping Practices</p>
+              <a class="stretched-link" href="#"></a>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="col" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out-back">
+          <div class="card h-100">
+            <img src="../static/images/portfolio_project_thumbnails/temp_periodic_table.png" class="card-img-top"
+              alt="'Fictional Hero and Villian battles from Across the Universe' Thumbnail">
+            <div class="card-body">
+              <h5 class="card-title">Periodic Table of Elements</h5>
+              <p class="card-text">All the info you want about the elements</p>
+              <a class="stretched-link" href="#"></a>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+    
+        <div class="col" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out-back">
+          <div class="card h-100">
+            <img src="../static/images/portfolio_project_thumbnails/temp_gamblers_falacy.png" class="card-img-top"
+              alt="'Fictional Hero and Villian battles from Across the Universe' Thumbnail">
+            <div class="card-body">
+              <h5 class="card-title">The Gamblers Falacy</h5>
+              <p class="card-text">Who wins?</p>
+              <a class="stretched-link" href="https://github.com/ZSturman/Gamblers-Fallacy--Roulette" target="_blank"></a>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="col" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out-back">
+          <div class="card h-100">
+            <img src="../static/images/portfolio_project_thumbnails/temp_productivity_app.png" class="card-img-top"
+              alt="'Fictional Hero and Villian battles from Across the Universe' Thumbnail">
+            <div class="card-body">
+              <h5 class="card-title">Productivity App</h5>
+              <p class="card-text">Flask, SQL, NGINX and much more</p>
+              <a class="stretched-link" href="https://github.com/ZSturman/Flask-Productivity-App" target="_blank"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out-back">
+          <div class="card h-100">
+            <img src="../static/images/portfolio_project_thumbnails/temp_hero_battle.png" class="card-img-top"
+              alt="'Fictional Hero and Villian battles from Across the Universe' Thumbnail">
+            <div class="card-body">
+              <h5 class="card-title">Fictional Heros and Villians Battle</h5>
+              <p class="card-text">Randomly select or choose for yourself characters to battle against each other and see who wins from all the fictional universes</p>
+              <a class="stretched-link" href="#"></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+   
+    <div id="testimonials" class="carousel slide border border-2 p-3 my-5" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+          {% for r in reviews_list %}
+          {% if loop.first %}
+          <div class="carousel-item active">
+              <div class="row">
+                  <div class="col-4 col-md-3 d-inline-flex justify-content-end text-end">
+                      <img src="../static/images/temp_headshot.jpeg"
+                          class="d-block rounded-circle testimonial-img" alt="temp_headshot">
+                  </div>
+                  <div class="d-block d-lg-none col my-auto">
+                      <figure>
+                          <blockquote class="blockquote">
+                              <p class="m-0 p-0 small">{{ r['review'] }}</p>
+                          </blockquote>
+                          <figcaption class="blockquote-footer">
+                              <cite title="Source Title">{{ r['source'] }}</cite>
+                          </figcaption>
+                      </figure>
+                  </div>
+                  <div class="d-none d-lg-block col my-auto me-5">
+                      <figure>
+                          <blockquote class="blockquote">
+                              <p class="m-0 p-0 small">{{ r['review'] }}</p>
+                          </blockquote>
+                          <figcaption class="blockquote-footer">
+                              <cite title="Source Title">{{ r['source'] }}</cite>
+                          </figcaption>
+                      </figure>
+                  </div>
+              </div>
+          </div>
+
+          {% else %}
+          <div class="carousel-item">
+              <div class="row">
+                  <div class="col-4 col-md-3 d-inline-flex justify-content-end text-end">
+                      <img src="../static/images/temp_headshot.jpeg"
+                          class="d-block rounded-circle testimonial-img" alt="temp_headshot">
+                  </div>
+                  <div class="d-block d-lg-none col my-auto">
+                      <figure>
+                          <blockquote class="blockquote">
+                              <p class="m-0 p-0 small">{{ r['review'] }}</p>
+                          </blockquote>
+                          <figcaption class="blockquote-footer">
+                              <cite title="Source Title">{{ r['source'] }}</cite>
+                          </figcaption>
+                      </figure>
+                  </div>
+                  <div class="d-none d-lg-block col my-auto me-5">
+                      <figure>
+                          <blockquote class="blockquote">
+                              <p class="m-0 p-0 small">{{ r['review'] }}</p>
+                          </blockquote>
+                          <figcaption class="blockquote-footer">
+                              <cite title="Source Title">{{ r['source'] }}</cite>
+                          </figcaption>
+                      </figure>
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+      </div>
+  </div>
+  </div>
+
+
+</section>
+
+
+
+{% endblock content %}
