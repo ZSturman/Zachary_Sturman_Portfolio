@@ -13,13 +13,10 @@
 
     <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}" type="text/css">
 
-
-
-
-
 </head>
 
 <body>
+    
 
     <nav class="navbar navbar-expand-md bg-light">
         <div class="container-fluid">
@@ -122,5 +119,64 @@
     <p>footer</p>
 
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+</script>
+
+<script src="https://kit.fontawesome.com/94b6904e8a.js" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+
+
+AOS.init();
+
+
+window.addEventListener('scroll', function(e){
+const target = document.querySelectorAll('.scroll');
+
+var index = 0, length = target.length;
+
+for (index; index < length; index++){
+var pos = window.pageYOffset* target[index].dataset.rate;
+
+if(target[index].dataset.direction === "vertspin"){
+    var posS = window.pageYOffset * target[index].dataset.rateSpin;
+
+    target[index].style.transform = 'translate3d(0px,'+pos+'px, 0px) rotate('+posS+'deg)';
+}
+
+if(target[index].dataset.direction === 'vertical'){
+    target[index].style.transform = 'translate3d(0px,'+pos+'px, 0px)';
+}
+if(target[index].dataset.direction === 'horizontal'){
+    var posX = window.pageYOffset * target[index].dataset.ratex;
+    var posY = window.pageYOffset * target[index].dataset.ratey;
+
+    target[index].style.transform = 'translate3d('+posX+'px, '+posY+'px, 0px)';
+}
+if(target[index].dataset.direction === 'rotate'){
+    if(target[index].id === 'mag_glass_full'){
+        target[index].style.transformOrigin = '0% 80%';
+    }
+    if(target[index].id === 'uiux_icon_paint_brush'){
+        target[index].style.transformOrigin = '100% 100%';
+    }
+    if(target[index].id === 'async_arrow_small'){
+        target[index].style.transformOrigin = '50% 50%';
+    }
+    if(target[index].id === 'async_arrow_big'){
+        target[index].style.transformOrigin = '50% 50%';
+    }
+target[index].style.transform = 'rotate('+pos+'deg)';
+}
+}
+})
+</script>
+
+
+
 
 </html>
