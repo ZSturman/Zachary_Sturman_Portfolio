@@ -115,8 +115,6 @@
     {% if dev_status == True %}
 
     <section>
-    <button class="hovering-test2 btn btn-lg">Hover Test2</button>
-
         <h1 class="display-1">Thanks for stopping by my site</h1>
         <h5>I'm currently fixing it up and making it look a little prettier. Come back on March 24th to see the updated site!</h5>
     </section>
@@ -131,232 +129,136 @@
     {% else %}
         {% block content %}
         {% endblock content %}
-    {% endif %}
 
-
-
-
-    <div class="container d-none d-md-block">
-        <div class="row pt-5">
-
-            <div class="d-inline-flex justify-content-center gap-5 mt-2">
-
-                <a href="{{ url_for('main.contact') }}" class="mx-5" data-aos="fade" data-aos-delay="100"
-                    data-aos-duration="900">
-                    <svg id="contactMeSVG" id="contactMeSVG" width="128" height="128" viewBox="0 0 200 200" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <g id="contact_me_icon">
-                            <text text-anchor="middle" x="64" y="160" font-size="30"
-                                font-family="sans-serif">contact</text>
-                            <g id="contact_me_full">
-                                <path id="contact_me_index"
-                                    d="M125.506 27.2257C125.498 32.1962 125.471 36.214 120.5 36.2069L112 36.2069C110.895 36.2053 110.424 35.3086 110.426 34.2041L110.426 14C110.427 13.4477 110.875 13.0007 111.427 13.0014L118.497 13.0116C122.363 13.0171 125.492 16.1556 125.487 20.0216L125.506 27.2257Z" />
-
-                                <path id="contact_me_middle"
-                                    d="M117.711 42.2002C122.129 42.2619 124.5 42.284 125.738 47L125.738 60C125.738 63.5 122.605 65.0154 121.5 65L111.318 65C110.766 64.9922 110.325 64.5383 110.332 63.9861L110.304 43.2699C110.312 42.7177 110.766 42.2763 111.318 42.284L117.711 42.2002Z" />
-
-                                <path id="contact_me_ring"
-                                    d="M125.5 78.5C125.486 74.0817 124.418 70.9793 120 70.9936L111.741 70.9936C110.636 70.9971 109.744 71.8954 109.747 73L109.786 93.0486C109.788 93.6009 110.237 94.0472 110.789 94.0454L121 94.0454C124.866 94.0329 125.513 90.866 125.5 87L125.5 78.5Z" />
-
-                                <path id="contact_me_hand"
-                                    d="M23.7314 -0.118593C33.7315 -0.118603 39.2291 -0.118594 39.2291 -0.118594C39.2291 -0.118594 40.7447 -0.14172 51.0362 -0.118592C61.2205 -0.0957061 93.9001 -0.118117 94.5793 -0.118586C94.6006 -0.118601 94.5973 -0.11908 94.6185 -0.120287C95.0633 -0.145586 100.601 -0.418973 103 1.50001C105.5 3.50001 105 7.50002 105 17.5C105 24.6614 105 98.5 105 109.5C105 115.5 98.0001 114.5 98.0001 114.5L19.7313 114.5C19.7313 114.5 17.7688 120 21.0001 120C29.0001 120 100 121 106 120C112 119 109.5 104.958 109.5 101C109.5 99.5 117.5 99 117.5 101C117.5 103 118.5 114 117.5 123.5C116 127.5 110.5 127.5 110.5 127.5C110.5 127.5 81.7313 127.5 68.0784 127.5C56.7313 127.5 24.2313 127.5 19.7313 127.5C16.2313 127.5 7.49934 127.5 7.49931 121.664C7.49928 115.827 7.49934 87.1636 7.49934 87.1636C7.49934 87.1636 7.49933 80.8452 7.49933 62.1636C7.49933 40.6636 7.49931 31.6636 7.49931 31.6636C7.49931 31.6636 7.49938 27.1282 7.49933 16.5629C7.49926 -0.118584 15.2315 -0.118599 23.7314 -0.118593Z" />
-                                <path id="contact_me_phone_icon"
-                                    d="M31 37C32.5 32 37.811 27 40.6555 27C43.5 27 53.5 38.5 54 41C54.5 43.5 46.5 47.5 46 49.5C45.5 51.5 50.5 57.5 53 60.5C55.5 63.5 64 70 66 70C68 70 73.5 62 75 62C76.5 62 89 73.5 89 75.5C89 77.5 86.5 84.5 78.5 85C70.5 85.5 57.5 82.5 43 67C28.5001 51.5 29.5 42 31 37Z" />
+        <div class="container d-none d-md-block">
+            <div class="row pt-5">
+    
+                <div class="d-inline-flex justify-content-center gap-5 mt-2">
+    
+                    <a href="{{ url_for('main.contact') }}" class="mx-5" data-aos="fade" data-aos-delay="100"
+                        data-aos-duration="900">
+                        <svg id="contactMeSVG" id="contactMeSVG" width="128" height="128" viewBox="0 0 200 200" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="contact_me_icon">
+                                <text text-anchor="middle" x="64" y="160" font-size="30"
+                                    font-family="sans-serif">contact</text>
+                                <g id="contact_me_full">
+                                    <path id="contact_me_index"
+                                        d="M125.506 27.2257C125.498 32.1962 125.471 36.214 120.5 36.2069L112 36.2069C110.895 36.2053 110.424 35.3086 110.426 34.2041L110.426 14C110.427 13.4477 110.875 13.0007 111.427 13.0014L118.497 13.0116C122.363 13.0171 125.492 16.1556 125.487 20.0216L125.506 27.2257Z" />
+    
+                                    <path id="contact_me_middle"
+                                        d="M117.711 42.2002C122.129 42.2619 124.5 42.284 125.738 47L125.738 60C125.738 63.5 122.605 65.0154 121.5 65L111.318 65C110.766 64.9922 110.325 64.5383 110.332 63.9861L110.304 43.2699C110.312 42.7177 110.766 42.2763 111.318 42.284L117.711 42.2002Z" />
+    
+                                    <path id="contact_me_ring"
+                                        d="M125.5 78.5C125.486 74.0817 124.418 70.9793 120 70.9936L111.741 70.9936C110.636 70.9971 109.744 71.8954 109.747 73L109.786 93.0486C109.788 93.6009 110.237 94.0472 110.789 94.0454L121 94.0454C124.866 94.0329 125.513 90.866 125.5 87L125.5 78.5Z" />
+    
+                                    <path id="contact_me_hand"
+                                        d="M23.7314 -0.118593C33.7315 -0.118603 39.2291 -0.118594 39.2291 -0.118594C39.2291 -0.118594 40.7447 -0.14172 51.0362 -0.118592C61.2205 -0.0957061 93.9001 -0.118117 94.5793 -0.118586C94.6006 -0.118601 94.5973 -0.11908 94.6185 -0.120287C95.0633 -0.145586 100.601 -0.418973 103 1.50001C105.5 3.50001 105 7.50002 105 17.5C105 24.6614 105 98.5 105 109.5C105 115.5 98.0001 114.5 98.0001 114.5L19.7313 114.5C19.7313 114.5 17.7688 120 21.0001 120C29.0001 120 100 121 106 120C112 119 109.5 104.958 109.5 101C109.5 99.5 117.5 99 117.5 101C117.5 103 118.5 114 117.5 123.5C116 127.5 110.5 127.5 110.5 127.5C110.5 127.5 81.7313 127.5 68.0784 127.5C56.7313 127.5 24.2313 127.5 19.7313 127.5C16.2313 127.5 7.49934 127.5 7.49931 121.664C7.49928 115.827 7.49934 87.1636 7.49934 87.1636C7.49934 87.1636 7.49933 80.8452 7.49933 62.1636C7.49933 40.6636 7.49931 31.6636 7.49931 31.6636C7.49931 31.6636 7.49938 27.1282 7.49933 16.5629C7.49926 -0.118584 15.2315 -0.118599 23.7314 -0.118593Z" />
+                                    <path id="contact_me_phone_icon"
+                                        d="M31 37C32.5 32 37.811 27 40.6555 27C43.5 27 53.5 38.5 54 41C54.5 43.5 46.5 47.5 46 49.5C45.5 51.5 50.5 57.5 53 60.5C55.5 63.5 64 70 66 70C68 70 73.5 62 75 62C76.5 62 89 73.5 89 75.5C89 77.5 86.5 84.5 78.5 85C70.5 85.5 57.5 82.5 43 67C28.5001 51.5 29.5 42 31 37Z" />
+                                </g>
                             </g>
-                        </g>
-
-                    </svg>
-
-
-                </a>
-
-
-                <a href="{{ url_for('projects.portfolio') }}" class="mx-5" data-aos="fade" data-aos-delay="150"
-                    data-aos-duration="900" data-text="portfolio">
-                    <svg id="portfolioSVG" width="128" height="128" viewBox="0 0 200 200" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <g id="portfolio_icon">
-                            <text text-anchor="middle" x="64" y="160" font-size="30"
-                                font-family="sans-serif">portfolio</text>
-                            <path id="portfolio_suitcase"
-                                d="M4 38C4 31.9249 8.92487 27 15 27H114C120.075 27 125 31.9249 125 38V107C125 113.075 120.075 118 114 118H15C8.92486 118 4 113.075 4 107V38Z" />
-                            <path id="portfolio_handle"
-                                d="M81 26.1818C81 36.168 73.2461 44 64 44C54.7539 44 47 36.168 47 26.1818C47 23.1203 48.7397 19.0187 52.0349 15.5898C55.2768 12.2163 59.543 10 64 10C68.5193 10 72.7865 12.1348 75.9893 15.4102C79.2335 18.7279 81 22.8167 81 26.1818Z"
-                                stroke-width="8" />
-                            <rect id="portfolio_paper_3" x="14.7856" y="63.009" width="93.4199" height="45.8568" rx="5"
-                                transform="rotate(-3.28972 14.7856 63.009)" />
-                            <rect id="portfolio_paper_2" x="25.7666" y="59.2679" width="92.9734" height="31.6156" rx="5"
-                                transform="rotate(5.02019 25.7666 59.2679)" />
-                            <path id="portfolio_paper_1"
-                                d="M22.3063 60.9693C22.3936 58.0786 24.9079 55.8646 27.7864 56.1436L110.598 64.1708C113.376 64.4401 115.396 66.9311 115.085 69.7045L110.521 110.419C110.211 113.18 107.71 115.159 104.952 114.825L25.5206 105.216C22.9524 104.905 21.0453 102.687 21.1234 100.101L22.3063 60.9693Z" />
-                            <path id="portfolio_front_flap_shadow"
-                                d="M13.1071 56.5719C13.3293 53.9859 15.4933 52 18.0887 52H53.3629C54.3908 52 55.3558 52.4945 55.9561 53.3288V53.3288C63.2318 63.4407 77.7822 64.7513 86.7476 56.1023L89.8996 53.0615C90.6055 52.3805 91.5481 52 92.5289 52H118.76C121.613 52 123.888 54.3839 123.755 57.2341L121.223 111.234C121.098 113.902 118.899 116 116.229 116H13.4481C10.5178 116 8.21558 113.491 8.46648 110.572L13.1071 56.5719Z" />
-                            <path id="portfolio_front_flap"
-                                d="M9.35089 55.8462C9.43397 53.146 11.647 51 14.3485 51H55.3482C56.2386 51 57.0852 51.3863 57.6687 52.0588V52.0588C65.144 60.6745 78.3579 61.1421 86.4236 53.0764L87.5332 51.9668C88.1522 51.3478 88.9918 51 89.8672 51H119.264C122.116 51 124.39 53.3816 124.259 56.2305L121.72 111.231C121.597 113.899 119.397 116 116.725 116H12.6562C9.83453 116 7.5718 113.667 7.65858 110.846L9.35089 55.8462Z" />
-                        </g>
-                    </svg>
-                </a>
-
-                <a href="{{ url_for('main.about') }}" class="mx-5" data-aos="fade" data-aos-delay="200"
-                    data-aos-duration="900">
-                    <svg id="aboutMeSVG" width="128" height="128" viewBox="0 0 200 200" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <g id="about_icon_2">
-                            <text text-anchor="middle" x="64" y="160" font-size="30"
-                                font-family="sans-serif">about</text>
-                            <circle id="about_me_bg" cx="64" cy="64" r="64" />
-                            <circle id="about_me_right_eye_white" cx="64" cy="51" r="22" />
-
-                            <ellipse id="about_me_right_eye_pupil" cx="69.6119" cy="30.7613" rx="6.5" ry="0"
-                                fill="url(#paint1_radial_0_1)" />
-                            <g id="about_me_left_eye">
-                                <mask id="mask0_0_1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
-                                    width="128" height="128">
-                                    <circle id="about_me_left_eye_mask" cx="64" cy="64" r="64" fill="#000AFF" />
-                                </mask>
-                                <g mask="url(#mask0_0_1)">
-                                    <ellipse id="about_me_left_eye_white" cx="64" cy="119" rx="46" ry="46" />
-                                    <g id="about_me_left_pupil">
-                                        <mask id="mask1_0_1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="12"
-                                            y="25" width="56" height="56">
-                                            <circle id="about_me_left_eye_mask_2" cx="39.7736" cy="52.7736" r="27.7736"
-                                                fill="#D9D9D9" />
-                                        </mask>
-                                        <g mask="url(#mask1_0_1)">
-                                            <ellipse id="about_me_left_pupil_shape" cx="71.1629" cy="75.3453"
-                                                rx="1.99935" ry="0" fill="url(#paint2_radial_0_1)" />
+    
+                        </svg>
+    
+    
+                    </a>
+    
+    
+                    <a href="{{ url_for('projects.portfolio') }}" class="mx-5" data-aos="fade" data-aos-delay="150"
+                        data-aos-duration="900" data-text="portfolio">
+                        <svg id="portfolioSVG" width="128" height="128" viewBox="0 0 200 200" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="portfolio_icon">
+                                <text text-anchor="middle" x="64" y="160" font-size="30"
+                                    font-family="sans-serif">portfolio</text>
+                                <path id="portfolio_suitcase"
+                                    d="M4 38C4 31.9249 8.92487 27 15 27H114C120.075 27 125 31.9249 125 38V107C125 113.075 120.075 118 114 118H15C8.92486 118 4 113.075 4 107V38Z" />
+                                <path id="portfolio_handle"
+                                    d="M81 26.1818C81 36.168 73.2461 44 64 44C54.7539 44 47 36.168 47 26.1818C47 23.1203 48.7397 19.0187 52.0349 15.5898C55.2768 12.2163 59.543 10 64 10C68.5193 10 72.7865 12.1348 75.9893 15.4102C79.2335 18.7279 81 22.8167 81 26.1818Z"
+                                    stroke-width="8" />
+                                <rect id="portfolio_paper_3" x="14.7856" y="63.009" width="93.4199" height="45.8568" rx="5"
+                                    transform="rotate(-3.28972 14.7856 63.009)" />
+                                <rect id="portfolio_paper_2" x="25.7666" y="59.2679" width="92.9734" height="31.6156" rx="5"
+                                    transform="rotate(5.02019 25.7666 59.2679)" />
+                                <path id="portfolio_paper_1"
+                                    d="M22.3063 60.9693C22.3936 58.0786 24.9079 55.8646 27.7864 56.1436L110.598 64.1708C113.376 64.4401 115.396 66.9311 115.085 69.7045L110.521 110.419C110.211 113.18 107.71 115.159 104.952 114.825L25.5206 105.216C22.9524 104.905 21.0453 102.687 21.1234 100.101L22.3063 60.9693Z" />
+                                <path id="portfolio_front_flap_shadow"
+                                    d="M13.1071 56.5719C13.3293 53.9859 15.4933 52 18.0887 52H53.3629C54.3908 52 55.3558 52.4945 55.9561 53.3288V53.3288C63.2318 63.4407 77.7822 64.7513 86.7476 56.1023L89.8996 53.0615C90.6055 52.3805 91.5481 52 92.5289 52H118.76C121.613 52 123.888 54.3839 123.755 57.2341L121.223 111.234C121.098 113.902 118.899 116 116.229 116H13.4481C10.5178 116 8.21558 113.491 8.46648 110.572L13.1071 56.5719Z" />
+                                <path id="portfolio_front_flap"
+                                    d="M9.35089 55.8462C9.43397 53.146 11.647 51 14.3485 51H55.3482C56.2386 51 57.0852 51.3863 57.6687 52.0588V52.0588C65.144 60.6745 78.3579 61.1421 86.4236 53.0764L87.5332 51.9668C88.1522 51.3478 88.9918 51 89.8672 51H119.264C122.116 51 124.39 53.3816 124.259 56.2305L121.72 111.231C121.597 113.899 119.397 116 116.725 116H12.6562C9.83453 116 7.5718 113.667 7.65858 110.846L9.35089 55.8462Z" />
+                            </g>
+                        </svg>
+                    </a>
+    
+                    <a href="{{ url_for('main.about') }}" class="mx-5" data-aos="fade" data-aos-delay="200"
+                        data-aos-duration="900">
+                        <svg id="aboutMeSVG" width="128" height="128" viewBox="0 0 200 200" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="about_icon_2">
+                                <text text-anchor="middle" x="64" y="160" font-size="30"
+                                    font-family="sans-serif">about</text>
+                                <circle id="about_me_bg" cx="64" cy="64" r="64" />
+                                <circle id="about_me_right_eye_white" cx="64" cy="51" r="22" />
+    
+                                <ellipse id="about_me_right_eye_pupil" cx="69.6119" cy="30.7613" rx="6.5" ry="0"
+                                    fill="url(#paint1_radial_0_1)" />
+                                <g id="about_me_left_eye">
+                                    <mask id="mask0_0_1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
+                                        width="128" height="128">
+                                        <circle id="about_me_left_eye_mask" cx="64" cy="64" r="64" fill="#000AFF" />
+                                    </mask>
+                                    <g mask="url(#mask0_0_1)">
+                                        <ellipse id="about_me_left_eye_white" cx="64" cy="119" rx="46" ry="46" />
+                                        <g id="about_me_left_pupil">
+                                            <mask id="mask1_0_1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="12"
+                                                y="25" width="56" height="56">
+                                                <circle id="about_me_left_eye_mask_2" cx="39.7736" cy="52.7736" r="27.7736"
+                                                    fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask1_0_1)">
+                                                <ellipse id="about_me_left_pupil_shape" cx="71.1629" cy="75.3453"
+                                                    rx="1.99935" ry="0" fill="url(#paint2_radial_0_1)" />
+                                            </g>
                                         </g>
                                     </g>
                                 </g>
+                                <circle id="about_me_border" cx="64" cy="64" r="62.5" stroke-width="3" />
                             </g>
-                            <circle id="about_me_border" cx="64" cy="64" r="62.5" stroke-width="3" />
-                        </g>
-
-                    </svg>
-                </a>
+    
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-
-
-
-    <div class="position-relative footer-height" id="contact">
-
-        <div class="container-fluid position-absolute bottom-0 p-0">
-
-            <div class="text-center pt-5 footer">
-
-                {% if subscribed == True %}
-
-                <h5>The Latest data science stuff...</h5>
-
-                <p>Not subscribed yet?</p>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#subscribeModal">
-                    Click here to see the most recent stuffs
-                </button>
-
-
-
-                {% else %}
-                <div class="container" data-aos="fade-down" data-aos-duration="400">
-                    <h3 class="fw-light">{{ mailing_list_txt }}</h3>
-                    <!-- <p><em>Only one email a week at most</em></p> -->
-                </div>
-
-                <div class="container">
-                    <form id="subscribe-form" action="{{ url_for('zs_mail.subscribe') }}" method="POST">
-                        <div class="row g-3 mx-5">
-                            <div class="col-md-5 mx-auto">
-                                <label for="contact-form-name" class="form-label">Name</label>
-                                <input name="new-subscribers-name" type="text" class="form-control"
-                                    id="contact-form-name" placeholder="John Smith" required>
-                            </div>
-                            <div class="col-md-5 mx-auto">
-                                <label for="contact-form-email" class="form-label">Email address</label>
-                                <input name="new-subscribers-email" type="email" class="form-control"
-                                    id="contact-form-email" placeholder="name@example.com" required>
-                            </div>
-                            <div>
-                                <button type="submit" class="btn btn-lg btn-success rounded-5">Subscribe</button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <form action="{{ url_for('zs_mail.already_subscribed') }}" method="POST">
-                        <div>
-                            <button type="submit" class="m-2 btn btn-sm btn-outline-light rounded-5 opacity-50"
-                                name="already_subscribed">Already subscribed</button>
-                        </div>
-                    </form>
-
-                </div>
-                {% endif %}
-
-
-
-                <div class="footer-contact w-100 pb-3 ">
-                    <div class="d-inline-flex justify-content-center gap-5 m-5 d-none d-md-inline-flex">
-                        <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
-                            href="https://www.linkedin.com/in/zacharysturman/" target="_blank" data-text="linkedin">
-                            <i class="fa-brands fa-linkedin fa-lg"></i>
-                        </a>
-                        <a class="btn btn-info rounded-circle btn-lg  perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
-                            href="https://twitter.com/zachary_sturman" target="_blank" data-text="twitter">
-                            <i class="fa-brands fa-twitter fa-lg"></i>
-                        </a>
-                        <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
-                            href="mailto:zacharysturman@zsdynamics.com?subject={{ email_subject_line }}&body={{ email_body }}"
-                            data-text="email">
-                            <i class="fa-solid fa-envelope fa-lg"></i>
-                        </a>
-                        <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
-                            href="https://github.com/ZSturman" data-text="github">
-
-                            <i class="fa-brands fa-github fa-lg"></i>
-                        </a>
-                        <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
-                            href="../static/assets/Zachary_Sturman_Resume_2023.pdf" target="_blank" data-text="resume">
-                            <i class="fa-solid fa-file-contract fa-lg"></i>
-                        </a>
-                    </div>
-                    <br>
-
-
-                    <div class="d-inline-flex justify-content-center align-items-center">
-                        <a class="text-white btn" href="tel:8168720826">(816)872•0826</a>
-
-
-                        <a class="text-white btn" href="mailto:zacharysturman@zsdynamics.com">
-                            zacharysturman@ZSDynamics.com</a>
-                    </div>
-                </div>
-
-
-
-            </div>
-
-
-        </div>
-
-     
     
 
-
-
-
-
-        <!-- Modal -->
-        <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Subscribe to ZSDynamics</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="position-relative footer-height" id="contact">
+    
+            <div class="container-fluid position-absolute bottom-0 p-0">
+    
+                <div class="text-center pt-5 footer">
+    
+                    {% if subscribed == True %}
+    
+                    <h5>The Latest data science stuff...</h5>
+    
+                    <p>Not subscribed yet?</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#subscribeModal">
+                        Click here to see the most recent stuffs
+                    </button>
+    
+    
+    
+                    {% else %}
+                    <div class="container" data-aos="fade-down" data-aos-duration="400">
+                        <h3 class="fw-light">{{ mailing_list_txt }}</h3>
+                        <!-- <p><em>Only one email a week at most</em></p> -->
                     </div>
-                    <div class="modal-body">
-                        <form id="subscribe-modal" action="{{ url_for('zs_mail.subscribe') }}" method="POST">
-                            <div class="row g-3">
+    
+                    <div class="container">
+                        <form id="subscribe-form" action="{{ url_for('zs_mail.subscribe') }}" method="POST">
+                            <div class="row g-3 mx-5">
                                 <div class="col-md-5 mx-auto">
                                     <label for="contact-form-name" class="form-label">Name</label>
                                     <input name="new-subscribers-name" type="text" class="form-control"
@@ -367,24 +269,109 @@
                                     <input name="new-subscribers-email" type="email" class="form-control"
                                         id="contact-form-email" placeholder="name@example.com" required>
                                 </div>
-                                <div class="text-center">
+                                <div>
                                     <button type="submit" class="btn btn-lg btn-success rounded-5">Subscribe</button>
                                 </div>
                             </div>
                         </form>
+    
+                        <form action="{{ url_for('zs_mail.already_subscribed') }}" method="POST">
+                            <div>
+                                <button type="submit" class="m-2 btn btn-sm btn-outline-light rounded-5 opacity-50"
+                                    name="already_subscribed">Already subscribed</button>
+                            </div>
+                        </form>
+    
                     </div>
-
+                    {% endif %}
+    
+    
+    
+                    <div class="footer-contact w-100 pb-3 ">
+                        <div class="d-inline-flex justify-content-center gap-5 m-5 d-none d-md-inline-flex">
+                            <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+                                href="https://www.linkedin.com/in/zacharysturman/" target="_blank" data-text="linkedin">
+                                <i class="fa-brands fa-linkedin fa-lg"></i>
+                            </a>
+                            <a class="btn btn-info rounded-circle btn-lg  perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+                                href="https://twitter.com/zachary_sturman" target="_blank" data-text="twitter">
+                                <i class="fa-brands fa-twitter fa-lg"></i>
+                            </a>
+                            <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+                                href="mailto:zacharysturman@zsdynamics.com?subject={{ email_subject_line }}&body={{ email_body }}"
+                                data-text="email">
+                                <i class="fa-solid fa-envelope fa-lg"></i>
+                            </a>
+                            <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+                                href="https://github.com/ZSturman" data-text="github">
+    
+                                <i class="fa-brands fa-github fa-lg"></i>
+                            </a>
+                            <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+                                href="../static/assets/Zachary_Sturman_Resume_2023.pdf" target="_blank" data-text="resume">
+                                <i class="fa-solid fa-file-contract fa-lg"></i>
+                            </a>
+                        </div>
+                        <br>
+    
+    
+                        <div class="d-inline-flex justify-content-center align-items-center">
+                            <a class="text-white btn" href="tel:8168720826">(816)872•0826</a>
+    
+    
+                            <a class="text-white btn" href="mailto:zacharysturman@zsdynamics.com">
+                                zacharysturman@ZSDynamics.com</a>
+                        </div>
+                    </div>
+    
+    
+    
+                </div>
+    
+    
+            </div>
+    
+         
+        
+    
+    
+    
+    
+    
+            <!-- Modal -->
+            <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Subscribe to ZSDynamics</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="subscribe-modal" action="{{ url_for('zs_mail.subscribe') }}" method="POST">
+                                <div class="row g-3">
+                                    <div class="col-md-5 mx-auto">
+                                        <label for="contact-form-name" class="form-label">Name</label>
+                                        <input name="new-subscribers-name" type="text" class="form-control"
+                                            id="contact-form-name" placeholder="John Smith" required>
+                                    </div>
+                                    <div class="col-md-5 mx-auto">
+                                        <label for="contact-form-email" class="form-label">Email address</label>
+                                        <input name="new-subscribers-email" type="email" class="form-control"
+                                            id="contact-form-email" placeholder="name@example.com" required>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-lg btn-success rounded-5">Subscribe</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+    
+                    </div>
                 </div>
             </div>
         </div>
-
-
-
-
-
-    </div>
-
-
+    {% endif %}
 
 </body>
 

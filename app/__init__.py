@@ -50,11 +50,13 @@ def create_app():
     from app.projects.routes import projects
     from app.services.routes import services
     from app.mail.routes import zs_mail
+    from app.admin.lists import admin
     app.register_blueprint(errors)
     app.register_blueprint(main)
     app.register_blueprint(projects)
     app.register_blueprint(services)
     app.register_blueprint(zs_mail)
+    app.register_blueprint(admin)
 
     @app.context_processor
     def stuff():
@@ -62,17 +64,9 @@ def create_app():
         email_subject_line = 'Request for Data Science/ Data Analysis Information'
         email_body = email_body_list
         subscribed = session.get('subscribed', False)
-        dev_status = True
+        dev_status = False
         dev_test = False
         return dict(mailing_list_txt = mailing_list_txt, email_subject_line=email_subject_line, email_body=email_body, reviews_list=reviews_list, subscribed=subscribed, dev_status=dev_status, dev_test=dev_test)
-
-
-
-
-
-
-
-
 
 
 

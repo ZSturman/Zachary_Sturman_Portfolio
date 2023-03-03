@@ -1,8 +1,10 @@
-from app.administrative import *
-from flask import Blueprint, render_template, flash, redirect, request
+from app.admin import lists
+from flask import Blueprint, render_template, flash, redirect, request, url_for
 from flask_mail import Mail, Message
 
 zs_mail = Blueprint("zs_mail", __name__)
+
+mail = Mail()
 
 
 @zs_mail.route("/subscribe_from_email", methods=['GET','POST'])

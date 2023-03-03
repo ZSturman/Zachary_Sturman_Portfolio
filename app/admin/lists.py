@@ -1,5 +1,8 @@
 import random
-from flask import session
+from flask import Blueprint, session
+
+
+admin = Blueprint("administrative", __name__)
 
 class Review:
     def __init__(self, review, name, business):
@@ -24,14 +27,14 @@ reviews_list = [review1, review2, review3, review4, review5, review6, review7, r
 
 call_to_action_list = ["Discover what I can do", "Collaborate with me", "Let's start a project", "Explore my portfolio", "Find out how I can help", "Let's create something great", "See my work in action", "Let's work together"]
 
-
+mailing_list_txt_list= ["Unlock the secrets to better data-driven decisions with exclusive insights and analysis", "Sign up now for personalized tips delivered straight to your inbox", "Join Zachary's community of data science enthusiasts and receive the latest news, tutorials, and case studies in your inbox", "Be the first to know the latest breakthroughs in data science - sign up for Zachary's newsletter now"]
 
 email_body_list = "Hi Zachary,%0D%0A%0D%0A I am interested in learning more about your services and would appreciate it if you could share with me more information on the projects you've worked on, your rates, and availability.%0D%0A%0D%0A Thank you for your time and I look forward to hearing back from you soon."
 
 
-@app.context_processor
+@admin.context_processor
 def random_txt_subscribe():
-    mailing_list_txt = random.choice(app.config['MAILING_LIST_TXT_LIST'])
+    mailing_list_txt = random.choice(mailing_list_txt_list)
     email_subject_line = 'Request for Data Science/ Data Analysis Information'
     email_body = email_body_list
     subscribed = session.get('subscribed', False)
