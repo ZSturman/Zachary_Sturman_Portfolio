@@ -1,10 +1,16 @@
-from app.admin import lists
-from flask import Blueprint, render_template, flash, redirect, request, url_for
+import random
+from flask import Blueprint, render_template, flash, redirect, request, url_for, session, current_app
 from flask_mail import Mail, Message
 
 zs_mail = Blueprint("zs_mail", __name__)
 
-mail = Mail()
+@zs_mail.record
+def record(state):
+    app = state.app
+    mail = Mail()
+    mail.init_app(app)
+    with app.app_context():
+        current_app.mail = mail
 
 
 @zs_mail.route("/subscribe_from_email", methods=['GET','POST'])
@@ -27,10 +33,10 @@ def subscribe():
     msg = Message(
         subject = 'Welcome '+name+"!",
         recipients= [email],
-        html = """<h5>Hello, """+name+""". Thank you for subscribing</h5><br> <p>Would you like to see the coolest stuff ZSDynamics has made?</p><br> <a href="""+app.config['WELCOME_BASKET_LINK']+""">Yes, of course</a>"""
+        html = """<h5>Hello, """+name+""". Thank you for subscribing</h5><br> <p>Would you like to see the coolest stuff ZSDynamics has made?</p><br> <a href="""+current_app.config['WELCOME_BASKET_LINK']+""">Yes, of course</a>"""
     )
     add_subscriber(name, email)
-    mail.send(msg)
+    current_app.mail.send(msg)
     set_subscribed(True)
     flash(f'Check your email for your welcome basket', 'success')
 
@@ -44,7 +50,7 @@ def send_mail():
     input_message = request.form.get("message")
 
     def to_emailer():
-        if email in subscriber_list:
+        if email in current_app.config['SUBSCRIBERS_LIST']:
             msg = Message(
             subject = 'Thanks for reaching out!',
             recipients= [email],
@@ -57,7 +63,7 @@ def send_mail():
             html = """<h5>Hello, """+name+""". Thank you for reaching out</h5><br><br> <button><a href={{ url_for('subscribe_from_email') }}>Click here to subscribe</a></button>"""
         )
         
-        mail.send(msg)
+        current_app.mail.send(msg)
 
     def to_me():
         msg = Message(
@@ -65,7 +71,7 @@ def send_mail():
             recipients= ["zacharysturman@zsdynamics.com"],
             html = "from: "+name+" email: "+email+" message: "+input_message
         )
-        mail.send(msg)
+        current_app.mail.send(msg)
     
     to_emailer()
     to_me()
@@ -84,7 +90,7 @@ def add_subscriber(name, email):
         recipients= ["zasturman@gmail.com", "zacharysturman@zsdynamics.com"],
         body = "name: "+name+"\n\n email: "+email
     )
-    mail.send(msg)
+    current_app.mail.send(msg)
     set_subscribed()
 
 def set_subscribed(sub=False):
