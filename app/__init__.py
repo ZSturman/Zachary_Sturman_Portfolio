@@ -62,7 +62,7 @@ def create_app():
         email_subject_line = 'Request for Data Science/ Data Analysis Information'
         email_body = email_body_list
         subscribed = session.get('subscribed', False)
-        dev_status = False
+        dev_status = True
         dev_test = False
         return dict(mailing_list_txt = mailing_list_txt, email_subject_line=email_subject_line, email_body=email_body, reviews_list=reviews_list, subscribed=subscribed, dev_status=dev_status, dev_test=dev_test)
 
