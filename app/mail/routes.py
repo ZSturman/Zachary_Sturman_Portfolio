@@ -1,13 +1,26 @@
 import random
 from flask import Blueprint, render_template, flash, redirect, request, url_for, session, current_app
 from flask_mail import Mail, Message
+from config import get_settings
 
 zs_mail = Blueprint("zs_mail", __name__)
+
+settings = get_settings()
 
 @zs_mail.record
 def record(state):
     app = state.app
     mail = Mail()
+    app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+    app.config['MAIL_PORT'] = 587
+    app.config['MAIL_USE_TLS'] = True
+    app.config['MAIL_USE_SSL'] = False
+    app.config['MAIL_DEBUG'] = True
+    app.config['MAIL_DEFAULT_SENDER'] = ("Zachary from ZSDynamics.com", "ZS@ZSDynamics.com")
+    app.config['MAIL_MAX_EMAILS'] = 5
+    app.config['MAIL_USERNAME'] = settings.MAIL_USERNAME
+    app.config['MAIL_PASSWORD'] = settings.MAIL_PASSWORD
+    app.config['SECRET_KEY'] = settings.SECRET_KEY
     mail.init_app(app)
     with app.app_context():
         current_app.mail = mail
