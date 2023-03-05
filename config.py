@@ -15,7 +15,7 @@ class Settings(BaseSettings):
 def get_settings():
     return Settings()
 
-class Config(object):
+class Configure(object):
     DEBUG = False
     TESTING = False
 
@@ -34,14 +34,14 @@ class Config(object):
 
     APP_CONTEXT_PROCESSORS = ['app.context_processors.portfolio_context_processor']
 
-class DevelopmentConfig(Config):
+class DevelopmentConfig(Configure):
     DEBUG = True
     DEV_STATUS = True
     PERMANENT_SESSION_LIFETIME = 20
     
-class ProductionConfig(Config):
+class ProductionConfig(Configure):
     pass
-class TestingConfig(Config):
+class TestingConfig(Configure):
     DEV_TEST = True
     PERMANENT_SESSION_LIFETIME = 20
     TESTING = True
