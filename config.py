@@ -1,4 +1,5 @@
 import random
+from typing import Optional
 from functools import lru_cache
 from pydantic import BaseSettings
 
@@ -7,6 +8,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     MAIL_USERNAME: str
     MAIL_PASSWORD: str
+    #SUBSCRIBERS_LIST: list = []
 
     class Config:
         env_file = "app/.env"

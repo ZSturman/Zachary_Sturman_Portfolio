@@ -21,6 +21,7 @@ def record(state):
     app.config['MAIL_USERNAME'] = settings.MAIL_USERNAME
     app.config['MAIL_PASSWORD'] = settings.MAIL_PASSWORD
     app.config['SECRET_KEY'] = settings.SECRET_KEY
+    app.config['SUBSCRIBERS_LIST'] = settings.SUBSCRIBERS_LIST
     mail.init_app(app)
     with app.app_context():
         current_app.mail = mail
@@ -63,20 +64,30 @@ def send_mail():
     input_message = request.form.get("message")
 
     def to_emailer():
-        if email in current_app.config['SUBSCRIBERS_LIST']:
-            msg = Message(
-            subject = 'Thanks for reaching out!',
-            recipients= [email],
-            html = """<h5>Hello, """+name+""". Thank you for reaching out</h5><br><br> <p><em>Here's what you said: </em></p> <br> <p>"""+ input_message +"""  <button><a href={{ url_for('subscribe_from_email') }}>Click Me!</a></button>"""
-            )
-        else:
-            msg = Message(
+        #if email in current_app.config['SUBSCRIBERS_LIST']:
+            #msg = Message(
+            #subject = 'Thanks for reaching out!',
+            #recipients= [email],
+            #html = """<h5>Hello, """+name+""". Thank you for reaching out</h5><br><br> <p><em>Here's what you said: </em></p> #<br> <p>"""+ input_message +"""  <button><a href={{ url_for('subscribe_from_email') }}>Click Me!</a></button>"""
+            #)
+        #else:
+            #msg = Message(
+            #subject = 'Thanks for reaching out!',
+            #recipients= [email],
+            #html = """<h5>Hello, """+name+""". Thank you for reaching out</h5><br><br> <button><a href={{ url_for#('subscribe_from_email') }}>Click here to subscribe</a></button>"""
+        #)
+            
+        msg = Message(
             subject = 'Thanks for reaching out!',
             recipients= [email],
             html = """<h5>Hello, """+name+""". Thank you for reaching out</h5><br><br> <button><a href={{ url_for('subscribe_from_email') }}>Click here to subscribe</a></button>"""
         )
-        
+    
         current_app.mail.send(msg)
+
+
+
+        
 
     def to_me():
         msg = Message(
