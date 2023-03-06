@@ -9,4 +9,4 @@ load_dotenv(dotenv_path)
 bind = '0.0.0.0:8000'
 workers = 3
 chdir = os.path.abspath(os.path.dirname(__file__))
-module = 'run:app'
+module = 'run2:app'
