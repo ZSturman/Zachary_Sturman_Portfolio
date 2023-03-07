@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     MAIL_USERNAME: str
     MAIL_PASSWORD: str
-    SUBSCRIBERS_LIST: list = []
+    #SUBSCRIBERS_LIST: list = []
 
     class Config:
         env_file = "app/.env"
