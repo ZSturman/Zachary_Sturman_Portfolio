@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     MAIL_USERNAME: str
     MAIL_PASSWORD: str
-    #SUBSCRIBERS_LIST: list = []
+    SUBSCRIBERS_LIST: list = []
 
     class Config:
         env_file = "app/.env"
@@ -38,7 +38,7 @@ class Configure(object):
 
 class DevelopmentConfig(Configure):
     DEBUG = True
-    DEV_STATUS = True
+    DEV_STATUS = False
     PERMANENT_SESSION_LIFETIME = 20
     
 class ProductionConfig(Configure):
@@ -47,3 +47,4 @@ class TestingConfig(Configure):
     DEV_TEST = True
     PERMANENT_SESSION_LIFETIME = 20
     TESTING = True
+    DEBUG = True
