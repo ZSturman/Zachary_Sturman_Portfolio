@@ -1,0 +1,319 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='periodic_table.css')}}" type="text/css">
+
+<section>
+    <h1 class="display-1">The Periodic Table</h1>
+    <hr>
+
+    <div class="row m-1">
+        <div class="col-12 col-lg-3">
+            <div id="selectedElement">
+                <p>select an element</p>
+            </div>
+        </div>
+        <div class="col-12 col-lg-9">
+            <div class="position-relative">
+                <div class="element-types-div position-absolute d-none d-md-block">
+                    <div class="row">
+                        <div class="row">
+                            <div class=" justify-content-center">
+                                {% for i in phase_list %}
+                                <button data-phase="{{i}}"
+                                    class="phase-list-button {{ i }} btn btn-outline-dark rounded-3 mx-2"
+                                    value="{{i}}">{{i}}</button>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="justify-content-center ms-1">
+                            {% for type in element_type_list %}
+                            <button data-elemtype="{{ type }}"
+                                class="type-list-button {{type|replace(' ','')}} border-0 rounded-3 m-1">{{ type }}</button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="periodic">
+                    {% for i in range(1,10) %}
+                    <div class="periodic-row">
+                        {% for j in range(1, 19) %}
+                        <div class="cell">
+                            {% for e in elements %}
+                            {% if e['display_row'] == i and e['display_column'] == j %}
+                            <div data-elemtype="{{ e['element_type'] }}" data-phase="{{e['phase']}}"
+                                data-element-name="{{e['element']}}"
+                                class="element border border-1 rounded-2 position-relative {{ e['element_type']|replace(' ','') }}">
+                                <p class="position-absolute p-0 m-0 top-0 left-0 small hover-info">
+                                    {{ e['atomic_number'] }}
+                                </p>
+                                <p
+                                    class="atomic-weight d-none position-absolute p-0 m-0 top-0 w-100 small text-end hover-info">
+                                    {{ (e['atomic_weight'])|round(3) }}</p>
+                                <h5 class="h5 text-center pt-3 hover-info {{ e['phase'] }}">{{e.symbol}}</h5>
+                                <p class="text-center element-name hover-info">{{ e.element }}</p>
+
+
+
+                                <div class="seleced-elem-displayed-info d-none p-1 position-relative">
+                                    <h2
+                                        class="border border-2 rounded-3 border-white m-1 p-1 displayed-symbol position-absolute top-0 start-0">
+                                        {{ e.symbol }}</h2>
+                                    <h1 class="text-center">{{ e.element }}</h1>
+                                    <div class="row">
+                                        <div id="sel-elem-overview-sect-{{ e['atomic_number'] }}"
+                                            class="text-dark rounded-3 col col-lg-12">
+                                            <label class="sel-elem-sect-label"
+                                                for="sel-elem-overview-sect-{{ e['atomic_number'] }}">OVERVIEW</label>
+                                            <div class="more-info-div">
+                                                <span class="info-title">Atomic Number </span>
+                                                <span class="info-details">{{ e['atomic_number'] }} </span>
+                                            </div>
+                                            <div class="more-info-div">
+                                                <p class="info-title">Atomic Weight </p>
+                                                <p class="info-details">{{ e['atomic_weight'] }} </p>
+                                            </div>
+                                            <div class="more-info-div">
+                                                <p class="info-title">Electronegativity </p>
+                                                <p class="info-details">{{ e['electronegativity'] }} </p>
+                                            </div>
+                                            <div class="more-info-div">
+                                                <p class="info-title ">Element Eype </p>
+                                                <p class="info-details">{{ e['element_type'] }}</p>
+                                            </div>
+                                            <div class="more-info-div">
+                                                <p class="info-title ">Electron Configuration
+                                                </p>
+                                                <p class="info-details">{{ e['electron_configuration'] }} </p>
+                                            </div>
+                                        </div>
+                                        <div id="sel-elem-history-sect-{{ e['atomic_number'] }}"
+                                            class="col col-lg-12 text-dark rounded-3">
+                                            <label class="sel-elem-sect-label"
+                                                for="sel-elem-history-sect-{{ e['atomic_number'] }}">HISTORY</label>
+                                            <div class="more-info-div">
+                                                <p class="info-title ">discoverer: </p>
+                                                <p class="info-details">{{ e['discoverer'] }}</p>
+                                            </div>
+                                            <div class="more-info-div">
+                                                <p class="info-title ">year of discovery:
+                                                </p>
+                                                <p class="info-details">{{ e['year_of_discovery'] }}</p>
+                                            </div>
+                                        </div>
+                                        <div id="sel-elem-size-sect-{{ e['atomic_number'] }}"
+                                            class="col col-lg-12 text-dark  rounded-3">
+                                            <label class="sel-elem-sect-label"
+                                                for="sel-elem-size-sect-{{ e['atomic_number'] }}">SIZE</label>
+                                            <div class="more-info-div">
+                                                <p class="info-title ">ionic radius: </p>
+                                                <p class="info-details">{{ e['ionic_radius'] }}</p>
+                                            </div>
+                                            <div class="more-info-div">
+                                                <p class="info-title ">atomic radius: </p>
+                                                <p class="info-details">{{ e['atomic_radius'] }}</p>
+                                            </div>
+                                            <div class="more-info-div">
+                                                <p class="info-title ">density: </p>
+                                                <p class="info-details">{{ e['density'] }}</p>
+                                            </div>
+                                        </div>
+                                        <div id="sel-elem-temp-sect-{{ e['atomic_number'] }}"
+                                            class="col col-lg-12 text-dark  rounded-3">
+                                            <label class="sel-elem-sect-label"
+                                                for="sel-elem-temp-sect-{{ e['atomic_number'] }}">TEMPERATURE</label>
+                                            <div class="more-info-div">
+                                                <p class="info-title ">Melting Point
+                                                </p>
+                                                <p class="info-details">{{ e['melting_point_(k)'] }}(k)</p>
+                                            </div>
+                                            <div class="more-info-div">
+                                                <p class="info-title ">Boiling Point:
+                                                </p>
+                                                <p class="info-details">{{ e['boiling_point_(k)'] }}(k)</p>
+                                            </div>
+                                            <div class="more-info-div">
+                                                <p class="info-title ">Specific Heat Capacity:
+                                                </p>
+                                                <p class="info-details">{{ e['specific_heat_capacity'] }}</p>
+                                            </div>
+                                        </div>
+                                        <div id="sel-elem-otherinfo-sect-{{ e['atomic_number'] }}"
+                                            class="col col-lg-12 text-dark  rounded-3">
+                                            <label class="sel-elem-sect-label"
+                                                for="sel-elem-otherinfo-sect-{{ e['atomic_number'] }}">OTHER
+                                                INFO</label>
+                                            <div class="more-info-div">
+                                                <p class="info-title">most stable crystal: </p>
+                                                <p class="info-details">{{ e['most_stable_crystal'] }}</p>
+                                            </div>
+                                            <div class="more-info-div">
+                                                <p class="info-title ">first ionization potential:
+                                                </p>
+                                                <p class="info-details">{{ e['first_ionization_potential'] }}</p>
+
+                                            </div>
+                                            <div class="more-info-div">
+                                                <p class="info-title ">isotopes: </p>
+                                                <p class="info-details">{{ e['isotopes'] }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="d-md-none">
+                <div class="row">
+
+                    <div class=" justify-content-center">
+                        {% for i in phase_list %}
+                        <button data-phase="{{i}}" class="phase-list-button p-2 {{ i }} btn btn-outline-dark rounded-3 mx-2"
+                            value="{{i}}">{{i}}</button>
+                        {% endfor %}
+
+
+                        {% for type in element_type_list %}
+                        <button data-elemtype="{{ type }}"
+                            class="type-list-button {{type|replace(' ','')}} border-0 rounded-3 m-1 p-2">{{ type }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    const elements = document.querySelectorAll(".element");
+    const selectedElement = document.getElementById("selectedElement")
+
+    elements.forEach(element => {
+        element.classList.add('desaturate');
+        element.addEventListener("mouseover", function () {
+            this.style.transform = "scale(1.5)";
+            this.style.zIndex = "10";
+            var atomicWeight = this.querySelector(".atomic-weight");
+            atomicWeight.classList.remove("d-none");
+        });
+        element.addEventListener("mouseout", function () {
+            this.style.transform = "scale(1)"
+            this.style.zIndex = "0";
+            var atomicWeight = this.querySelector(".atomic-weight");
+            atomicWeight.classList.add("d-none");
+        });
+
+        element.addEventListener("click", function () {
+            this.style.transform = "scale(1)"
+            this.style.zIndex = "0";
+            selectedElement.innerHTML = this.outerHTML;
+            var selectedElemDisplayedInfo = selectedElement.querySelectorAll(
+                ".seleced-elem-displayed-info");
+            selectedElemDisplayedInfo.forEach(displayedInfo => {
+                displayedInfo.classList.remove("d-none");
+            })
+            var hoverElemInfo = selectedElement.querySelectorAll(
+                ".hover-info");
+            hoverElemInfo.forEach(hoverInfo => {
+                hoverInfo.classList.add("d-none");
+            })
+
+        });
+    });
+
+    const phaseListButton = document.querySelectorAll('.phase-list-button');
+    phaseListButton.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            let selectedPhase = button.dataset.phase;
+            elements.forEach(element => {
+                if (element.dataset.phase !== selectedPhase) {
+                    element.style.filter = 'saturate(50%)'
+                }
+                if (element.dataset.phase === selectedPhase) {
+                    element.style.filter = 'saturate(150%)'
+                }
+            });
+        });
+        button.addEventListener('mouseleave', () => {
+            let selectedPhase = button.dataset.phase;
+            elements.forEach(element => {
+                if (element.dataset.phase !== selectedPhase) {
+                    element.style.filter = 'saturate(100%)'
+                }
+                if (element.dataset.phase === selectedPhase) {
+                    element.style.filter = 'saturate(100%)'
+                }
+            });
+        });
+    });
+
+
+    const typeListButton = document.querySelectorAll('.type-list-button');
+    typeListButton.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            let selectedType = button.dataset.elemtype;
+            elements.forEach(element => {
+                if (element.dataset.elemtype !== selectedType) {
+                    element.style.filter = 'saturate(50%)'
+                }
+                if (element.dataset.elemtype === selectedType) {
+                    element.style.filter = 'saturate(150%)'
+                }
+            });
+        });
+        button.addEventListener('mouseleave', () => {
+            let selectedType = button.dataset.elemtype;
+            elements.forEach(element => {
+                if (element.dataset.elemtype !== selectedType) {
+                    element.style.filter = 'saturate(100%)'
+                }
+                if (element.dataset.elemtype === selectedType) {
+                    element.style.filter = 'saturate(100%)'
+                }
+            });
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+    range_list = ['electronegativity', 'first_ionization_potential', 'melting_point_(k)', 'boiling_point_(k)',
+        'specific_heat_capacity'
+    ]
+
+    range_list.forEach(function (col) {
+
+        let slider = document.getElementById("slider_" + col);
+        let sliderValue = document.getElementById("sliderValue_" + col);
+
+        slider.addEventListener("input", function () {
+            sliderValue.innerHTML = this.value;
+        });
+
+    });
+</script>
+
+{% endblock %}

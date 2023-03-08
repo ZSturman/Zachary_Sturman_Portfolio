@@ -38,7 +38,7 @@ class Configure(object):
 
 class DevelopmentConfig(Configure):
     DEBUG = True
-    DEV_STATUS = False
+    DEV_STATUS = True
     PERMANENT_SESSION_LIFETIME = 20
     
 class ProductionConfig(Configure):

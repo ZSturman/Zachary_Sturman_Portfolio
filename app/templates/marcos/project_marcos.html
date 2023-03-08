@@ -1,0 +1,209 @@
+{% macro project_card(project) %}
+
+<div class="row my-4 proj_card justify-content-center">
+    <div class="col-12 col-md-3 bg-dark rounded-4">
+        <p class="text-white text-center">{{ project.image }}</p>
+    </div>
+    <div class="col-12 col-md-7">
+        <p class="p-0 m-0 opacity-50">{{ project.date }}</p>
+        <h3 class="fw-light">
+            {{ project.title }}
+        </h3>
+        <h5 class="fw-light">{{ project.subtitle }}</h5>
+        <div class="d-inline-flex">
+            {% for tag in project.tags %}
+                <p class="border border-2 rounded-2 px-1 me-1 py-0 my-0">{{ tag }}</p>
+            {% endfor %}
+        </div>
+        <hr>
+
+        <p>{{ project.description }}</p>
+
+        {% if project.link %}
+        <button class="btn btn-outline-info p-0 px-1">
+            <a class="p-0 text-decoration-none text-dark" href="{{ project.link }}">
+                {{ project.link_title }}</a></button>
+        {% endif %}
+
+        {% if project.url_for %}
+        <button class="btn btn-outline-info p-0 px-1">
+            <a class="p-0 text-decoration-none text-dark" href="{{ url_for(project.url_for) }}">
+                {{ project.link_title }}</a></button>
+        {% endif %}
+    </div>
+</div>
+
+{% endmacro %}
+
+
+
+<!-- Project Preview -->
+{% macro project_preview_1() %}
+<section>
+    <div class="row w-100" id="projectPreview">
+        <div class="col-12 col-md-6">
+            <div class="row bg-dark p-2 text-white text-end rounded-4">
+                <h1 class="fw-light text-end">Examining the Effectiveness of Tip Redistributing in the Casino Industry</h1>
+                <hr>
+                <h5 class="opacity-75 fw-light">A Data-Driven Approach Revisiting The Impact of Current Tipping Practices</h5>
+            </div>
+            <div class="row m-1">
+                <div class="col-6 col-md-12">
+                    <h2 class="text-center bg-dark rounded-4 text-white fw-light">Goal</h2>
+                    <ul>
+                        <li>The objective of this data analysis case study is to evaluate the current tip pooling system
+                            in casinos and propose a new system that addresses the issues of unfairness and
+                            one-sidedness. </li>
+                        <li>
+                            The focus is on the redistribution of tips between Blackjack and Craps dealers, with the aim
+                            of providing a livable hourly wage for all dealers.
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-12">
+                    <h2 class="text-center bg-dark rounded-4 text-white fw-light">Outcome</h2>
+                    <ul>
+                        <li>The results of this study indicate that the current tip pooling system in casinos is unfair
+                            to Blackjack dealers who forfeit a portion of their tips to be distributed among Craps
+                            dealers, despite earning less than them. </li>
+                        <li>
+                            I propose a new system based on a sliding-scale approach that redistributes tips based on
+                            actual pay. This new system aims to provide a more fair and balanced approach to tip
+                            redistribution in the casino industry.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <img class="d-block d-md-none" src="../../static/images/projects/tip_redistribution/chart_1.png" alt="img of chart">
+            <div class="container-fluid bg-light py-5 d-none d-lg-block" data-aos="fade-left">
+                <div class="container">
+                    <h2 class="fw-light text-end">The current redistribution system effectively ensures equitable weekly pay among
+                        dealers</h2>
+                </div>
+                <div class="container mt-5">
+                    <h2 class="fw-light text-end">...most of the time.</h2>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="d-none d-md-block col-6">
+            <h1 class="text-center bg-dark text-white text-end rounded-4 fw-light">Process</h1>
+
+
+
+            <div class="row">
+                <div class="col-2 text-center my-auto">
+                    <i class="fa-solid fa-image fa-2xl"></i>
+                </div>
+                <div class="col-10">
+                    <h3>BUSINESS</h3>
+                    <p>The practice of redistributing tips among casino dealers has been a contentious issue for some
+                        time. In particular, the tip pooling system that is currently in place has been criticized for
+                        being unjust and one-sided. Specifically, the system tends to favor Craps dealers over Blackjack
+                        dealers.</p>
+                </div>
+            </div>
+  
+            <div class="row">
+                <div class="col-2 text-center my-auto">
+                    <i class="fa-solid fa-image fa-2xl"></i>
+                </div>
+                <div class="col-10">
+                    <h3>DATA</h3>
+                    <p>Data collected for this study is from September 17, 2021 to September 30,
+                        2021.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2 text-center my-auto">
+                    <i class="fa-solid fa-image fa-2xl"></i>
+                </div>
+                <div class="col-10">
+                    <h3>ANALYZE</h3>
+                    <p>Through careful analysis of this data, opportunities for improving team dynamics and
+                        increasing fairness in the distribution of tips among all dealers was discovered.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2 text-center my-auto">
+                    <i class="fa-solid fa-image fa-2xl"></i>
+                </div>
+                <div class="col-10">
+                    <h3>VISUALIZE</h3>
+                    <p>Using JavaScript and Flask the visualizations are easily understood with accessible, interactive
+                        data.</p>
+                </div>
+            </div>
+            <img class="d-none d-md-block" src="../../static/images/projects/tip_redistribution/chart_1.png" alt="img of chart">
+
+        </div>
+
+        <div class="row w-75 justify-content-end">
+            <button class="btn-outline-info w-auto rounded-5 btn-lg">
+                <a class="text-decoration-none text-dark" href="{{ url_for('projects.tip_redistribution') }}">
+                    <h5 class="m-0 p-2 ">See the full case study here</h5>
+                </a>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+{% endmacro %}
+
+
+
+
+
+{% macro project_preview_2() %}
+<section>
+    <div class="container">
+        <div class="row p-5">
+            <h1 class="display-5 text-center">Case Study Title</h1>
+            <h5 class="text-center">Case Study Subtitle</h5>
+            <hr class="w-25 mx-auto">
+        </div>
+        <div class="row">
+            <div class="col-4 bg-dark rounded-5">
+                Img
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-1">
+                        <i class="fa-solid fa-image fa-2xl"></i>
+                    </div>
+                    <div class="col">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vel harum mollitia, quaerat sint
+                        illo nemo laboriosam temporibus earum accusamus. Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Nobis sint sed laborum illo quia minima saepe dolor tempore molestias
+                        molestiae, ducimus, iure numquam ea aliquam officiis. Optio ut quis tenetur.
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-6">
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, quasi id quos facere
+                                sed deleniti adipisci provident cumque illo dolorum, doloribus odio repellat. Facilis,
+                                dolores.</li>
+                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi aspernatur similique
+                                doloribus maiores unde excepturi minus, non reiciendis assumenda sint fuga, qui omnis
+                                perferendis perspiciatis distinctio vel mollitia cum ipsum!</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta voluptate molestias
+                                doloribus molestiae autem! Excepturi accusantium eos nam rerum debitis.</li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        Graph
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endmacro %}

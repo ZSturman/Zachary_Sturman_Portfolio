@@ -1,6 +1,7 @@
 import random
 from flask import Blueprint, render_template, flash, redirect, request, url_for, session, current_app
 from flask_mail import Mail, Message
+from itsdangerous import URLSafeSerializer, BadData
 from config import get_settings
 
 zs_mail = Blueprint("zs_mail", __name__)
@@ -53,7 +54,6 @@ def subscribe():
     current_app.mail.send(msg)
     set_subscribed(True)
     flash(f'Check your email for your welcome basket', 'success')
-
     return redirect(redirect_url())
 
 
@@ -64,6 +64,14 @@ def send_mail():
     input_message = request.form.get("message")
 
     def to_emailer():
+        msg = Message(
+            subject = 'Thanks for reaching out!',
+            recipients= [email],
+            html = render_template("mail/thanks_for_reaching_out.html", name=name, input_message=input_message, email=email)
+        )
+    
+        current_app.mail.send(msg)
+
         #if email in current_app.config['SUBSCRIBERS_LIST']:
             #msg = Message(
             #subject = 'Thanks for reaching out!',
@@ -77,18 +85,6 @@ def send_mail():
             #html = """<h5>Hello, """+name+""". Thank you for reaching out</h5><br><br> <button><a href={{ url_for#('subscribe_from_email') }}>Click here to subscribe</a></button>"""
         #)
             
-        msg = Message(
-            subject = 'Thanks for reaching out!',
-            recipients= [email],
-            html = """<h5>Hello, """+name+""". Thank you for reaching out</h5><br><br> <button><a href={{ url_for('subscribe_from_email') }}>Click here to subscribe</a></button>"""
-        )
-    
-        current_app.mail.send(msg)
-
-
-
-        
-
     def to_me():
         msg = Message(
             subject = 'To Me',
@@ -121,4 +117,20 @@ def set_subscribed(sub=False):
     session['subscribed'] = sub
     session.permanent = True
     return sub
+
+@zs_mail.route("/usubscribe/<email>")
+def unsubscribe():
+    email=request.args.get('email')
+    set_subscribed(False)
+    remove_subscriber(email)
+    return render_template("mail/unsubscribe.html", title="Unsubscribe")
+
+
+def remove_subscriber(email):
+    msg = Message(
+        subject = 'Remove Subscriber: ',
+        recipients= ["zasturman@gmail.com", "zacharysturman@zsdynamics.com"],
+        body = "email: "+email
+    )
+    current_app.mail.send(msg)
 

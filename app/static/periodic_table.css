@@ -149,4 +149,40 @@
   -webkit-filter: saturate(1.1);
           filter: saturate(1.1);
 }
+
+@media (max-width: 767px) {
+  button {
+    font-size: 10px !important;
+  }
+  h5 {
+    font-size: 12px !important;
+  }
+  p {
+    font-size: 10px !important;
+  }
+  .element-name {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  h5 {
+    font-size: 14px !important;
+  }
+  p {
+    font-size: 12px !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  p {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  p {
+    font-size: 18px;
+  }
+}
 /*# sourceMappingURL=periodic_table.css.map */

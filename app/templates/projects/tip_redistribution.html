@@ -1,0 +1,258 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='tip_redistribution.css')}}" type="text/css">
+
+
+    <section>
+
+        <div class="container-fluid drkr-bg pt-5 pb-3 px-5" data-aos="fade-up">
+            <div class="container-sm">
+                <p class="opacity-50">January 2023</p>
+                <div>
+                    <h1 class="mb-3 text-light">Examining the Effectiveness of Tip Redistributing in the Casino Industry:</h1>
+                    <hr class="p-0 m-0">
+                    <h4 class=" mb-4 mt-1">A Data-Driven Approach Revisiting The Impact of Current Tipping
+                        Practices
+                    </h4>
+                    <p class="">Author: <a href="{{ url_for('main.home') }}"
+                            class="text-decoration-none text-white fw-bold">Zachary Sturman</a></p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="container-sm mt-4">
+
+            <div>
+                <div class="row p-5" data-aos="fade-up" data-aos-delay="300">
+
+                    <p class="text-secondary">This case study examines the mandatory tip sharing practices among
+                        Blackjack and Craps dealers at the
+                        <a href="https://www.ameristarblackhawk.com/" target="_blank" class="text-secondary">Ameristar
+                            Casino in
+                            Blackhawk, Colorado.</a>
+                        Through careful analysis of this data, opportunities for improving team dynamics and
+                        increasing fairness in the distribution of tips among all dealers was discovered.</p>
+
+                    <p class="text-secondary">Data collected for this study is from September 17, 2021 to September 30,
+                        2021. </p>
+
+                </div>
+            </div>
+
+
+
+            <hr>
+            <div class="row my-3" data-aos="fade-up" data-aos-delay="600">
+                <h4>The Current Redistribution</h4>
+
+            </div>
+
+            <div class="row" data-aos="fade-up" data-aos-delay="700">
+                <p>The practice of redistributing tips among casino dealers has been a contentious issue for some time. In particular, the tip pooling system that is currently in place has been criticized for being unjust and one-sided. Specifically, the system tends to favor Craps dealers over Blackjack dealers.</p>
+
+                    <p>Blackjack dealers typically receive higher tips at the end of their shifts. As a result, they are required to forfeit a portion of their tip box to be put into a pool at the end of each day. This pool is then split up and distributed among Craps dealers at the end of the week to provide them with a livable hourly wage. However, this system is being re-evaluated. Instead of the Blackjack dealer forfeiting 18% of their tips to Craps regardless of their pay, a new system has been proposed.</p>
+                
+                <div class="col-xs-12 col-md-8" data-aos="fade-up" data-aos-delay="900">
+                    <div>
+                        <canvas id="slide_ch1"></canvas>
+                    </div>
+                </div>
+                <div class="col-md-4 order-first order-md-last">
+                    <div class="row">
+                        <p>Although <span class="text-primary">Craps</span> dealers are trained to deal a more
+                            challenging game for the casino, <span class="text-danger">Blackjack</span> dealers
+                            typically receive higher tips at the end of their shifts.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row mt-5">
+
+                <p>This is why each Blackjack dealer at the end of the day must forfeit 18% of their tip box to be
+                    put into a pool. At the end of the week this pool is split up to provide a livable hourly wage for
+                    Craps dealers.</p>
+
+
+
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-9">
+                    <div>
+                        <canvas id="slide_ch2"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container-fluid bg-light py-5" data-aos="fade-left">
+            <div class="container">
+                <h2 class="fw-light">The current redistribution system effectively ensures equitable weekly pay among
+                    dealers</h2>
+            </div>
+            <div class="container mt-5">
+                <h2 class="fw-light">...most of the time.</h2>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <hr>
+            <h4>The Problem With The Current Redistribution</h4>
+
+            <div class="row my-3">
+                <p>The chart depicted below illustrates a representative scenario of a period of decreased dealer
+                    gratuities at the casino. These figures are representative of specific intervals, such as the weeks
+                    leading up to Christmas when money is being spent on gifts instead of being gambled with or the
+                    first weeks of summer, during which patronage at the casino is typically lower.</p>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-9">
+                    <div>
+                        <canvas id="bad_week_ch1"></canvas>
+                    </div>
+                </div>
+            </div>
+            <p>While this represents a generally unfavorable situation for all dealers, the situation becomes more
+                one-sided after the redistribution of tips.</p>
+            <div class="row">
+                <div class="col-xs-12 col-md-9">
+                    <div>
+                        <canvas id="bad_week_ch2"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p>It is clear that when the numbers are low the difference is pay is quite substantial. </p>
+            </div>
+        </div>
+
+
+
+        <div class="container">
+            <div class="row">
+
+                <hr>
+                <h4>Solution: The Sliding-Scale Redistribution</h4>
+
+                <div class="row">
+                    <p>Instead of the Blackjack dealer forfeiting 18% of their tips to Craps regardless of their pay
+                        they tipout amount to Craps is based on a sliding-scale system </p>
+                    <div class="col">
+                        <ul>
+                            <li>Percentage to Craps starts a 0</li>
+                            <li>Percentage increases by .1% for every $2 earned in tips</li>
+                            <li>At $360 in tips the current system is reinstituted</li>
+                            <li>After $1,000 in tips, the percentage drops from 18% to 10%</li>
+                        </ul>
+
+                    </div>
+                    <div class="col-xs-12 col-md-9">
+
+                        <div>
+                            <canvas id="slide_5"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-9">
+                        <div>
+                            <canvas id="bad_week_old_v_new"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <p>As seen above, the majority of tips taken from Blackjack dealers and given to Craps will stay roughly the same since most dealers are making more than $300 a night.</p>
+                <p>The difference is small but greatly beneficial to dealers making less than $360 a night.</p>
+            </div>
+
+            <div class="row">
+                <p>The system also has an added benefit of dropping the percentage down from 18% to only 10% for every
+                    dollar after $1000</p>
+
+
+
+
+
+
+
+                <p>This allows dealers who make a significant amount of money, possibly a life changing amount, to keep the majority of it just as Craps dealers get to keep the majority of their great nights. </p>
+            </div>
+
+            <div class="row">
+
+                <hr>
+                <h4>Potential Downsides </h4>
+
+                <ul class="mx-5">
+                    <li>
+                        <h6>Administrative complexity</h6>
+                        <p>Implementing a sliding scale system may be more complex and time-consuming than
+                            the
+                            current flat percentage system. This could involve additional administrative work and
+                            potentially require the use of new software or systems to track and calculate the varying
+                            percentages.</p>
+                    </li>
+                    <li>
+                        <h6>Resistance to change</h6>
+                        <p>some dealers may be resistant to change, particularly if they are accustomed to
+                            the
+                            current system and are unsure of how the new system will work. This could lead to initial
+                            resistance and potentially lower morale during the transition period.</p>
+                    </li>
+                    <li>
+                        <h6>Potential for reduced contributions</h6>
+                        <p>if the sliding scale system results in lower percentages for some dealers, there is a risk
+                            that total contributions to the Craps dealers may be reduced. This could potentially impact
+                            the income of Craps dealers and create tension between the two groups.</p>
+                    </li>
+                    <li>
+                        <h6>Decreased simplicity</h6>
+                        <p>The current system is simple and easy to understand, with all Blackjack dealers
+                            contributing the same percentage of their tips to the Craps dealers. A sliding scale system
+                            may
+                            be more complicated and may be more difficult for dealers to understand and track</p>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+        <div class="container-sm">
+
+            <div class="row">
+                <hr>
+                <h4>In Closing</h4>
+
+                <p>Blackjack dealers, who deal a less challenging game, typically receive higher tips at the end of their shifts. As a result, they are required to forfeit a portion of their tip box to be put into a pool at the end of each day. This pool is then split up and distributed among Craps dealers at the end of the week to provide them with a livable hourly wage.</p>
+
+                <p>With the median daily tip amount for Blackjack dealers going down each day this system needs to be re-evaluated. Instead of the Blackjack dealer forfeiting 18% of their tips to Craps regardless of their pay, tips for Craps will be based on a sliding-scale system. </p>
+
+                <p> Based on the numbers, the majority of tips taken from Blackjack dealers and given to Craps will stay roughly the same since most dealers are making more than $300 a night. The system also has an added benefit of dropping the percentage down from 18% to only 10% for every dollar after $1000. This allows dealers who make a significant amount of money to keep the majority of it just as Craps dealers get to keep the majority of their great nights. This system aims to provide a more fair and balanced approach to tip redistribution in the casino industry.</p>
+
+                <p>Before moving forward, it would be beneficial to gather more data from both Craps and Blackjack covering a wider period of time. Additionally, obtaining information regarding the hours of Blackjack dealers would be advantageous. Despite the uncertainty that currently exists, due to the current state of dealer morale being at an all-time low, the cost of obtaining more data would be a worthwhile investment when compared to the potential cost of losing valuable employees to competitors.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../static/sliding_scale.js"></script>
+
+{% endblock %}
+
