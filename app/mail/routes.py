@@ -32,7 +32,7 @@ def record(state):
 @zs_mail.route("/subscribe_from_email/<string:name><string:email>", methods=['GET','POST'])
 def subscribe_from_email(name, email):
     set_subscribed(True)
-    add_subscriber(name, email)
+    #add_subscriber(name, email)
     flash(f'You have successfully subscribed to ZSDynamics', 'success')
     return render_template('mail/thanks_for_subscribing.html', title="Thanks For Subscribing!")
 
