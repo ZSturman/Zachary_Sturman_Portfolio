@@ -106,7 +106,7 @@ def add_subscriber(name, email):
     if email == None:
         email = "Email is None" 
     msg = Message(
-        subject = 'New Subscriber: '+name,
+        subject = 'New Subscriber',
         recipients= ["zasturman@gmail.com", "zacharysturman@zsdynamics.com"],
         body = name +" "+ email
     )
