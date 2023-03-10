@@ -29,11 +29,11 @@ def record(state):
         current_app.mail = mail
 
 
-@zs_mail.route("/subscribe_from_email/<email>", methods=['GET','POST'])
-def subscribe_from_email():
+@zs_mail.route("/subscribe_from_email/<name><email>", methods=['GET','POST'])
+def subscribe_from_email(name, email):
     set_subscribed(True)
     email=request.args.get('email')
-    name = "Look Up"
+    name=request.args.get('name')
     add_subscriber(name, email)
     flash(f'You have successfully subscribed to ZSDynamics', 'success')
     return render_template('thanks_for_subscribing.html', title="Thank For Subscribing!")
@@ -53,7 +53,7 @@ def subscribe():
     msg = Message(
         subject = 'Welcome '+name+"!",
         recipients= [email],
-        html = """<h5>Hello, """+name+""". Thank you for subscribing</h5><br> <p>Would you like to see the coolest stuff ZSDynamics has made?</p><br> <a href="""+current_app.config['WELCOME_BASKET_LINK']+""">Yes, of course</a>"""
+        html = render_template("mail/welcome_basket.html", name=name, email=email)
     )
     add_subscriber(name, email)
     current_app.mail.send(msg)
@@ -116,19 +116,20 @@ def set_subscribed(sub=False):
     session.permanent = True
     return sub
 
-@zs_mail.route("/usubscribe/<email>")
+@zs_mail.route("/usubscribe/<name><email>")
 def unsubscribe():
     email=request.args.get('email')
+    name=request.args.get('name')
     set_subscribed(False)
-    remove_subscriber(email)
+    remove_subscriber(name, email)
     return render_template("mail/unsubscribe.html", title="Unsubscribe")
 
 
-def remove_subscriber(email):
+def remove_subscriber(name, email):
     msg = Message(
-        subject = 'Remove Subscriber: ',
+        subject = 'Remove Subscriber: '+name,
         recipients= ["zasturman@gmail.com", "zacharysturman@zsdynamics.com"],
-        body = "email: "+email
+        body = "name:"+name+"\n\nemail: "+email
     )
     current_app.mail.send(msg)
 
