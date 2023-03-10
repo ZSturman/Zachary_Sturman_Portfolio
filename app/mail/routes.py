@@ -34,7 +34,7 @@ def subscribe_from_email(name, email):
     set_subscribed(True)
     #add_subscriber(name, email)
     flash(f'You have successfully subscribed to ZSDynamics', 'success')
-    return render_template('mail/thanks_for_subscribing.html', title="Thanks For Subscribing!")
+    return render_template('mail/thanks_for_subscribing.html', title="Thanks For Subscribing!", name=name, email=email)
 
 @zs_mail.route('/already_subscribed', methods=['POST'])
 def already_subscribed():
