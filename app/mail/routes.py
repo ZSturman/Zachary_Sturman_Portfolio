@@ -34,7 +34,7 @@ def subscribe_from_email(name, email):
     set_subscribed(True)
     add_subscriber(name, email)
     flash(f'You have successfully subscribed to ZSDynamics', 'success')
-    return render_template('thanks_for_subscribing.html', title="Thank For Subscribing!")
+    return render_template('mail/thanks_for_subscribing.html', title="Thanks For Subscribing!")
 
 @zs_mail.route('/already_subscribed', methods=['POST'])
 def already_subscribed():
@@ -101,10 +101,14 @@ def redirect_url(default='home'):
            url_for(default)
 
 def add_subscriber(name, email):
+    if name == None:
+        name = "Name is None"
+    if email == None:
+        email = "Email is None" 
     msg = Message(
         subject = 'New Subscriber: '+name,
         recipients= ["zasturman@gmail.com", "zacharysturman@zsdynamics.com"],
-        body = "name: "+name+"\n\n email: "+email
+        body = name +" "+ email
     )
     current_app.mail.send(msg)
     set_subscribed()
