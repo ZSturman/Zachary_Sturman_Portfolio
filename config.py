@@ -1,19 +1,33 @@
 import random
+import datetime
 from typing import Optional
 from functools import lru_cache
-from pydantic import BaseSettings
+from pydantic import BaseSettings, BaseModel
 import pandas as pd
 
-df = pd.read_csv("subscribers_list.csv")
-subscribers = df.loc[df['subscribed']==True, 'email'].tolist()
+#df = pd.read_csv("subscribers_list.csv")
+#subscribers = df.loc[df['subscribed']==True, 'email'].tolist()
+
+sub_data = {
+    "date": "2023-03-10",
+    "name": "Bob Tester",
+    "email": "test@test.com",
+    "subscribed": False
+}
+
+class Subscriber(BaseModel):
+    date: datetime.date
+    name: str
+    email: str
+    subscribed: bool
+
 
 class Settings(BaseSettings):
     app_name: str = "ZSDynamics"
     SECRET_KEY: str
     MAIL_USERNAME: str
     MAIL_PASSWORD: str
-    SUBSCRIBERS_LIST: list = subscribers
-    print(SUBSCRIBERS_LIST)
+    SUBSCRIBERS_LIST: Subscriber = sub_data
 
     class Config:
         env_file = "app/.env"

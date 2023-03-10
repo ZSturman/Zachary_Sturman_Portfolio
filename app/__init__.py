@@ -5,6 +5,8 @@ from config import Configure, get_settings
 
 settings = get_settings()
 
+print(settings.SUBSCRIBERS_LIST)
+
 
 def create_app(config_class=Configure):
     app = Flask(__name__)
