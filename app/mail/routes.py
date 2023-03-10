@@ -29,7 +29,7 @@ def record(state):
         current_app.mail = mail
 
 
-@zs_mail.route("/subscribe_from_email/<string:name><string:email>", methods=['GET','POST'])
+@zs_mail.route("/subscribe_from_email/<string:name>/<string:email>", methods=['GET','POST'])
 def subscribe_from_email(name, email):
     set_subscribed(True)
     #add_subscriber(name, email)
@@ -118,7 +118,7 @@ def set_subscribed(sub=False):
     session.permanent = True
     return sub
 
-@zs_mail.route("/usubscribe/<string:name><string:email>")
+@zs_mail.route("/usubscribe/<string:name>/<string:email>")
 def unsubscribe(name, email):
     set_subscribed(False)
     remove_subscriber(name, email)
