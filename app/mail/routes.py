@@ -29,14 +29,11 @@ def record(state):
         current_app.mail = mail
 
 
-@zs_mail.route("/subscribe_from_email/<name>/<email>", methods=['GET','POST'])
-def subscribe_from_email(name, email):
+
+@zs_mail.route("/thanks_for_subscribing/<name>/<email>", methods=['GET', 'POST'])
+def thanks_for_subscribing(name, email):
     set_subscribed(True)
     add_subscriber(name, email)
-    return redirect(url_for('mail.thanks_for_subscribing'), name=name, email=email)
-
-@zs_mail.route("/thanks_for_subscribing")
-def thanks_for_subscribing(name, email):
     flash(f'You have successfully subscribed to ZSDynamics', 'success')
     return render_template('mail/thanks_for_subscribing.html', title="Thanks For Subscribing!", name=name, email=email)
 
