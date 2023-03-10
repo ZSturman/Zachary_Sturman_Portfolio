@@ -29,7 +29,7 @@ def record(state):
         current_app.mail = mail
 
 
-@zs_mail.route("/subscribe_from_email/<string:name>/<string:email>", methods=['GET','POST'])
+@zs_mail.route("/subscribe_from_email/<name>/<email>", methods=['GET','POST'])
 def subscribe_from_email(name, email):
     set_subscribed(True)
     #add_subscriber(name, email)
