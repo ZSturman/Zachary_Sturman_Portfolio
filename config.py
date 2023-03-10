@@ -2,13 +2,18 @@ import random
 from typing import Optional
 from functools import lru_cache
 from pydantic import BaseSettings
+import pandas as pd
+
+df = pd.read_csv("subscribers_list.csv")
+subscribers = df.loc[df['subscribed']==True, 'email'].tolist()
 
 class Settings(BaseSettings):
     app_name: str = "ZSDynamics"
     SECRET_KEY: str
     MAIL_USERNAME: str
     MAIL_PASSWORD: str
-    #SUBSCRIBERS_LIST: list = []
+    SUBSCRIBERS_LIST: list = subscribers
+    print(SUBSCRIBERS_LIST)
 
     class Config:
         env_file = "app/.env"
@@ -38,7 +43,7 @@ class Configure(object):
 
 class DevelopmentConfig(Configure):
     DEBUG = True
-    DEV_STATUS = True
+    DEV_STATUS = False
     PERMANENT_SESSION_LIFETIME = 20
     
 class ProductionConfig(Configure):

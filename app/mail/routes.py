@@ -3,6 +3,7 @@ from flask import Blueprint, render_template, flash, redirect, request, url_for,
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeSerializer, BadData
 from config import get_settings
+import pandas
 
 zs_mail = Blueprint("zs_mail", __name__)
 
@@ -22,14 +23,18 @@ def record(state):
     app.config['MAIL_USERNAME'] = settings.MAIL_USERNAME
     app.config['MAIL_PASSWORD'] = settings.MAIL_PASSWORD
     app.config['SECRET_KEY'] = settings.SECRET_KEY
-    #app.config['SUBSCRIBERS_LIST'] = settings.SUBSCRIBERS_LIST
+    app.config['SUBSCRIBERS_LIST'] = settings.SUBSCRIBERS_LIST
     mail.init_app(app)
     with app.app_context():
         current_app.mail = mail
 
 
-@zs_mail.route("/subscribe_from_email", methods=['GET','POST'])
+@zs_mail.route("/subscribe_from_email/<email>", methods=['GET','POST'])
 def subscribe_from_email():
+    set_subscribed(True)
+    email=request.args.get('email')
+    name = "Look Up"
+    add_subscriber(name, email)
     flash(f'You have successfully subscribed to ZSDynamics', 'success')
     return render_template('thanks_for_subscribing.html', title="Thank For Subscribing!")
 
@@ -64,26 +69,19 @@ def send_mail():
     input_message = request.form.get("message")
 
     def to_emailer():
-        msg = Message(
-            subject = 'Thanks for reaching out!',
-            recipients= [email],
-            html = render_template("mail/thanks_for_reaching_out.html", name=name, input_message=input_message, email=email)
-        )
-    
+        if email in current_app.config['SUBSCRIBERS_LIST']:
+            msg = Message(
+                subject = 'Thanks for reaching out!',
+                recipients= [email, "zacharysturman@zsdynamics.com"],
+                html = render_template("mail/thanks_for_reaching_out_subsd.html", name=name, input_message=input_message, email=email)
+            )
+        else:
+            msg = Message(
+                subject = 'Thanks for reaching out!',
+                recipients= [email, "zacharysturman@zsdynamics.com"],
+                html = render_template("mail/thanks_for_reaching_out.html", name=name, input_message=input_message, email=email)
+            )
         current_app.mail.send(msg)
-
-        #if email in current_app.config['SUBSCRIBERS_LIST']:
-            #msg = Message(
-            #subject = 'Thanks for reaching out!',
-            #recipients= [email],
-            #html = """<h5>Hello, """+name+""". Thank you for reaching out</h5><br><br> <p><em>Here's what you said: </em></p> #<br> <p>"""+ input_message +"""  <button><a href={{ url_for('subscribe_from_email') }}>Click Me!</a></button>"""
-            #)
-        #else:
-            #msg = Message(
-            #subject = 'Thanks for reaching out!',
-            #recipients= [email],
-            #html = """<h5>Hello, """+name+""". Thank you for reaching out</h5><br><br> <button><a href={{ url_for#('subscribe_from_email') }}>Click here to subscribe</a></button>"""
-        #)
             
     def to_me():
         msg = Message(

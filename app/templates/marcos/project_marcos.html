@@ -21,7 +21,7 @@
 
         {% if project.link %}
         <button class="btn btn-outline-info p-0 px-1">
-            <a class="p-0 text-decoration-none text-dark" href="{{ project.link }}">
+            <a class="p-0 text-decoration-none text-dark" href="{{ project.link }}" {% if project.blank %} target="_blank" {% endif %}>
                 {{ project.link_title }}</a></button>
         {% endif %}
 

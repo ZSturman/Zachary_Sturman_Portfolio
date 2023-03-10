@@ -1,7 +1,7 @@
 import random
 
 class Project:
-    def __init__(self, title, subtitle, description, date, link, url_for, link_title, tags, image):
+    def __init__(self, title, subtitle, description, date, link, url_for, link_title, tags, image, blank=False):
         self.title = title
         self.subtitle = subtitle
         self.description = description
@@ -11,14 +11,15 @@ class Project:
         self.link_title = link_title
         self.tags = tags
         self.image = image
+        self.blank = blank
 
 project1 = Project("Examining the Effectiveness of Tip Redistributing in the Casino Industry", "A Data-Driven Approach Revisiting The Impact of Current Tipping Practices", "This case study examines the mandatory tip sharing practices among Blackjack and Craps dealers at Ameristar Casino.", "January 2023", link=None, url_for='projects.tip_redistribution', link_title="View Case Study", image="tips_redistribution_img", tags=["Case Study", "Data Analysis", "ChartJS"])
 
 project2 = Project("Interactive Periodic Table of Elements", "subtitle tbd", "Description tbd", "January 2023", link=None, url_for='projects.periodic_table', link_title="Go To Table", image="periodic_table_img", tags=["Interactive", "UI", "UX", "Database Management"])
 
-project3 = Project("The Gambler's Fallacy", "When the Past Fools You into Thinking You Can Predict the Future", "The gambler's fallacy is the mistaken belief that past events in a random process influence future outcomes, despite the probabilities being independent of each other.", date="2022", link="https://github.com/ZSturman/Gamblers-Fallacy--Roulette", url_for=None, link_title="Repository", image="img", tags=["Python", "Simulation"])
+project3 = Project("The Gambler's Fallacy", "When the Past Fools You into Thinking You Can Predict the Future", "The gambler's fallacy is the mistaken belief that past events in a random process influence future outcomes, despite the probabilities being independent of each other.", date="2022", link="https://github.com/ZSturman/Gamblers-Fallacy--Roulette", url_for=None, link_title="Repository", image="img", tags=["Python", "Simulation"], blank=True)
 
-project4 = Project("Productivity App", "subtitle", "Crafting intelligent solutions through programming and data", date="2022", link="#", url_for=None, link_title="link title", image="img", tags=["Flask", "SQL", "NGINX"])
+project4 = Project("Productivity App", "subtitle", "Crafting intelligent solutions through programming and data", date="2022", link="https://github.com/ZSturman/Flask-Productivity-App", url_for=None, link_title="Repository", image="img", tags=["Flask", "SQL", "NGINX"], blank=True)
 
 project5 = Project(title="Fictional Heros and Villians Battle", subtitle="subtitle", description="Randomly select or choose for yourself characters to battle against each other and see who wins from all the fictional universes", date="2023", link="#", url_for=None, link_title="link title", image="img", tags=["Temp"])
 
@@ -26,7 +27,7 @@ project6 = Project(title="Financial Dashboard", subtitle="subtitle", description
 
 project7 = Project(title="Deeptime Dashboard", subtitle="subtitle", description="description", date="2022", link="#", url_for=None, link_title="link title", image="img", tags=["Temp"])
 
-project8 = Project(title="Title", subtitle="subtitle", description="description", date="2022", link="#", url_for=None, link_title="link title", image="img", tags=["Temp"])
+project8 = Project(title="Streamlit Test", subtitle="subtitle", description="description", date="2022", link="https://zsturman-streamlit-test-myapp-vnqhbk.streamlit.app/", url_for=None, link_title="Streamlit Test", image="img", tags=["Temp"], blank=True)
 
 project9 = Project(title="Title", subtitle="subtitle", description="description", date="2022", link="#", url_for=None, link_title="link title", image="img", tags=["Temp"])
 
