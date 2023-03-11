@@ -1,4 +1,5 @@
 import random
+from datetime import date
 
 class Project:
     def __init__(self, title, subtitle, description, date, link, url_for, link_title, tags, image, blank=False):
@@ -12,6 +13,70 @@ class Project:
         self.tags = tags
         self.image = image
         self.blank = blank
+
+data_science_tags = ["Data analysis", "Machine learning","Predictive modeling",
+                    "Big data",
+                    "Data visualization",
+                    "Statistical analysis",
+                    "Natural language processing (NLP)",
+                    "Deep learning",
+                    "Artificial intelligence (AI)",
+                    "Data mining",
+                    "Business intelligence",
+                    "Time series analysis",
+                    "Regression analysis",
+                    "Cluster analysis",
+                    "Decision trees",
+                    "Random forests",
+                    "Neural networks",
+                    "Dimensionality reduction",
+                    "Feature selection",
+                    "Anomaly detection"]
+
+front_end_tags = ["User Interface (UI) Design"
+                "User Experience (UX) Design",
+                "Web Design",
+                "Responsive Design",
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "jQuery",
+                "Bootstrap",
+                "Material Design",
+                "Typography",
+                "Color Theory",
+                "Layout Design",
+                "Grid Systems",
+                "Mobile Design",
+                "Accessibility",
+                "Cross-browser Compatibility",
+                "Performance Optimization",
+                "Web Standards",
+                "Visual Design"]
+
+back_end_tags = ["Server-side programming languages (e.g. Python, Java, Ruby, Node.js)",
+                "Web frameworks (e.g. Django, Flask, Ruby on Rails, Express.js)",
+                "Database management systems (e.g. SQL, NoSQL)",
+                "APIs (Application Programming Interfaces)",
+                "REST (Representational State Transfer) API design",
+                "Authentication and Authorization",
+                "Web Security (e.g. HTTPS, SSL, TLS)",
+                "Caching (e.g. Redis, Memcached)",
+                "DevOps (e.g. Continuous Integration, Continuous Deployment)",
+                "Cloud Services (e.g. Amazon Web Services, Google Cloud Platform)",
+                "Microservices",
+                "Message Queuing",
+                "Load Balancing",
+                "Scalability",
+                "Performance Optimization",
+                "Serverless Architecture",
+                "Content Management Systems (e.g. WordPress, Drupal)",
+                "Version Control (e.g. Git, SVN)",
+                "Debugging and Testing",
+                "Software Architecture and Design Patterns"]
+
+
+
 
 project1 = Project("Examining the Effectiveness of Tip Redistributing in the Casino Industry", "A Data-Driven Approach Revisiting The Impact of Current Tipping Practices", "This case study examines the mandatory tip sharing practices among Blackjack and Craps dealers at Ameristar Casino.", "January 2023", link=None, url_for='projects.tip_redistribution', link_title="View Case Study", image="tips_redistribution_img", tags=["Case Study", "Data Analysis", "ChartJS"])
 
@@ -68,4 +133,5 @@ def portfolio_context_processor(config):
     dev_status = config.DEV_STATUS
     mailing_list_txt = random.choice(mailing_list_txt_list)
     call_to_action_txt = random.choice(call_to_action_list)
-    return {'dev_test': dev_test, 'dev_status':dev_status, 'mailing_list_txt':mailing_list_txt, 'email_body_list':email_body_list, 'email_subject_line':email_subject_line, 'call_to_action_txt':call_to_action_txt, 'reviews_list':reviews_list, 'projects_list':projects_list}
+    current_date = date.today()
+    return {'dev_test': dev_test, 'dev_status':dev_status, 'mailing_list_txt':mailing_list_txt, 'email_body_list':email_body_list, 'email_subject_line':email_subject_line, 'call_to_action_txt':call_to_action_txt, 'reviews_list':reviews_list, 'projects_list':projects_list, "current_date":current_date}

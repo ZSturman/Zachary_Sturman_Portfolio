@@ -1,7 +1,3 @@
-{% extends "layout.html" %}
-
-{% block content %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanks for reaching out!</title>
+    <title>Newsletter</title>
 
 </head>
 
 <body style="margin:5vw;">
+
+
+
+
     <div style="border-left: 3px solid rgb(209, 240, 246); border-right: 3px solid rgb(209, 240, 246); padding: 20px;">
         <div>
             <!-- header -->
@@ -26,54 +26,114 @@
             <h4 style="text-align: end; opacity: .5;"><em>"From data chaos to strategic clarity"</em></h4>
             <hr>
         </div>
+        <div style="background-color: rgb(94, 125, 173); color: rgb(208, 208, 208)">
+            <span>
+                <h1>
+                    ZSDynamics Newsletter
+                </h1>
+                <h3 style="opacity: .75; text-align: end;">{{ current_date }}</h3>
+            </span>
+        </div>
+        <br>
+
         <div>
-            <h1 style="background-color: rgb(94, 125, 173); color: rgb(208, 208, 208)">
-                Thanks for reaching out!
-            </h1>
-            <h2>
-                Hello {{ name }},
-            </h2>
-            <p>
-                Thank you for taking the time to reach out to me. I'm excited to hear from you and I appreciate your
-                interest in my work.
-            </p>
-            <p>
-                I'm looking forward to learning more about your project or inquiry. Please let me know if you have any
-                specific questions or concerns that you would like me to address. If you have a deadline, please let me
-                know
-                as well so that I can make sure to prioritize your request.
-            </p>
-            <p>
-                In the meantime, feel free to explore my portfolio and learn more about my skills and experience. If you
-                have any other questions, don't hesitate to ask.
-            </p>
-            <p>
-                Thank you again for your interest in my work. I'll be in touch soon.
-            </p>
-            <p>
-                Best regards,
-            </p>
-            <p>
-                Zachary Sturman
-            </p>
+            <h3>Introduction</h3>
+            <ul>
+                <li>Briefly introduce yourself and your newsletter</li>
+                <li>Explain the purpose of your newsletter (to keep readers up-to-date on the latest news and
+                    developments in science and technology)</li>
+            </ul>
+            <h3>
+                Headlines
+            </h3>
+            <ul>
+                <li>
+                    Highlight the most important and exciting news stories related to science and technology from the
+                    past week or month
+                </li>
+                <li>
+                    Include links to the full articles for readers who want to learn more
+                </li>
+            </ul>
+
+            <h3>
+                In-depth feature
+            </h3>
+            <ul>
+                <li>
+                    Choose one topic related to science and technology and provide a more detailed analysis or exploration of it
+                </li>
+                <li>
+                    This could be a new discovery, a trend in technology, or an issue related to science policy
+                </li>
+            </ul>
+
+            <h3>
+                Research highlights
+            </h3>
+            <ul>
+                <li>
+                    Summarize recent research studies related to science and technology
+                </li>
+                <li>
+                    Provide a brief overview of the research, its findings, and its implications
+                </li>
+            </ul>
+            <h3>
+                Spotlight on innovation
+            </h3>
+            <ul>
+                <li>
+                    Highlight a company, product, or individual that is making a significant impact in the world of science and
+            technology
+                </li>
+                <li>
+                    Provide background information, key accomplishments, and future plans
+                </li>
+            </ul>
+
+            <h3>
+                Events and opportunities
+            </h3>
+            <ul>
+                <li>
+                    Highlight upcoming events related to science and technology, such as conferences or webinars
+                </li>
+                <li>
+                    Provide information on any opportunities for readers to get involved in scientific research or projects
+                </li>
+            </ul>
+            <h3>
+                Closing
+            </h3>
+            <ul>
+                <li>
+                    Thank readers for subscribing to your newsletter
+                </li>
+                <li>
+                    Invite them to provide feedback or suggest topics they would like to see covered in future issues
+                </li>
+            </ul>
+
+
+        </div>
+
+        <div>
+            
+        </div>
+
+
+        <div style="margin:auto; width: 75%; background-color: rgb(60, 110, 150); border-radius: 20px; padding: 5%;">
+            <h1 style="color: rgb(233, 232, 210); text-align: center;"><em>Placeholder</em></h1>
+            <hr style="color: white;">
+            <h5 style="color: rgb(238, 238, 227);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
+                ipsam! Ab quam excepturi laborum, molestiae libero ex dolorem distinctio velit.</h5>
             <br>
         </div>
-        <div style="margin:auto; width: 50%; background-color: rgb(60, 110, 150); border-radius: 20px; padding: 5%;">
-            <h1 style="color: rgb(233, 232, 210); text-align: center;"><em>Not Subscribed Yet?</em></h1>
-            <hr style="color: white;">
-            <h5 style="color: rgb(238, 238, 227);">Click here so you don't miss out on the most interesting and need to
-                know advancements in the world of
-                science and technology</h5>
-                <br>
-                <div style="text-align: center;">
-
-                    <a style="color: white; font-size: larger; border: 2px solid white; border-radius: 500px; padding: 2%; text-align: center;" href="https://www.zsdynamics.com/subscribe_from_email">Subscribe</a>
-                </div>
-            </div>
     </div>
+
+    <a href="{{ url_for('zs_mail.unsubscribe', name=name, email=email, _external=True) }}">Unsubscribe</a>
+
 </body>
 
 </html>
-
-
-{% endblock %}

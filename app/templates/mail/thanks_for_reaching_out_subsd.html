@@ -57,12 +57,11 @@
         <div style="margin:auto; width: 50%; background-color: rgb(60, 110, 150); border-radius: 20px; padding: 5%;">
             <h1 style="color: rgb(233, 232, 210); text-align: center;"><em>Thanks for being subscribed!</em></h1>
             <hr style="color: white;">
-            </div>
+            <a href="https://www.zsdynamics.com/newsletter">In case you missed it click here for the latest newsletter.</a>
+         </div>
     </div>
 
-    <a href="https://www.zsdynamics.com/thanks_for_subscribing">
-        Unsubscribe
-    </a>
+    <a href="{{ url_for('zs_mail.unsubscribe', name=name, email=email, _external=True) }}">Unsubscribe</a>
 </body>
 
 </html>

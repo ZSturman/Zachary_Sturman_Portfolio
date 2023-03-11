@@ -37,9 +37,7 @@
             <h1>Hello</h1>
         </div>
 
-        <a href='https://www.zsdynamics.com/unsubscribe'>
-            Unsubscribe
-        </a>
+        <a href="{{ url_for('zs_mail.unsubscribe', name=name, email=email, _external=True) }}">Unsubscribe</a>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 import random
+import datetime
 from flask import Blueprint, render_template, flash, redirect, request, url_for, session, current_app
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeSerializer, BadData
@@ -67,6 +68,7 @@ def send_mail():
     name = request.form.get("name")
     email = request.form.get("email")
     input_message = request.form.get("message")
+    now = datetime.datetime.now()
 
     def to_emailer():
         if email in current_app.config['SUBSCRIBERS_LIST']:
@@ -87,7 +89,7 @@ def send_mail():
         msg = Message(
             subject = 'To Me',
             recipients= ["zacharysturman@zsdynamics.com"],
-            html = "from: "+name+" email: "+email+" message: "+input_message
+            html ="Time: "+now+"\nfrom: "+name+"\n email: "+email+"\n message: "+input_message
         )
         current_app.mail.send(msg)
     
@@ -107,10 +109,11 @@ def add_subscriber(name, email):
         name = "Name is None"
     if email == None:
         email = "Email is None" 
+    now = datetime.datetime.now()
     msg = Message(
         subject = 'New Subscriber',
         recipients= ["zasturman@gmail.com", "zacharysturman@zsdynamics.com"],
-        body = name +" "+ email
+        body = "Time: "+now+"\nName: "+name+"\nEmail: "+ email
     )
     current_app.mail.send(msg)
     set_subscribed()
@@ -128,10 +131,11 @@ def unsubscribe(name, email):
 
 
 def remove_subscriber(name, email):
+    now = datetime.datetime.now()
     msg = Message(
         subject = 'Remove Subscriber: '+name,
         recipients= ["zasturman@gmail.com", "zacharysturman@zsdynamics.com"],
-        body = "name:"+name+"\n\nemail: "+email
+        body = "Time: "+now+"\nName: "+name+"\n\nEmail: "+email
     )
     current_app.mail.send(msg)
 
