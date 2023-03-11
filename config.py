@@ -12,7 +12,8 @@ sub_data = {
     "date": "2023-03-10",
     "name": "Bob Tester",
     "email": "test@test.com",
-    "subscribed": False
+    "subscribed": False,
+    "token":"d9c83679226bc702b752b77b66ee83a1"
 }
 
 class Subscriber(BaseModel):
@@ -20,6 +21,7 @@ class Subscriber(BaseModel):
     name: str
     email: str
     subscribed: bool
+    token: str
 
 
 class Settings(BaseSettings):
@@ -45,6 +47,8 @@ class Configure(object):
 
     WELCOME_BASKET_LINK = 'https://www.youtube.com/watch?v=0qpuGNAek0c&list=PLTnRtjQN5iearIo2_C-2sr1ZqUHbS3Snh&index=8'
 
+    HOST = 'https://www.zsdynamics.com'
+
     MAIL_SERVER = "smtp.gmail.com"
     MAIL_PORT = 587
     MAIL_USE_TLS = True
@@ -57,7 +61,7 @@ class Configure(object):
 
 class DevelopmentConfig(Configure):
     DEBUG = True
-    DEV_STATUS = False
+    DEV_STATUS = True
     PERMANENT_SESSION_LIFETIME = 20
     
 class ProductionConfig(Configure):

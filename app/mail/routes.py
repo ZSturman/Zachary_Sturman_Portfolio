@@ -25,6 +25,7 @@ def record(state):
     app.config['MAIL_PASSWORD'] = settings.MAIL_PASSWORD
     app.config['SECRET_KEY'] = settings.SECRET_KEY
     app.config['SUBSCRIBERS_LIST'] = settings.SUBSCRIBERS_LIST
+    app.config['HOST'] = 'https://www.zsdynamics.com'
     mail.init_app(app)
     with app.app_context():
         current_app.mail = mail
