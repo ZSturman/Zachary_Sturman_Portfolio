@@ -27,7 +27,6 @@ class Configure(object):
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-
     HOST = 'https://www.zsdynamics.com'
 
     MAIL_SERVER = "smtp.gmail.com"

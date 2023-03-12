@@ -220,7 +220,20 @@ def send_mail():
             )
             db.session.add(emailer)
             db.session.commit()
-        if emailer.last_email_sent and datetime.utcnow() - emailer.last_email_sent < timedelta(minutes=20):
+        if emailer.email == "zasturman@gmail.com":
+            #subscribe_link = url_for('zs_mail.subscribe_frm_email', id = emailer.id, _external=True)
+            subscribe_link = "subscribe_frm_email/" + emailer.id
+            #unsubscribe_link = url_for('zs_mail.unsubscribe', id = emailer.id, _external=True)
+            unsubscribe_link = "unsubscribe/" + emailer.id
+            msg = Message(
+                    subject = 'Thanks for reaching out!',
+                    recipients= [email,settings.MAIL_USERNAME],
+                    html = render_template("mail/thanks_for_reaching_out.html", person=emailer, reaching_out=True, date=date, subscribe_link=subscribe_link, unsubscribe_link=unsubscribe_link)
+                )
+            current_app.mail.send(msg)
+            emailer.last_email_sent = datetime.utcnow()
+            db.session.commit()
+        elif emailer.last_email_sent and datetime.utcnow() - emailer.last_email_sent < timedelta(minutes=1):
             to_me(emailer, "Trying to send message within 'do not send window'")
         else:
             #subscribe_link = url_for('zs_mail.subscribe_frm_email', id = emailer.id, _external=True)
