@@ -98,7 +98,8 @@ def thanks_for_subscribing(id):
     subscriber.updated = datetime.utcnow()
     subscriber.subscribed = True
     if subscriber.welcome_basket_sent == False:
-        unsubscribe_link = url_for('zs_mail.unsubscribe', id = subscriber.id, _external=True)
+        #unsubscribe_link = url_for('zs_mail.unsubscribe', id = subscriber.id, _external=True)
+        unsubscribe_link = "unsubscribe/" + subscriber.id
         msg = Message(
            subject = 'Welcome '+subscriber.name+"!",
            recipients= [subscriber.email],
@@ -122,7 +123,8 @@ def subscribe_frm_email(id):
     person.updated = datetime.utcnow()
     person.subscribed = True
     if person.welcome_basket_sent == False:
-        unsubscribe_link = url_for('zs_mail.unsubscribe', id = person.id, _external=True)
+        #unsubscribe_link = url_for('zs_mail.unsubscribe', id = person.id, _external=True)
+        unsubscribe_link = "unsubscribe/" + person.id
         msg = Message(
            subject = 'Welcome '+person.name+"!",
            recipients= [person.email],
@@ -176,9 +178,9 @@ def subscribe():
                     updated=datetime.utcnow()
                 )
             db.session.add(subscriber)
-        unsubscribe_link = url_for('zs_mail.unsubscribe', id = subscriber.id, _external=True)
+        #unsubscribe_link = url_for('zs_mail.unsubscribe', id = subscriber.id, _external=True)
+        unsubscribe_link = "unsubscribe/" + subscriber.id
         if subscriber.welcome_basket_sent == False:
-            unsubscribe_link = url_for('zs_mail.unsubscribe', id = subscriber.id, _external=True)
             msg = Message(
                subject = 'Welcome '+subscriber.name+"!",
                recipients= [subscriber.email],
@@ -221,8 +223,10 @@ def send_mail():
         if emailer.last_email_sent and datetime.utcnow() - emailer.last_email_sent < timedelta(minutes=20):
             to_me(emailer, "Trying to send message within 'do not send window'")
         else:
-            subscribe_link = url_for('zs_mail.subscribe_frm_email', id = emailer.id, _external=True)
-            unsubscribe_link = url_for('zs_mail.unsubscribe', id = emailer.id, _external=True)
+            #subscribe_link = url_for('zs_mail.subscribe_frm_email', id = emailer.id, _external=True)
+            subscribe_link = "subscribe_frm_email/" + emailer.id
+            #unsubscribe_link = url_for('zs_mail.unsubscribe', id = emailer.id, _external=True)
+            unsubscribe_link = "unsubscribe/" + emailer.id
             msg = Message(
                     subject = 'Thanks for reaching out!',
                     recipients= [email,settings.MAIL_USERNAME],
@@ -241,21 +245,3 @@ def send_mail():
 @zs_mail.route("/news_letter")
 def news_letter():
     return render_template("mail/news_letter.html", title="News Letter")
-
-
-
-
-@zs_mail.route("/test_mail_page")
-def testing_mail_page():
-    date = datetime.today()
-    
-    person = Subscribers(
-        name = "Test P. Tester",
-        email = "test@test.com",
-        subscribed = False,
-        created = datetime.utcnow(),
-        updated = datetime.utcnow()
-    )
-    subscribe_link = url_for('zs_mail.subscribe', id = person.id, _external=True)
-    unsubscribe_link = url_for('zs_mail.unsubscribe', id = person.id, _external=True)
-    return render_template("mail/thanks_for_reaching_out.html", person=person, date=date, subscribe_link=subscribe_link, unsubscribe_link=unsubscribe_link)
