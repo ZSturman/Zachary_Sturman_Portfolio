@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+{% if resubscribing == True %}
+
+    <div class="display-6 text-center my-5">Welcome back!</div>
+
+    <div class="row">
+        <div class="col-6">
+            <img src="../static/images/projects/tip_redistribution/chart_1.png" alt="temp">
+        </div>
+        <div class="col-6">
+            <h6 class="display-6 my-3">I'm glad you're sticking with us.</h6>
+            <hr>
+            <br>
+            <h5>Take a look at what you can do with ZSDynamics</h5>
+            <br>
+            <div class="d-flex gap-3">
+                <button class="btn btn-lg btn-outline-primary">One</button>
+                <button class="btn btn-lg btn-outline-info">Two</button>
+                <button class="btn btn-lg btn-outline-secondary">Three</button>
+            </div>
+
+        </div>
+    </div>
+
+
+{% else %}
+
+    <h1 class="text-center m-4">Welcome To ZSDynamics!</h1>
+    <div class="row">
+        <div class="col-6">
+            <img src="../static/images/projects/tip_redistribution/chart_1.png" alt="temp">
+        </div>
+        <div class="col-6">
+            <h3>A Welcome Basket Should Be Arriving To Your Email Momentarily</h3>
+            <p>In the meantime...</p>
+            <h6 class="diplay-6">Take a look at what you can do with ZSDynamics</h6>
+            <div class="d-flex gap-3">
+                <button class="btn btn-lg btn-outline-primary">One</button>
+                <button class="btn btn-lg btn-outline-info">Two</button>
+                <button class="btn btn-lg btn-outline-secondary">Three</button>
+            </div>
+
+        </div>
+    </div>
+   
+{% endif %}
+    
+</div>
+{% endblock %}

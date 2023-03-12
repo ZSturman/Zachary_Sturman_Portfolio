@@ -1,8 +1,47 @@
-<body>
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h6 class="my-5 text-center fw-light">You will no longer receive newsletters or updates from ZSDynamics</h6>
+
+    {% if sent == True %}
+    <h1 class="my-5 text-center fw-light">You have been successfully unsubscribed to "ZSDynamics"</h1>
+    {% else %}
+    <div class="row p-4">
+        <div class="d-block d-md-none" data-aos="fade-left" data-aos-duration="800">
+            <h1 class="display-1 text-start">Why?</h1>
+
+        </div>
+
+        <div class="d-none d-md-block col-4 col-lg-6" data-aos="fade-left" data-aos-duration="800">
+            <h1 class="display-2 text-end mt-5 pt-5">Why?</h1>
+        </div>
+
+        <div class="col-12 col-md-8 col-lg-6 py-3">
+
+            <div class="form-control" data-aos="fade-right" data-aos-duration="800">
+                <form action="{{ url_for('zs_mail.unsubscribe_reason', id=person.id) }}" method="POST">
+                    <div class="mb-1 mx-4">
+                        <label for="contact-form-message" class="form-label">Could you take a moment to let me know why you've chosen to unsubscribe?</label>
+                        <textarea name="message" class="form-control" id="contact-form-message" rows="8"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary my-2" name="Send">Send</button>
+                    <button type="submit" class="btn btn-outline-danger my-2" name="No Answer">Don't Answer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+    <p class="text-center m-5">
+        If this was a mistake click here 
+        <br>
+        <br>
+ 
+        <button class="btn btn-primary text-white"> 
+            <a class="text-white" href="{{ url_for('zs_mail.resubscribe', id=person.id, _external=True) }}">
+            Subscribe</a></button>
+        </p>
     
-    <h5 class="display-5">You have been successfully unsubscribed to "ZSDynamics"</h5>
-    <p>If this was a mistake click here</p>
-    <button> <a href="{{ url_for('zs_mail.subscribe', name=name, email=email, _external=True) }}"></a>Subscribe</button>
-</body>
-
-
+</div>
+{% endblock %}

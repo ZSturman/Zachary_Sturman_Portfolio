@@ -96,6 +96,12 @@ img {
   z-index: -10;
 }
 
+.not-subs-box {
+  max-width: -webkit-min-content;
+  max-width: -moz-min-content;
+  max-width: min-content;
+}
+
 /* ---------------------------------------------------
 -----------------------------------------------------
 
@@ -256,12 +262,12 @@ img {
 .btn-outline-info:active,
 .btn-outline-info:visited {
   border-color: #4676c9 !important;
-  color: #4676c9;
+  color: #4676c9 !important;
 }
 
 .btn-outline-info:hover {
   background-color: #4875c3 !important;
-  color: #eff1f5;
+  color: #eff1f5 !important;
 }
 
 /* ---------------------------------------------------
@@ -306,6 +312,10 @@ img {
 
 -----------------------------------------------------
 ---------------------------------------------------*/
+.blue-grad {
+  background: var(--blue-gradient1);
+}
+
 .contact-page-connect-link-sm {
   position: relative;
 }

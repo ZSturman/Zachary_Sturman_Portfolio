@@ -118,7 +118,6 @@
     {% endwith %}
 
 
-
     {% if dev_status == True %}
 
     <section>
@@ -271,7 +270,6 @@
                 </div>
             </div>
         </div>
-    
 
         <div class="position-relative footer-height" id="contact">
     
@@ -281,12 +279,24 @@
     
                     {% if subscribed == True %}
     
-                    <h5>The Latest data science stuff...</h5>
+                    <h4 class="display-4">Thank You For Being Part Of ZSDynamics!</h4>
+
+                    <h6>Missed the most recent newsletter?</h6>
+               
+                        <a class="btn btn-lg btn-outline-info text-decoration-none" href="{{ url_for('zs_mail.news_letter') }}">ZSDynamics Newsletter
+                        </a>
+           
+                    <br>
+                    <br>
     
-                    <p>Not subscribed yet?</p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#subscribeModal">
-                        Click here to see the most recent stuffs
-                    </button>
+                    <div class="rounded-3 p-4 text-center mx-auto">
+                        <h4 class="fw-light">Not subscribed?</h4>
+                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#subscribeModal">
+                            Click Here
+                        </button>
+
+                    </div>
+          
     
     
     

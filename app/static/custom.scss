@@ -117,6 +117,10 @@ img {
   z-index: -10;
 }
 
+.not-subs-box{
+  max-width: min-content;
+}
+
 
 
 
@@ -301,12 +305,12 @@ img {
 .btn-outline-info:active,
 .btn-outline-info:visited {
   border-color: rgb(70, 118, 201) !important;
-  color: rgb(70, 118, 201);
+  color: rgb(70, 118, 201) !important;
 }
 
 .btn-outline-info:hover {
   background-color: rgb(72, 117, 195) !important;
-  color: rgb(239, 241, 245);
+  color: rgb(239, 241, 245) !important;
 }
 
 
@@ -365,7 +369,9 @@ img {
 
 -----------------------------------------------------
 ---------------------------------------------------*/
-
+.blue-grad{
+  background: var(--blue-gradient1);
+}
 
 .contact-page-connect-link-sm {
   position: relative;

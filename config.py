@@ -2,34 +2,14 @@ import random
 import datetime
 from typing import Optional
 from functools import lru_cache
-from pydantic import BaseSettings, BaseModel
-import pandas as pd
-
-#df = pd.read_csv("subscribers_list.csv")
-#subscribers = df.loc[df['subscribed']==True, 'email'].tolist()
-
-sub_data = {
-    "date": "2023-03-10",
-    "name": "Bob Tester",
-    "email": "test@test.com",
-    "subscribed": False,
-    "token":"d9c83679226bc702b752b77b66ee83a1"
-}
-
-class Subscriber(BaseModel):
-    date: datetime.date
-    name: str
-    email: str
-    subscribed: bool
-    token: str
-
+from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     app_name: str = "ZSDynamics"
     SECRET_KEY: str
     MAIL_USERNAME: str
     MAIL_PASSWORD: str
-    SUBSCRIBERS_LIST: Subscriber = sub_data
+    
 
     class Config:
         env_file = "app/.env"
@@ -45,7 +25,9 @@ class Configure(object):
     DEV_TEST = False
     DEV_STATUS = False
 
-    WELCOME_BASKET_LINK = 'https://www.youtube.com/watch?v=0qpuGNAek0c&list=PLTnRtjQN5iearIo2_C-2sr1ZqUHbS3Snh&index=8'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = "sqlite:///site.db"
+
 
     HOST = 'https://www.zsdynamics.com'
 
@@ -61,8 +43,8 @@ class Configure(object):
 
 class DevelopmentConfig(Configure):
     DEBUG = True
-    DEV_STATUS = True
-    PERMANENT_SESSION_LIFETIME = 20
+    DEV_STATUS = False
+    PERMANENT_SESSION_LIFETIME = 60
     
 class ProductionConfig(Configure):
     pass

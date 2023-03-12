@@ -1,0 +1,25 @@
+{% extends "mail/mail_layout.html" %}
+
+{% block mailcontent %}
+
+<h3>Subject: {{ subject }}</h3>
+
+<h3>Person:</h3>
+<ul>
+    <li>ID: {{ person.id }}</li>
+    <li>Name: {{ person.name }}</li>
+    <li>Email: {{ person.email }}</li>
+    <li>Created: {{ person.created }}</li>
+    <li>Updated: {{ person.updated }}</li>
+    <li>Subscribed: {{ person.subscribed }}</li>
+    <li>Welcome Basket Sent: {{ person.welcome_basket_sent }}</li>
+    <li>Last Email Sent: {{ person.last_email_sent }}</li>
+</ul>
+
+{% if message %}
+<h3>Message:</h3>
+<h1>{{ message }}</h1>
+{% endif %}
+
+
+{% endblock %}

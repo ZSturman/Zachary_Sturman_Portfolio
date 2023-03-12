@@ -1,0 +1,16 @@
+{% macro call_to_action(title, body, cta, href) %}
+
+
+<div style="margin:auto; width: 75%; background-color: rgb(60, 110, 150); border-radius: 20px; padding: 5%;">
+  
+    <h1 style="color: rgb(233, 232, 210); text-align: center;"><em>{{ title }}</em></h1>
+    <hr style="color: white;">
+    <p style="color: rgb(238, 238, 227);">{{ body }}</p>
+    <br>
+    <a style="color: white; font-size: larger; border: 2px solid white; border-radius: 500px; padding: 2%; text-align: center;" href="{{ href }}">{{ cta }}</a>
+    
+</div>
+
+
+
+{% endmacro %}

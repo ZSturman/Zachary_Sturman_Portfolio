@@ -1,21 +1,13 @@
-{% extends "layout.html" %}
-{% block content %}
-    <div style="border-left: 3px solid rgb(209, 240, 246); border-right: 3px solid rgb(209, 240, 246); padding: 20px;">
-        <div>
-            <!-- header -->
-            <p>Check out ZSDynamics page</p>
-            <span>
-                <a href="https://www.zsdynamics.com/home">Home</a>
-                <a href="https://www.zsdynamics.com/about">About</a>
-                <a href="https://www.zsdynamics.com/portfolio">Portfolio</a>
-            </span>
-            <h4 style="text-align: end; opacity: .5;"><em>"From data chaos to strategic clarity"</em></h4>
-            <hr>
-        </div>
-       
-        <h1>{{ name }}</h1>
-        <h1>{{ email }}</h1>
-      
-    </div>
+{% extends "mail/mail_layout.html" %}
+{% block mailcontent %}
+
+<h1>Thanks for subscribing!</h1>
+   
+{% endblock %}
+
+{% block ctacontent %}
+
+{{ call_to_action("cta_title", "cta_body", "cta", "cta_href") }}
 
 {% endblock %}
+

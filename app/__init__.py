@@ -1,17 +1,19 @@
 import random
+from pathlib import Path
 from flask import Flask, session
+from flask_sqlalchemy import SQLAlchemy
 from app.context_processors import portfolio_context_processor
 from config import Configure, get_settings
 
 settings = get_settings()
 
-print(settings.SUBSCRIBERS_LIST)
-
+db = SQLAlchemy()
 
 def create_app(config_class=Configure):
     app = Flask(__name__)
     app.config.from_object(config_class)
-
+    db.init_app(app)
+    
     app.context_processor(lambda: portfolio_context_processor(config_class))
 
     from app.errors.handlers import errors
