@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     MAIL_USERNAME: str
     MAIL_PASSWORD: str
-    
+    SQLALCHEMY_DATABASE_URI: str
 
     class Config:
         env_file = "app/.env"
@@ -26,7 +26,6 @@ class Configure(object):
     DEV_STATUS = False
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = "sqlite:///site.db"
 
 
     HOST = 'https://www.zsdynamics.com'
