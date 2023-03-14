@@ -12,12 +12,15 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}" type="text/css">
-
+    
     {% if title %}
     <title>{{ title }}</title>
     {% else %}
     <title>Zachary Sturman Portfolio</title>
     {% endif %}
+    
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico')}}">
+
 
 
 </head>

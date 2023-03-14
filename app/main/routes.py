@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, url_for, json, request
+from flask import Blueprint, render_template, url_for, send_from_directory, current_app
+import os
 
 main = Blueprint("main", __name__)
 
@@ -14,6 +15,9 @@ def about():
 @main.route("/contact")
 def contact():
     return render_template("contact.html", title="Contact")
+
+
+
 
 
 

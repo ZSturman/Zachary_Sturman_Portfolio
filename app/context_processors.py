@@ -3,7 +3,7 @@ from datetime import date
 from flask import session
 
 class Project:
-    def __init__(self, title, subtitle, description, date, link, url_for, link_title, tags, image, blank=False):
+    def __init__(self, title, subtitle, description, date, link, url_for, link_title, tags, image, alt="Project image", blank=False):
         self.title = title
         self.subtitle = subtitle
         self.description = description
@@ -13,79 +13,29 @@ class Project:
         self.link_title = link_title
         self.tags = tags
         self.image = image
+        self.alt = alt
         self.blank = blank
 
-data_science_tags = ["Data analysis", "Machine learning","Predictive modeling",
-                    "Big data",
-                    "Data visualization",
-                    "Statistical analysis",
-                    "Natural language processing (NLP)",
-                    "Deep learning",
-                    "Artificial intelligence (AI)",
-                    "Data mining",
-                    "Business intelligence",
-                    "Time series analysis",
-                    "Regression analysis",
-                    "Cluster analysis",
-                    "Decision trees",
-                    "Random forests",
-                    "Neural networks",
-                    "Dimensionality reduction",
-                    "Feature selection",
-                    "Anomaly detection"]
+data_science_tags = ["Data analysis", "Machine learning","Predictive modeling","Big data","Data visualization","Statistical analysis","Natural language processing (NLP)","Deep learning","Artificial intelligence (AI)","Data mining","Business intelligence","Time series analysis","Regression analysis","Cluster analysis","Decision trees","Random forests","Neural networks","Dimensionality reduction","Feature selection","Anomaly detection"]
 
-front_end_tags = ["User Interface (UI) Design"
-                "User Experience (UX) Design",
-                "Web Design",
-                "Responsive Design",
-                "HTML",
-                "CSS",
-                "JavaScript",
-                "jQuery",
-                "Bootstrap",
-                "Material Design",
-                "Typography",
-                "Color Theory",
-                "Layout Design",
-                "Grid Systems",
-                "Mobile Design",
-                "Accessibility",
-                "Cross-browser Compatibility",
-                "Performance Optimization",
-                "Web Standards",
-                "Visual Design"]
+front_end_tags = ["User Interface (UI) Design", "User Experience (UX) Design","Web Design","Responsive Design","HTML","CSS","JavaScript","jQuery","Bootstrap","Material Design","Typography","Color Theory","Layout Design","Grid Systems","Mobile Design","Accessibility","Cross-browser Compatibility","Performance Optimization","Web Standards","Visual Design"]
 
-back_end_tags = ["Server-side programming languages (e.g. Python, Java, Ruby, Node.js)",
-                "Web frameworks (e.g. Django, Flask, Ruby on Rails, Express.js)",
-                "Database management systems (e.g. SQL, NoSQL)",
-                "APIs (Application Programming Interfaces)",
-                "REST (Representational State Transfer) API design",
-                "Authentication and Authorization",
-                "Web Security (e.g. HTTPS, SSL, TLS)",
-                "Caching (e.g. Redis, Memcached)",
-                "DevOps (e.g. Continuous Integration, Continuous Deployment)",
-                "Cloud Services (e.g. Amazon Web Services, Google Cloud Platform)",
-                "Microservices",
-                "Message Queuing",
-                "Load Balancing",
-                "Scalability",
-                "Performance Optimization",
-                "Serverless Architecture",
-                "Content Management Systems (e.g. WordPress, Drupal)",
-                "Version Control (e.g. Git, SVN)",
-                "Debugging and Testing",
-                "Software Architecture and Design Patterns"]
+back_end_tags = ["Server-side programming languages (e.g. Python, Java, Ruby, Node.js)","Web frameworks (e.g. Django, Flask, Ruby on Rails, Express.js)","Database management systems (e.g. SQL, NoSQL)","APIs (Application Programming Interfaces)","REST (Representational State Transfer) API design","Authentication and Authorization","Web Security (e.g. HTTPS, SSL, TLS)","Caching (e.g. Redis, Memcached)","DevOps (e.g. Continuous Integration, Continuous Deployment)","Cloud Services (e.g. Amazon Web Services, Google Cloud Platform)","Microservices","Message Queuing","Load Balancing","Scalability","Performance Optimization","Serverless Architecture","Content Management Systems (e.g. WordPress, Drupal)","Version Control (e.g. Git, SVN)","Debugging and Testing","Software Architecture and Design Patterns"]
 
 
 
 
-project1 = Project("Examining the Effectiveness of Tip Redistributing in the Casino Industry", "A Data-Driven Approach Revisiting The Impact of Current Tipping Practices", "This case study examines the mandatory tip sharing practices among Blackjack and Craps dealers at Ameristar Casino.", "January 2023", link=None, url_for='projects.tip_redistribution', link_title="View Case Study", image="tips_redistribution_img", tags=["Case Study", "Data Analysis", "ChartJS"])
+tip_redistribution_proj = Project("Examining the Effectiveness of Tip Redistributing in the Casino Industry", "A Data-Driven Approach Revisiting The Impact of Current Tipping Practices", "This case study examines the mandatory tip sharing practices among Blackjack and Craps dealers at Ameristar Casino.", "January 2023", link=None, url_for='projects.tip_redistribution', link_title="View Case Study", image="static/images/projects/tip_redistribution.png", alt="Tip Redistribution Image", tags=["Case Study", "Data Analysis", "ChartJS", "Business intelligence"])
 
-project2 = Project("Interactive Periodic Table of Elements", "subtitle tbd", "Description tbd", "January 2023", link=None, url_for='projects.periodic_table', link_title="Go To Table", image="periodic_table_img", tags=["Interactive", "UI", "UX", "Database Management"])
+periodic_table_proj = Project("Interactive Periodic Table of Elements", "subtitle tbd", "Description tbd", "January 2023", link=None, url_for='projects.periodic_table', link_title="Go To Table", image="static/images/projects/periodic_table.png", alt="Periodic Table Image", tags=["Interactive", "UI", "UX", "Database Management"])
 
-project3 = Project("The Gambler's Fallacy", "When the Past Fools You into Thinking You Can Predict the Future", "The gambler's fallacy is the mistaken belief that past events in a random process influence future outcomes, despite the probabilities being independent of each other.", date="2022", link="https://github.com/ZSturman/Gamblers-Fallacy--Roulette", url_for=None, link_title="Repository", image="img", tags=["Python", "Simulation"], blank=True)
+gamblers_fallacy_proj = Project("The Gambler's Fallacy", "When the Past Fools You into Thinking You Can Predict the Future", "The gambler's fallacy is the mistaken belief that past events in a random process influence future outcomes, despite the probabilities being independent of each other.", date="2022", link="https://github.com/ZSturman/Gamblers-Fallacy--Roulette", url_for=None, link_title="Repository", image="static/images/projects/gamblers_fallacy.png", alt="Gambler's Fallacy Image", tags=["Python", "Simulation"], blank=True)
 
-project4 = Project("Productivity App", "subtitle", "Crafting intelligent solutions through programming and data", date="2022", link="https://github.com/ZSturman/Flask-Productivity-App", url_for=None, link_title="Repository", image="img", tags=["Flask", "SQL", "NGINX"], blank=True)
+productivity_app_proj = Project("Productivity App", "subtitle", "Crafting intelligent solutions through programming and data", date="2022", link="https://github.com/ZSturman/Flask-Productivity-App", url_for=None, link_title="Repository", image="static/images/projects/productivity_app.png", alt="Productivity Image", tags=["Flask", "SQL", "NGINX"], blank=True)
+
+
+
+
 
 project5 = Project(title="Fictional Heros and Villians Battle", subtitle="subtitle", description="Randomly select or choose for yourself characters to battle against each other and see who wins from all the fictional universes", date="2023", link="#", url_for=None, link_title="link title", image="img", tags=["Temp"])
 
@@ -97,7 +47,7 @@ project8 = Project(title="Streamlit Test", subtitle="subtitle", description="des
 
 project9 = Project(title="Title", subtitle="subtitle", description="description", date="2022", link="#", url_for=None, link_title="link title", image="img", tags=["Temp"])
 
-projects_list = [project1, project2, project3, project4, project5, project6, project7, project8, project9]
+projects_list = [tip_redistribution_proj, periodic_table_proj, gamblers_fallacy_proj, productivity_app_proj]
 
 
 
@@ -129,11 +79,14 @@ email_subject_line = 'Request for Data Science/ Data Analysis Information'
 call_to_action_list = ["Discover what I can do", "Collaborate with me", "Let's start a project", "Explore my portfolio", "Find out how I can help", "Let's create something great", "See my work in action", "Let's work together"]
 
 
+today = date.today()
+
+
 def portfolio_context_processor(config):
     dev_test = config.DEV_TEST
     dev_status = config.DEV_STATUS
     mailing_list_txt = random.choice(mailing_list_txt_list)
     call_to_action_txt = random.choice(call_to_action_list)
-    current_date = date.today()
+    current_date = today.strftime("%B %d, %Y")
     subscribed = session.get('subscribed', False)
     return {'dev_test': dev_test, 'dev_status':dev_status, 'mailing_list_txt':mailing_list_txt, 'email_body_list':email_body_list, 'email_subject_line':email_subject_line, 'call_to_action_txt':call_to_action_txt, 'reviews_list':reviews_list, 'projects_list':projects_list, "current_date":current_date, "subscribed":subscribed}

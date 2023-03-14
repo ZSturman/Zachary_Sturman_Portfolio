@@ -24,10 +24,23 @@ def record(state):
     app.config['MAIL_USERNAME'] = settings.MAIL_USERNAME
     app.config['MAIL_PASSWORD'] = settings.MAIL_PASSWORD
     app.config['SECRET_KEY'] = settings.SECRET_KEY
+    app.config['MAIL_ASCII_ATTACHMENTS'] = True
+
     app.config['HOST'] = 'https://www.zsdynamics.com'
     mail.init_app(app)
     with app.app_context():
         current_app.mail = mail
+
+
+
+def msg_attachments(msg):
+    msg.attach('githubicon.png','image/png',open('app/static/images/githubicon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Mailgithub>'],])
+    msg.attach('linkedinicon.png','image/png',open('app/static/images/linkedinicon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Maillinkedin>'],])
+    msg.attach('twittericon.png','image/png',open('app/static/images/twittericon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Mailtwitter>'],])
+    msg.attach('emailbanner.png','image/png',open('app/static/images/emailbanner.png', 'rb').read(), 'inline', headers=[['Content-ID','<Emailbanner>'],])
+    msg.attach('zssignature.png','image/png',open('app/static/images/zssignature.png', 'rb').read(), 'inline', headers=[['Content-ID','<Signature>'],])
+
+
 
 def redirect_url(default='main.home'):
     return request.args.get('next') or \
@@ -44,7 +57,7 @@ def set_subscribed(sub=False):
     session.permanent = True
     return sub
 
-@zs_mail.route("/usubscribe/<string:id>")
+@zs_mail.route("/unsubscribe/<string:id>")
 def unsubscribe(id):
     date = datetime.today()
     unsubscriber = Subscribers.query.filter_by(id=id).first()
@@ -225,11 +238,22 @@ def send_mail():
             subscribe_link = "subscribe_frm_email/" + emailer.id
             #unsubscribe_link = url_for('zs_mail.unsubscribe', id = emailer.id, _external=True)
             unsubscribe_link = "unsubscribe/" + emailer.id
+
+
+
+
+
+
+
+
             msg = Message(
                     subject = 'Thanks for reaching out!',
                     recipients= [email,settings.MAIL_USERNAME],
                     html = render_template("mail/thanks_for_reaching_out.html", person=emailer, reaching_out=True, date=date, subscribe_link=subscribe_link, unsubscribe_link=unsubscribe_link)
                 )
+            
+            msg_attachments(msg)
+            
             current_app.mail.send(msg)
             emailer.last_email_sent = datetime.utcnow()
             db.session.commit()
@@ -258,3 +282,9 @@ def send_mail():
 @zs_mail.route("/news_letter")
 def news_letter():
     return render_template("mail/news_letter.html", title="News Letter")
+
+
+@zs_mail.route("/mail_tests")
+def mail_tests():
+    person = Subscribers.query.first()
+    return render_template("mail/welcome_basket.html", person=person, reaching_out=True, font_link2='https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap', font_link='https://fonts.googleapis.com/css?family=Font1|Font2')

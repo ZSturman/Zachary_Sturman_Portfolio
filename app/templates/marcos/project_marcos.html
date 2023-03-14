@@ -1,8 +1,18 @@
 {% macro project_card(project) %}
 
 <div class="row my-4 proj_card justify-content-center">
-    <div class="col-12 col-md-3 bg-dark rounded-4">
-        <p class="text-white text-center">{{ project.image }}</p>
+    <div class="col-12 col-md-3">
+        {% if project.link %}
+            <a class="p-0" href="{{ project.link }}" {% if project.blank %} target="_blank" {% endif %}>
+                <img src="{{ project.image }}" alt="{{ project.alt }}"></a>
+        {% endif %}
+
+        {% if project.url_for %}
+            <a class="p-0" href="{{ url_for(project.url_for) }}">
+                <img  src="{{ project.image }}" alt="{{ project.alt }}"></a>
+        {% endif %}
+
+        
     </div>
     <div class="col-12 col-md-7">
         <p class="p-0 m-0 opacity-50">{{ project.date }}</p>

@@ -8,62 +8,253 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="{{ font_link2 }}" rel="stylesheet">
+    <link href="{{ font_link }}" rel="stylesheet">
+
     {% if title %}
     <title>{{ title }}</title>
     {% else %}
     <title>ZSDynamics</title>
     {% endif %}
 
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <style>
+        body {
+            padding: 2%;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        .email-body {
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        a:hover {
+            font-weight: 900;
+        }
+
+        .social_link {
+            min-width: 50px;
+        }
+
+        .nav-link {
+            margin-bottom: .5lh;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: black;
+        }
+
+        .ftr-btn {
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: rgb(28, 32, 46);
+            font-size: 1.5rem;
+            padding: 15px;
+            min-width: 200px;
+            color: white;
+            border: none;
+        }
+
+        .ftr-btn:hover {
+            background-color: rgb(63, 73, 112);
+            scale: 1.05;
+        }
+
+        p {
+            font-size: 1.25rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        .footer_contact {
+            font-size: .9rem;
+            opacity: .5;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            color: black;
+        }
+
+        .cta-div {
+            border-radius: 15px;
+            background-color: rgb(64, 114, 250);
+            padding: 20px;
+        }
+
+        .quote {
+            text-align: end;
+            opacity: .5;
+            padding: 0;
+            margin: 0;
+        }
+
+        .quote_citation {
+            text-align: end;
+            opacity: .5;
+            font-size: .75rem;
+        }
+
+        .footer_contact_section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .top-link {
+            text-align: center;
+            font-size: 2rem;
+            padding: 0;
+            margin: 0;
+            font-family: 'Cabin Sketch', cursive;
+
+            color: blue;
+        }
+
+        .top-logo {
+            width: 600px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 10px;
+        }
+
+        .header-link {
+            text-decoration: none;
+        }
+        .social_png{
+            margin-left: 15px;
+        }
+        .social_png:hover{
+            scale: 1.05;
+            opacity: .7;
+        }
+    </style>
+
 </head>
 
-<body style="margin:5vw;">
+<body>
+    <div class="email-body">
 
-    <div style="border-left: 3px solid rgb(209, 240, 246); border-right: 3px solid rgb(209, 240, 246); padding: 20px;">
+        <a class="header-link" href="https://www.zsdynamics.com">
+            <img src="cid:Emailbanner" alt="ZSdynamics">
+        </a>
         <div>
-            <!-- header -->
-            <p>Check out ZSDynamics page</p>
-            <span>
-                <a href="https://www.zsdynamics.com/home">Home</a>
-                <a href="https://www.zsdynamics.com/about">About</a>
-                <a href="https://www.zsdynamics.com/portfolio">Portfolio</a>
-            </span>
-            <h4 style="text-align: end; opacity: .5;"><em>"From data chaos to strategic clarity"</em></h4>
+            <h3 style="text-align: end; opacity: .5;">{{ current_date }}</h3>
+            {% block mailcontent %}
+            {% endblock %}
+            <img src="cid:Signature" alt="Zachary Sturman Sugnature">
+            <br>
             <hr>
+
+            <h4 class="quote"><em>"A hen is only an egg's way of
+                    making another egg."</em></h4>
+            <p class="quote_citation"><em>- Samuel Butler</em></p>
+            {% if to_me != True %}
+
+            {% block ctacontent %}
+
+            {{ call_to_action(cta_title, cta_body, cta, cta_href) }}
+
+            {% endblock %}
+            {% endif %}
+
+            <br>
+            <br>
+
+            <div class="footer_contact">View last weeks <a href="#">Newsletter</a>.</div>
+
+
+            <br>
+            <br>
+            <br>
+
+            <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td width="50%">
+                        <a class="nav-link" href="https://www.zsdynamics.com/home">Home</a>
+                        <br>
+                        <br>
+                        <a class="nav-link" href="https://www.zsdynamics.com/about">About</a>
+                    </td>
+                    <td width="50%">
+                        <a href="https://www.zsdynamics.com/static/assets/Zachary_Sturman_Resume_2023.pdf">
+                            <button class="ftr-btn">
+                                Resume
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%">
+                        <a class="nav-link" href="https://www.zsdynamics.com/portfolio">Portfolio</a>
+                        <br>
+                        <br>
+                        <a class="nav-link" href="https://www.zsdynamics.com/data_analytics">Services</a>
+
+                    </td>
+                    <td width="50%">
+                        <div>
+
+                            <a class="social_png" href="https://github.com/ZSturman?tab=repositories">
+                                <img alt="github" src="cid:Mailgithub">
+                                </a>
+
+                            <a class="social_png" href="https://www.linkedin.com/in/zacharysturman/">
+                                <img alt="linkedin" src="cid:Maillinkedin"></a>
+
+
+                            <a class="social_png" href="https://twitter.com/zachary_sturman">
+                                <img alt="twitter" src="cid:Mailtwitter">
+                            </a>
+
+
+                        </div>
+
+
+                    </td>
+                </tr>
+
+
+
+                {% if to_me != True %}
+                <tr>
+                    <td>
+                        <a class="nav-link" href="https://www.zsdynamics.com/{{ unsubscribe_link }}">Unsubscribe</a>
+                    </td>
+                </tr>
+
+                {% endif %}
+            </table>
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="footer_contact_section">
+                <a class="footer_contact" href="https://www.zsdynamics.com">ZSDynamics</a>
+                <p class="footer_contact">| </p>
+                <a class="footer_contact" href="mailto:zacharysturman@zsdynamics.com">zacharysturman@zsdynamics.com</a>
+                <p class="footer_contact">| </p>
+                <a class="footer_contact" href="tel:8168720826">(816)872•0826</a>
+                <p class="footer_contact">| </p>
+                <a class="footer_contact"
+                    href="https://www.google.com/maps/place/Denver,+CO/@39.7640005,-105.1359778,10z/data=!3m1!4b1!4m6!3m5!1s0x876b80aa231f17cf:0x118ef4f8278a36d6!8m2!3d39.7392358!4d-104.990251!16zL20vMDJjbDE">Denver,
+                    Colorado</a>
+            </div>
+            <br>
+            <br>
         </div>
-
-        <div style="background-color: rgb(94, 125, 173); color: rgb(208, 208, 208)">
-            <span>
-                <h1>
-                    {% if reaching_out == True %}
-                        Thanks for reaching out {{ person.name }}!
-                    {% elif subscribing == True %}
-                        Welcome to ZSDynamics {{ person.name }}!
-                    {% elif newsletter == True %}
-                        ZSDynamics Newsletter
-                    {% endif %}
-                </h1>
-                <h3 style="opacity: .75; text-align: end;">{{ date }}</h3>
-            </span>
-        </div>
-        <br>
-
-        {% block mailcontent %}
-        {% endblock %}
-        <br>
-        {% if to_me != True %}
-
-        {% block ctacontent %}
-
-        {{ call_to_action(cta_title, cta_body, cta, cta_href) }}
-
-        {% endblock %}
-        {% endif %}
-
     </div>
-
-    {% if to_me != True %}
-    <a href="{{ unsubscribe_link }}">Unsubscribe</a>
-    {% endif %}
 
 </body>
 
