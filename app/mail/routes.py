@@ -94,6 +94,7 @@ def to_me(person, subj, messg=None):
         recipients=[settings.MAIL_USERNAME],
         html = render_template("mail/to_me.html", title="To Me", person=person, message=messg, subject=subj, to_me = True, date=date)
     )
+    msg_attachments(msg)
     current_app.mail.send(msg)
 
 
@@ -117,7 +118,8 @@ def thanks_for_subscribing(id):
            subject = 'Welcome '+subscriber.name+"!",
            recipients= [subscriber.email],
            html = render_template("mail/welcome_basket.html", title="Thanks For Subscribing!", subscriber=subscriber, date=date,unsubscribe_link=unsubscribe_link)
-       )
+        )
+        msg_attachments(msg)
         current_app.mail.send(msg)
         subscriber.welcome_basket_sent = True
     db.session.commit()
@@ -143,6 +145,7 @@ def subscribe_frm_email(id):
            recipients= [person.email],
            html = render_template("mail/welcome_basket.html", title="Thanks For Subscribing!", person=person, date=date,unsubscribe_link=unsubscribe_link)
        )
+        msg_attachments(msg)
         current_app.mail.send(msg)
         person.welcome_basket_sent = True
     db.session.commit()
@@ -191,6 +194,7 @@ def subscribe():
                     updated=datetime.utcnow()
                 )
             db.session.add(subscriber)
+        db.session.commit()
         #unsubscribe_link = url_for('zs_mail.unsubscribe', id = subscriber.id, _external=True)
         unsubscribe_link = "unsubscribe/" + subscriber.id
         if subscriber.welcome_basket_sent == False:
@@ -199,6 +203,7 @@ def subscribe():
                recipients= [subscriber.email],
                html = render_template("mail/welcome_basket.html", title="Thanks For Subscribing!", person=subscriber, date=date,unsubscribe_link=unsubscribe_link)
             )    
+            msg_attachments(msg)
             current_app.mail.send(msg)
             subscriber.welcome_basket_sent = True
         db.session.commit()
@@ -234,46 +239,32 @@ def send_mail():
             db.session.add(emailer)
             db.session.commit()
         if emailer.email == "zasturman@gmail.com":
-            #subscribe_link = url_for('zs_mail.subscribe_frm_email', id = emailer.id, _external=True)
             subscribe_link = "subscribe_frm_email/" + emailer.id
-            #unsubscribe_link = url_for('zs_mail.unsubscribe', id = emailer.id, _external=True)
             unsubscribe_link = "unsubscribe/" + emailer.id
-
-
-
-
-
-
-
-
             msg = Message(
                     subject = 'Thanks for reaching out!',
                     recipients= [email,settings.MAIL_USERNAME],
                     html = render_template("mail/thanks_for_reaching_out.html", person=emailer, reaching_out=True, date=date, subscribe_link=subscribe_link, unsubscribe_link=unsubscribe_link)
                 )
-            
             msg_attachments(msg)
-            
             current_app.mail.send(msg)
             emailer.last_email_sent = datetime.utcnow()
             db.session.commit()
         elif emailer.last_email_sent and datetime.utcnow() - emailer.last_email_sent < timedelta(minutes=1):
             to_me(emailer, "Trying to send message within 'do not send window'")
         else:
-            #subscribe_link = url_for('zs_mail.subscribe_frm_email', id = emailer.id, _external=True)
             subscribe_link = "subscribe_frm_email/" + emailer.id
-            #unsubscribe_link = url_for('zs_mail.unsubscribe', id = emailer.id, _external=True)
             unsubscribe_link = "unsubscribe/" + emailer.id
             msg = Message(
                     subject = 'Thanks for reaching out!',
                     recipients= [email,settings.MAIL_USERNAME],
                     html = render_template("mail/thanks_for_reaching_out.html", person=emailer, reaching_out=True, date=date, subscribe_link=subscribe_link, unsubscribe_link=unsubscribe_link)
                 )
+            msg_attachments(msg)
             current_app.mail.send(msg)
             emailer.last_email_sent = datetime.utcnow()
             db.session.commit()
         to_me(emailer, "New Message", input_message)
-        
     to_emailer()
     flash(f"Thanks for reaching out! A reply will be sent to your email soon", 'success')
     return redirect(redirect_url())
