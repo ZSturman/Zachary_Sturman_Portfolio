@@ -33,19 +33,18 @@ def record(state):
 
 
 
-def msg_attachments(msg):
+def msg_attachments(msg, welcome_basket=False):
     msg.attach('githubicon.png','image/png',open('app/static/images/githubicon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Mailgithub>'],])
     msg.attach('linkedinicon.png','image/png',open('app/static/images/linkedinicon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Maillinkedin>'],])
     msg.attach('twittericon.png','image/png',open('app/static/images/twittericon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Mailtwitter>'],])
     msg.attach('emailbanner_logo.png','image/png',open('app/static/images/emailbanner_logo.png', 'rb').read(), 'inline', headers=[['Content-ID','<Emailbanner>'],])
     msg.attach('zssignature.png','image/png',open('app/static/images/zssignature.png', 'rb').read(), 'inline', headers=[['Content-ID','<Signature>'],])
-    
-    #create function to only use this when person is subscribing
-    msg.attach('mail_tips.png','image/png',open('app/static/images/mail_tips.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailTips>'],])
-    msg.attach('mail_science.png','image/png',open('app/static/images/mail_science.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailScience>'],])
-    msg.attach('mail_project.png','image/png',open('app/static/images/mail_project.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailProject>'],])
-    msg.attach('mail_learn.png','image/png',open('app/static/images/mail_learn.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailLearn>'],])
-    msg.attach('mail_flame.png','image/png',open('app/static/images/mail_flame.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailFlame>'],])
+    if welcome_basket == True:
+        msg.attach('mail_tips.png','image/png',open('app/static/images/mail_tips.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailTips>'],])
+        msg.attach('mail_science.png','image/png',open('app/static/images/mail_science.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailScience>'],])
+        msg.attach('mail_project.png','image/png',open('app/static/images/mail_project.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailProject>'],])
+        msg.attach('mail_learn.png','image/png',open('app/static/images/mail_learn.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailLearn>'],])
+        msg.attach('mail_flame.png','image/png',open('app/static/images/mail_flame.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailFlame>'],])
 
 
 
@@ -119,14 +118,13 @@ def thanks_for_subscribing(id):
     subscriber.updated = datetime.utcnow()
     subscriber.subscribed = True
     if subscriber.welcome_basket_sent == False:
-        #unsubscribe_link = url_for('zs_mail.unsubscribe', id = subscriber.id, _external=True)
         unsubscribe_link = "unsubscribe/" + subscriber.id
         msg = Message(
            subject = 'Welcome '+subscriber.name+"!",
            recipients= [subscriber.email],
            html = render_template("mail/welcome_basket.html", title="Thanks For Subscribing!", subscriber=subscriber, date=date,unsubscribe_link=unsubscribe_link)
         )
-        msg_attachments(msg)
+        msg_attachments(msg, welcome_basket=True)
         current_app.mail.send(msg)
         subscriber.welcome_basket_sent = True
     db.session.commit()
@@ -145,14 +143,13 @@ def subscribe_frm_email(id):
     person.updated = datetime.utcnow()
     person.subscribed = True
     if person.welcome_basket_sent == False:
-        #unsubscribe_link = url_for('zs_mail.unsubscribe', id = person.id, _external=True)
         unsubscribe_link = "unsubscribe/" + person.id
         msg = Message(
            subject = 'Welcome '+person.name+"!",
            recipients= [person.email],
            html = render_template("mail/welcome_basket.html", title="Thanks For Subscribing!", person=person, date=date,unsubscribe_link=unsubscribe_link)
        )
-        msg_attachments(msg)
+        msg_attachments(msg, welcome_basket=True)
         current_app.mail.send(msg)
         person.welcome_basket_sent = True
     db.session.commit()
@@ -202,7 +199,6 @@ def subscribe():
                 )
             db.session.add(subscriber)
         db.session.commit()
-        #unsubscribe_link = url_for('zs_mail.unsubscribe', id = subscriber.id, _external=True)
         unsubscribe_link = "unsubscribe/" + subscriber.id
         if subscriber.welcome_basket_sent == False:
             msg = Message(
@@ -210,7 +206,7 @@ def subscribe():
                recipients= [subscriber.email],
                html = render_template("mail/welcome_basket.html", title="Thanks For Subscribing!", person=subscriber, date=date,unsubscribe_link=unsubscribe_link)
             )    
-            msg_attachments(msg)
+            msg_attachments(msg, welcome_basket=True)
             current_app.mail.send(msg)
             subscriber.welcome_basket_sent = True
         db.session.commit()
