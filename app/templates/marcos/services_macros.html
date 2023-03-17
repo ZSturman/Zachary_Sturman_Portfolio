@@ -1,0 +1,38 @@
+{% from 'marcos/svgs.html' import python_backend, python_da, flask, sql, r, blender, sass, bootstrap, asp, js, threejs, gsap, database, chartjs %}
+
+
+{% macro toolbox(tool) %}
+
+<div class="container">
+    <h2 class="fw-light">My Toolbox</h2>
+    <hr>
+
+
+    {% set tool_map = {
+        "python_backend": python_backend,
+        "python_da": python_da,
+        "flask": flask,
+        "sql": sql,
+        "r": r,
+        "blender": blender,
+        "sass": sass,
+        "bootstrap": bootstrap,
+        "asp": asp,
+        "js": js,
+        "threejs": threejs,
+        "gsap": gsap,
+        "chartjs": chartjs,
+        "database": database
+    } %}
+    {% for t in tool %}
+    {% if t in tool_map %}
+
+    {{ tool_map[t]() }}
+
+    {% endif %}
+    {% endfor %}
+
+</div>
+
+
+{% endmacro %}

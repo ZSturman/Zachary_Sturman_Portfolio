@@ -8,9 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="{{ font_link2 }}" rel="stylesheet">
@@ -34,9 +31,16 @@
             margin: 0 auto;
             max-width: 600px;
         }
+        ul{
+            list-style: none;
+        }
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
 
         a:hover {
-            font-weight: 900;
+            font-weight: bold;
         }
 
         .social_link {
@@ -53,21 +57,25 @@
         .ftr-btn {
             border-radius: 10px;
             cursor: pointer;
-            background-color: rgb(28, 32, 46);
             font-size: 1.5rem;
             padding: 15px;
             min-width: 200px;
-            color: white;
-            border: none;
+            background-color: white;
+            border: 2px solid black;
         }
 
         .ftr-btn:hover {
-            background-color: rgb(63, 73, 112);
             scale: 1.05;
         }
 
-        p {
+        p{
             font-size: 1.25rem;
+        }
+
+        li{
+            font-size: 1.1rem;
+            font-weight: 100;
+            margin-bottom: 1rem;
         }
 
         h1 {
@@ -82,13 +90,6 @@
             text-decoration: none;
             color: black;
         }
-
-        .cta-div {
-            border-radius: 15px;
-            background-color: rgb(64, 114, 250);
-            padding: 20px;
-        }
-
         .quote {
             text-align: end;
             opacity: .5;
@@ -128,13 +129,58 @@
         .header-link {
             text-decoration: none;
         }
-        .social_png{
+
+        .social_png {
             margin-left: 15px;
         }
-        .social_png:hover{
-            scale: 1.05;
+
+        .social_png:hover {
+            scale: 1.1;
             opacity: .7;
         }
+        .logo_bg{
+            background-image: linear-gradient(90deg,#307AA7, #70aac9, #307AA7);
+            border-radius: 12px;
+        }
+        .section_break{
+            background-color: #307AA7;
+            padding: 1rem;
+        }
+        .curr_date{
+            text-align: end;
+            opacity: .5;
+            font-size: .75rem;
+        }
+        .cta-div {
+            border-radius: 15px;
+            padding: 20px;
+            background-image: linear-gradient(180deg, #70aac9, #307AA7);
+        }
+        .cta-title{
+            color: rgb(233, 232, 210);
+            text-align: center
+        }
+        .cta-hr{
+            color: white;
+        }
+        .cta-body{
+            color: rgb(238, 238, 227);
+        }
+        .cta-btm{
+            text-align: center;
+            padding: 1rem;
+            color: rgb(233, 232, 210);
+        }
+        .cta-btn{
+            color: white; 
+            font-size: larger;
+            border: 2px solid white;
+            border-radius: 500px;
+            padding: 2%;
+            text-align: center;
+            cursor: pointer;
+        }
+
     </style>
 
 </head>
@@ -142,14 +188,42 @@
 <body>
     <div class="email-body">
 
-        <a class="header-link" href="https://www.zsdynamics.com">
-            <img src="cid:Emailbanner" alt="ZSdynamics">
-        </a>
+
+        <table width="100%">
+            <tr>
+                <td class="logo_bg">
+                    {% if testing_mail == True %}
+                    <a class="header-link" href="https://www.zsdynamics.com">
+                        <img src="../../static/images/emailbanner_logo.png" alt="ZSdynamics">
+                    </a>
+                    {% else %}
+                    <a class="header-link" href="https://www.zsdynamics.com">
+                        <img src="cid:Emailbanner" alt="ZSdynamics">
+                    </a>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+       
+
+
+
         <div>
-            <h3 style="text-align: end; opacity: .5;">{{ current_date }}</h3>
+            <p class="curr_date">{{ current_date }}</p>
             {% block mailcontent %}
             {% endblock %}
-            <img src="cid:Signature" alt="Zachary Sturman Sugnature">
+            <table>
+                <td>
+                    <tr>
+                        {% if testing_mail == True %}
+                        <img src="../../static/images/zssignature.png" alt="Zachary Sturman Signature">
+                        {% else %}
+                        <img src="cid:Signature" alt="Zachary Sturman Signature">
+                        {% endif %}
+                    </tr>
+                </td>
+            </table>
+            
             <br>
             <hr>
 
@@ -174,7 +248,7 @@
             <br>
             <br>
             <br>
-
+            {% if testing_mail == True %}
             <table cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                     <td width="50%">
@@ -201,37 +275,79 @@
                     </td>
                     <td width="50%">
                         <div>
-
                             <a class="social_png" href="https://github.com/ZSturman?tab=repositories">
-                                <img alt="github" src="cid:Mailgithub">
-                                </a>
-
-                            <a class="social_png" href="https://www.linkedin.com/in/zacharysturman/">
-                                <img alt="linkedin" src="cid:Maillinkedin"></a>
-
-
-                            <a class="social_png" href="https://twitter.com/zachary_sturman">
-                                <img alt="twitter" src="cid:Mailtwitter">
+                                <img alt="github" src="../../static/images/githubicon.png">
                             </a>
-
-
+                            <a class="social_png" href="https://www.linkedin.com/in/zacharysturman/">
+                                <img alt="linkedin" src="../../static/images/linkedinicon.png"></a>
+                            <a class="social_png" href="https://twitter.com/zachary_sturman">
+                                <img alt="twitter" src="../../static/images/twittericon.png">
+                            </a>
                         </div>
-
-
                     </td>
                 </tr>
-
-
-
                 {% if to_me != True %}
                 <tr>
                     <td>
                         <a class="nav-link" href="https://www.zsdynamics.com/{{ unsubscribe_link }}">Unsubscribe</a>
                     </td>
                 </tr>
-
                 {% endif %}
             </table>
+
+            {% else %}
+
+            <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td width="50%">
+                        <a class="nav-link" href="https://www.zsdynamics.com/home">Home</a>
+                        <br>
+                        <br>
+                        <a class="nav-link" href="https://www.zsdynamics.com/about">About</a>
+                    </td>
+                    <td width="50%">
+                        <a style="cursor: pointer;" href="https://www.zsdynamics.com/static/assets/Zachary_Sturman_Resume_2023.pdf">
+                            <button class="ftr-btn" style="cursor: pointer;">
+                                Resume
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%">
+                        <a class="nav-link" href="https://www.zsdynamics.com/portfolio">Portfolio</a>
+                        <br>
+                        <br>
+                        <a class="nav-link" href="https://www.zsdynamics.com/data_analytics">Services</a>
+
+                    </td>
+                    <td width="50%">
+                        <div>
+                            <a class="social_png" href="https://github.com/ZSturman?tab=repositories">
+                                <img alt="github" src="cid:Mailgithub">
+                            </a>
+                            <a class="social_png" href="https://www.linkedin.com/in/zacharysturman/">
+                                <img alt="linkedin" src="cid:Maillinkedin"></a>
+                            <a class="social_png" href="https://twitter.com/zachary_sturman">
+                                <img alt="twitter" src="cid:Mailtwitter">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% if to_me != True %}
+                <tr>
+                    <td>
+                        <a class="nav-link" href="https://www.zsdynamics.com/{{ unsubscribe_link }}">Unsubscribe</a>
+                    </td>
+                </tr>
+                {% endif %}
+            </table>
+
+
+
+
+
+            {% endif %}
 
 
             <br>

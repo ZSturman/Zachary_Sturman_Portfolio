@@ -35,10 +35,59 @@
 
 {% block ctacontent %}
 
+
     {% if person.subscribed == True %}
-        {{ call_to_action("Thanks for being subscribed!", "I hope you're having a good day.", "In case you missed it click here for the latest newsletter", "https://www.zsdynamics.com") }}
+
+    {% set title %}
+    Curious but don't know where to start?
+    {% endset %}
+    
+    
+    {% set body %}
+    If you're like me then there are a lot of things that interest you. Probably too many things. So many things that you don't know where to start.
+    <br>
+    <br>
+    That's where I can help.
+    <br>
+    <br>
+    I've created a "spin the globe, close your eyes, stop with your finger" kind of app that gets you to a good starting point on your journey to squelch the "-but why?" voice in your head.
+    
+    
+    
+    {% endset %}
+    
+    
+    {% set cta %}
+    Find The Answers
+    
+    {% endset %}
+    
+    {% set href %}
+    "https://www.zsdynamics.com"
+    {% endset %}
+    
+    
+    {{ call_to_action(title, body, cta, href) }}
+    
+    
+    
+    
     {% else %}
-        {{ call_to_action("Not Subscribed Yet?", "Click here so you don't miss out on the most interesting and need to know advancements in the world of science and technology", "Subscribe", subscribe_link) }}
+
+    {% set title %}
+    Expand your horizons, challenge your beliefs, leave me on 'unread'
+    {% endset %}
+
+    {% set body %}
+    Ignite your passion for discovery and subscribe to ZSDynamics. 
+    <br>
+    Stay informed with the latest scientific breakthroughs and tech news while learning new skills and gaining experience.
+
+    {% endset %}
+
+        {{ call_to_action(title, body, "Subscribe Here", subscribe_link) }}
+
+
     {% endif %}
 
 {% endblock %}

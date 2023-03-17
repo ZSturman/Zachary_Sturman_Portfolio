@@ -59,7 +59,11 @@
                                     <h2
                                         class="border border-2 rounded-3 border-white m-1 p-1 displayed-symbol position-absolute top-0 start-0">
                                         {{ e.symbol }}</h2>
-                                    <h1 class="text-center">{{ e.element }}</h1>
+
+
+                                    <h1 class="d-none d-lg-block d-xl-none text-end">{{ e.element }}</h1>
+                                    <h1 class="d-block d-lg-none d-xl-block text-center">{{ e.element }}</h1>
+
                                     <div class="row">
                                         <div id="sel-elem-overview-sect-{{ e['atomic_number'] }}"
                                             class="text-dark rounded-3 col col-lg-12">
@@ -159,15 +163,8 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
-
                                 </div>
                             </div>
-
-
-
                             {% endif %}
                             {% endfor %}
                         </div>

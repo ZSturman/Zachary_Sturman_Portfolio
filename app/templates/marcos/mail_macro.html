@@ -1,13 +1,14 @@
 {% macro call_to_action(title, body, cta, href) %}
 
-
 <div class="cta-div">
   
-    <h1 style="color: rgb(233, 232, 210); text-align: center;"><em>{{ title }}</em></h1>
-    <hr style="color: white;">
-    <p style="color: rgb(238, 238, 227);">{{ body }}</p>
+    <h1 class="cta-title"><em>{{ title }}</em></h1>
+    <hr class="cta-hr">
+    <p class="cta-body">{{ body }}</p>
     <br>
-    <a style="color: white; font-size: larger; border: 2px solid white; border-radius: 500px; padding: 2%; text-align: center;" href="https://www.zsdynamics.com/{{ href }}">{{ cta }}</a>
+    <div class="cta-btm">
+        <a class="cta-btn" href="https://www.zsdynamics.com/{{ href }}" style="color: white;">{{ cta }}</a>
+    </div>
     
 </div>
 

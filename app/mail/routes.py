@@ -37,8 +37,15 @@ def msg_attachments(msg):
     msg.attach('githubicon.png','image/png',open('app/static/images/githubicon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Mailgithub>'],])
     msg.attach('linkedinicon.png','image/png',open('app/static/images/linkedinicon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Maillinkedin>'],])
     msg.attach('twittericon.png','image/png',open('app/static/images/twittericon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Mailtwitter>'],])
-    msg.attach('emailbanner.png','image/png',open('app/static/images/emailbanner.png', 'rb').read(), 'inline', headers=[['Content-ID','<Emailbanner>'],])
+    msg.attach('emailbanner_logo.png','image/png',open('app/static/images/emailbanner_logo.png', 'rb').read(), 'inline', headers=[['Content-ID','<Emailbanner>'],])
     msg.attach('zssignature.png','image/png',open('app/static/images/zssignature.png', 'rb').read(), 'inline', headers=[['Content-ID','<Signature>'],])
+    
+    #create function to only use this when person is subscribing
+    msg.attach('mail_tips.png','image/png',open('app/static/images/mail_tips.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailTips>'],])
+    msg.attach('mail_science.png','image/png',open('app/static/images/mail_science.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailScience>'],])
+    msg.attach('mail_project.png','image/png',open('app/static/images/mail_project.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailProject>'],])
+    msg.attach('mail_learn.png','image/png',open('app/static/images/mail_learn.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailLearn>'],])
+    msg.attach('mail_flame.png','image/png',open('app/static/images/mail_flame.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailFlame>'],])
 
 
 
@@ -199,7 +206,7 @@ def subscribe():
         unsubscribe_link = "unsubscribe/" + subscriber.id
         if subscriber.welcome_basket_sent == False:
             msg = Message(
-               subject = 'Welcome '+subscriber.name+"!",
+               subject = 'Welcome To ZSDynamics!',
                recipients= [subscriber.email],
                html = render_template("mail/welcome_basket.html", title="Thanks For Subscribing!", person=subscriber, date=date,unsubscribe_link=unsubscribe_link)
             )    
@@ -275,7 +282,7 @@ def news_letter():
     return render_template("mail/news_letter.html", title="News Letter")
 
 
-@zs_mail.route("/mail_tests")
+""" @zs_mail.route("/mail_tests")
 def mail_tests():
     person = Subscribers.query.first()
-    return render_template("mail/welcome_basket.html", person=person, reaching_out=True, font_link2='https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap', font_link='https://fonts.googleapis.com/css?family=Font1|Font2')
+    return render_template("mail/welcome_basket.html", person=person, reaching_out=True, font_link2='https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap', font_link='https://fonts.googleapis.com/css?family=Font1|Font2', testing_mail=True) """

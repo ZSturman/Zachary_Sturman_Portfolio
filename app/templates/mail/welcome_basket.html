@@ -2,12 +2,225 @@
 
 {% block mailcontent %}
 
-<h1>Welcome Basket!</h1>
+<style>
+    .expect-bllt{
+        font-size: 1.1rem;
+    }
+    .icon_cell{
+        text-align: center;
+    }
+</style>
+
+<div>
+    <h1>
+        Welcome {{ person.name }},
+    </h1>
+    <p>
+
+        I am thrilled to have you join my community of curious minds. Thank you for subscribing to
+        ZSDynamics!
+
+        <br>
+        <br>
+        My name is Zachary, and I'm the one curating this newsletter for you. I'm delighted to share my passion for
+        the world of science, history, math, technology, and anything else that piques my curiosity.
+        </p>
+
+
+ <br> 
+
+ <hr>
+ <br>
+
+        <h2 style="font-weight: 100;">
+        Here's what you can expect in your inbox:
+    </h2>
+
+
+    <table style="padding: 1rem;" width="100%" >
+        <tr width="100">
+            <td class="icon_cell">
+                {% if testing_mail == True %}
+                <img src="../../static/images/mail_science.png" alt="Mail Science">
+                {% else %}
+                <img src="cid:MailScience" alt="Science Icon">
+                {% endif %}
+            </td>
+            <td>
+                <p class="expect-bllt">
+                Videos and articles that I discovered during my deep dives into the realms of data science, history,
+                math, and technology.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {% if testing_mail == True %}
+                <img src="../../static/images/mail_learn.png" alt="Mail Learn">
+                {% else %}
+                <img src="cid:MailLearn" alt="Learn Icon">
+                {% endif %}
+                
+            </td>
+            <td>
+                <p class="expect-bllt">
+                Knowledge in everything from how quantum entanglement works to the correct way to spell the word
+                "pique".
+                </p>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {% if testing_mail == True %}
+                <img src="../../static/images/mail_project.png" alt="Mail Project">
+                {% else %}
+                <img src="cid:MailProject" alt="Project Icon">
+                {% endif %}
+                
+
+            </td>
+            <td>
+                <p class="expect-bllt">
+                As I work on various projects, I'll keep you informed about my progress and milestones, giving you
+                a behind-the-scenes look at what I'm up to and the technologies I'm using.
+                </p>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% if testing_mail == True %}
+                <img src="../../static/images/mail_flame.png" alt="Mail Flame">
+                {% else %}
+                <img src="cid:MailFlame" alt="Flame Icon">
+                {% endif %}
+                
+            </td>
+            <td>
+                <p class="expect-bllt">
+                The latest trends and breakthroughs in data science, machine learning, and artificial intelligence.
+                </p>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% if testing_mail == True %}
+                <img src="../../static/images/mail_tips.png" alt="Mail Tips">
+                {% else %}
+                <img src="cid:MailTips" alt="Tips Icon">
+                {% endif %}
+
+            </td>
+            <td>
+                <p class="expect-bllt">
+                Practical tips and advice from a self-taught programmer who made a lot of mistakes starting out.
+            </p>
+            </td>
+        </tr>
+    
+    </table>
+
+      
+</div>
+
+<br>
+
+
+<div class="section_break">
+<h5>To help you get started, I've compiled a list of my top articles and resources:</h5>
+
+
+
+<table>
+    <tr>
+        <td>
+            [Article/Resource Title and Link]
+        </td>
+        <td>
+            [Article/Resource Title and Link]
+        </td>
+        <td>
+            [Article/Resource Title and Link]
+        </td>
+    </tr>
+</table>
+
+</div>
+
+
+<div>
+
+
+
+
+
+
+    <p style="margin-bottom: 0;">
+        If you have any suggestions or questions, please feel free to reply to this email. 
+    </p>
+    <p style="font-size: 1rem; opacity: .5;"><em> - I'm just kind of guessing as I go along so feedback is always welcome.</em></p>
+
+        
+       
+
+<br>
+
+    <p>
+        Once again, welcome to ZSDynamics. Thank you for being here and letting me take a little bit of your time.
+
+        <br>
+        <br>
+
+        <p>
+            Warm regards,
+            <br>
+            Zachary Sturman
+        </p>
+    </p>
+
+
+
+
+</div>
+
+
 
 {% endblock %}
 
 {% block ctacontent %}
 
-    {{ call_to_action("cta_title", "cta_body", "cta", "https://www.zsdynamics.com") }}
+{% set title %}
+Curious but don't know where to start?
+{% endset %}
+
+
+{% set body %}
+If you're like me then there are a lot of things that interest you. Probably too many things. So many things that you don't know where to start.
+<br>
+<br>
+That's where I can help.
+<br>
+<br>
+I've created a "spin the globe, close your eyes, stop with your finger" kind of app that gets you to a good starting point on your journey to squelch the "-but why?" voice in your head.
+
+
+
+{% endset %}
+
+
+{% set cta %}
+Find The Answers
+
+{% endset %}
+
+{% set href %}
+"https://www.zsdynamics.com"
+{% endset %}
+
+
+{{ call_to_action(title, body, cta, href) }}
 
 {% endblock %}
