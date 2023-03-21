@@ -7,7 +7,6 @@ projects = Blueprint("projects", __name__)
 def portfolio():
     return render_template("portfolio.html", title="Portfolio")
 
-
 @projects.route("/tip_redistribution")
 def tip_redistribution():
     return render_template("projects/tip_redistribution.html", title="Tip Redistribution")
@@ -16,7 +15,26 @@ def tip_redistribution():
 
 
 
-@projects.route("/periodic_table", methods=['GET', 'POST'])
+@projects.route('/learn_something', methods=['GET'])
+def learn_something():
+
+    df = pd.read_csv('app/projects/assets/learn_something.csv')
+    category_list = df['category'].unique()
+    subcategory_list = df['subcategory'].unique()
+    knowledge_level = df['experience'].unique()
+    grouped = df.groupby(['category', 'subcategory'])
+
+    data = {}
+    for name, group in grouped:
+        if name[0] not in data:
+            data[name[0]] = {}
+        data[name[0]][name[1]] = group[['experience', 'resource_type', 'resource_description', 'resource_link']].to_dict(orient='records')
+
+    return render_template('projects/education.html', category_list=category_list, subcategory_list=subcategory_list, knowledge_level=knowledge_level, data=data, title="Learn Something New")
+
+
+
+@projects.route("/periodic_table", methods=['GET'])
 def periodic_table():
     df = pd.read_csv("app/projects/assets/periodic_table.csv")
     df['Element Type'].fillna("Unknown", inplace=True)

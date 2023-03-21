@@ -1,0 +1,175 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container py-5">
+    <h1 class="display-1">Knowledge Navigator</h1>
+    <hr>
+    <caption><em class="opacity-75">This app was created from data provided by ChatGPT. Some links may not be active and/or the links may not be 100% accurate. If you come across any issues please <a href="{{ url_for('main.contact') }}">let me know</a> </em></caption>
+    <br>
+    <br>
+    <form class="form-control">
+        <h1>What are you interested in?</h1>
+        <label for="category">Category:</label>
+        <select class="form-select my-3" id="category" onchange="updateSubcategories()">
+            <option value="">--Please choose an option--</option>
+            {% for category in category_list %}
+            <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+
+        <label id="subcategory-label" class="d-none" for="subcategory">Subcategory:</label>
+        <select class="form-select my-3 d-none" id="subcategory" onchange="updateKnowledgeLevels()">
+            {% for subcategory in subcategory_list %}
+            <option value="{{ subcategory }}">{{ subcategory }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="experience">Knowledge Level:</label>
+        <select class="form-select my-3" id="experience" onchange="updateResourceLink()">
+            {% for i in knowledge_level %}
+            <option value="{{i}}">{{i}}</option>
+            {% endfor %}
+        </select>
+
+        <button class="btn btn-outline-secondary my-3" type="button" onclick="randomizeSelection()">Randomize</button>
+    </form>
+
+    <br>
+
+
+    <div id="data-container">
+    </div>
+</div>
+
+<script>
+    const data = {{ data | tojson | safe }};
+    function updateSubcategories() {
+        const category = document.getElementById("category");
+        const selectedCategory = category.value;
+
+        const subcategory = document.getElementById("subcategory");
+        const subcategoryLabel = document.getElementById("subcategory-label");
+
+        if (selectedCategory === "") {
+            subcategory.classList.add("d-none");
+            subcategoryLabel.classList.add("d-none");
+        } else {
+            subcategory.classList.remove("d-none");
+            subcategoryLabel.classList.remove("d-none");
+
+            // Get the subcategories for the selected category from the data object
+            const subcategories = data[selectedCategory];
+
+            // Clear the subcategory select field
+            subcategory.innerHTML = "";
+
+            // Add the new options to the subcategory select field
+            for (const subcat in subcategories) {
+                const option = document.createElement("option");
+                option.value = subcat;
+                option.textContent = subcat;
+                subcategory.appendChild(option);
+            }
+        }
+
+        updateKnowledgeLevels();
+    }
+
+    function updateKnowledgeLevels() {
+        const category = document.getElementById("category");
+        const subcategory = document.getElementById("subcategory");
+        const knowledgeLevel = document.getElementById("experience");
+
+        // Enable/disable knowledge level select based on the category and subcategory
+        knowledgeLevel.disabled = (category.value === "" || subcategory.value === "");
+
+        updateResourceLink();
+    }
+
+    function updateResourceLink() {
+        const category = document.getElementById("category");
+        const subcategory = document.getElementById("subcategory");
+        const knowledgeLevel = document.getElementById("experience");
+
+        const dataContainer = document.getElementById("data-container");
+
+        if (category.value !== "" && subcategory.value !== "" && knowledgeLevel.value !== "") {
+            const resources = data[category.value][subcategory.value];
+
+            const matchingResources = resources.filter(resource => resource.experience === knowledgeLevel
+                .value);
+
+            dataContainer.innerHTML = "";
+
+            // Display Category Name, Subcategory Name, and Experience value
+            const infoDiv = document.createElement("div");
+            const categoryText = document.createElement("h1");
+            categoryText.textContent = category.value;
+            infoDiv.appendChild(categoryText);
+
+            const subcategoryText = document.createElement("h2");
+            subcategoryText.textContent = subcategory.value;
+            infoDiv.appendChild(subcategoryText);
+
+            const experienceText = document.createElement("h6");
+            experienceText.textContent = knowledgeLevel.value;
+            infoDiv.appendChild(experienceText);
+
+            dataContainer.appendChild(infoDiv);
+
+
+            const rowDiv = document.createElement("div");
+            rowDiv.className = "row";
+            dataContainer.appendChild(rowDiv);
+
+            matchingResources.forEach(resource => {
+                const colDiv = document.createElement("div");
+                colDiv.className = "col-md-4 border border-2 rounded-3 p-3";
+
+                const resourceDiv = document.createElement("div");
+                resourceDiv.className = "resource";
+
+                const resourceType = document.createElement("h2");
+                resourceType.textContent = resource.resource_type;
+                resourceDiv.appendChild(resourceType);
+
+                const resourceDescription = document.createElement("p");
+                resourceDescription.textContent = resource.resource_description;
+                resourceDiv.appendChild(resourceDescription);
+
+                const resourceLink = document.createElement("a");
+                resourceLink.href = resource.resource_link;
+                resourceLink.textContent = "View Resource";
+                resourceLink.target = "_blank";
+                resourceDiv.appendChild(resourceLink);
+
+                colDiv.appendChild(resourceDiv);
+                rowDiv.appendChild(colDiv);
+            });
+        } else {
+            dataContainer.innerHTML = "";
+        }
+    }
+
+
+    function randomizeSelection() {
+        const category = document.getElementById("category");
+        const subcategory = document.getElementById("subcategory");
+        const knowledgeLevel = document.getElementById("experience");
+
+        const randomCategoryIndex = Math.floor(Math.random() * (category.length - 1)) + 1;
+        category.selectedIndex = randomCategoryIndex;
+
+        updateSubcategories();
+
+        const randomSubcategoryIndex = Math.floor(Math.random() * (subcategory.length - 1)) + 1;
+        subcategory.selectedIndex = randomSubcategoryIndex;
+
+        const randomKnowledgeLevelIndex = Math.floor(Math.random() * (knowledgeLevel.length - 1)) + 1;
+        knowledgeLevel.selectedIndex = randomKnowledgeLevelIndex;
+
+        updateResourceLink();
+    }
+</script>
+
+{% endblock %}

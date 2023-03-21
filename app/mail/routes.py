@@ -277,7 +277,7 @@ def send_mail():
 def news_letter():
     return render_template("mail/news_letter.html", title="News Letter")
 
-@zs_mail.route("/mail_tests")
+""" @zs_mail.route("/mail_tests")
 def mail_tests():
     person = Subscribers.query.first()
-    return render_template("mail/thanks_for_subscribing.html", resubscribing=True, person=person, reaching_out=True, font_link2='https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap', font_link='https://fonts.googleapis.com/css?family=Font1|Font2', testing_mail=True)
+    return render_template("mail/thanks_for_subscribing.html", resubscribing=True, person=person, reaching_out=True, font_link2='https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap', font_link='https://fonts.googleapis.com/css?family=Font1|Font2', testing_mail=True) """

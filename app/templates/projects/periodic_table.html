@@ -178,7 +178,8 @@
 
                     <div class=" justify-content-center">
                         {% for i in phase_list %}
-                        <button data-phase="{{i}}" class="phase-list-button p-2 {{ i }} btn btn-outline-dark rounded-3 mx-2"
+                        <button data-phase="{{i}}"
+                            class="phase-list-button p-2 {{ i }} btn btn-outline-dark rounded-3 mx-2"
                             value="{{i}}">{{i}}</button>
                         {% endfor %}
 
@@ -234,58 +235,56 @@
     });
 
     const phaseListButton = document.querySelectorAll('.phase-list-button');
-    phaseListButton.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-            let selectedPhase = button.dataset.phase;
-            elements.forEach(element => {
-                if (element.dataset.phase !== selectedPhase) {
-                    element.style.filter = 'saturate(50%)'
-                }
-                if (element.dataset.phase === selectedPhase) {
-                    element.style.filter = 'saturate(150%)'
-                }
-            });
-        });
-        button.addEventListener('mouseleave', () => {
-            let selectedPhase = button.dataset.phase;
-            elements.forEach(element => {
-                if (element.dataset.phase !== selectedPhase) {
-                    element.style.filter = 'saturate(100%)'
-                }
-                if (element.dataset.phase === selectedPhase) {
-                    element.style.filter = 'saturate(100%)'
-                }
-            });
-        });
-    });
-
-
     const typeListButton = document.querySelectorAll('.type-list-button');
+    const hasMouse = window.matchMedia('(hover: hover)').matches;
+
+    phaseListButton.forEach(button => {
+        if (hasMouse) {
+            button.addEventListener('mouseenter', onButtonEnter);
+            button.addEventListener('mouseleave', onButtonLeave);
+        } else {
+            button.addEventListener('touchstart', onButtonEnter);
+            button.addEventListener('touchend', onButtonLeave);
+            button.addEventListener('click', onButtonEnter);
+        }
+    });
+
     typeListButton.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-            let selectedType = button.dataset.elemtype;
-            elements.forEach(element => {
-                if (element.dataset.elemtype !== selectedType) {
-                    element.style.filter = 'saturate(50%)'
-                }
-                if (element.dataset.elemtype === selectedType) {
-                    element.style.filter = 'saturate(150%)'
-                }
-            });
-        });
-        button.addEventListener('mouseleave', () => {
-            let selectedType = button.dataset.elemtype;
-            elements.forEach(element => {
-                if (element.dataset.elemtype !== selectedType) {
-                    element.style.filter = 'saturate(100%)'
-                }
-                if (element.dataset.elemtype === selectedType) {
-                    element.style.filter = 'saturate(100%)'
-                }
-            });
-        });
+        if (hasMouse) {
+            button.addEventListener('mouseenter', onButtonEnter);
+            button.addEventListener('mouseleave', onButtonLeave);
+        } else {
+            button.addEventListener('touchstart', onButtonEnter);
+            button.addEventListener('touchend', onButtonLeave);
+            button.addEventListener('click', onButtonEnter);
+        }
     });
 
+    function onButtonEnter() {
+        let selectedAttr = this.classList.contains('phase-list-button') ? 'phase' : 'elemtype';
+        let selectedValue = this.dataset[selectedAttr];
+        elements.forEach(element => {
+            if (element.dataset[selectedAttr] !== selectedValue) {
+                element.style.filter = 'saturate(50%)';
+            }
+            if (element.dataset[selectedAttr] === selectedValue) {
+                element.style.filter = 'saturate(150%)';
+            }
+        });
+    }
+
+    function onButtonLeave() {
+        let selectedAttr = this.classList.contains('phase-list-button') ? 'phase' : 'elemtype';
+        let selectedValue = this.dataset[selectedAttr];
+        elements.forEach(element => {
+            if (element.dataset[selectedAttr] !== selectedValue) {
+                element.style.filter = 'saturate(100%)';
+            }
+            if (element.dataset[selectedAttr] === selectedValue) {
+                element.style.filter = 'saturate(100%)';
+            }
+        });
+    }
 
 
 
@@ -297,20 +296,58 @@
 
 
 
-    range_list = ['electronegativity', 'first_ionization_potential', 'melting_point_(k)', 'boiling_point_(k)',
-        'specific_heat_capacity'
-    ]
-
-    range_list.forEach(function (col) {
-
-        let slider = document.getElementById("slider_" + col);
-        let sliderValue = document.getElementById("sliderValue_" + col);
-
-        slider.addEventListener("input", function () {
-            sliderValue.innerHTML = this.value;
+    /*     const phaseListButton = document.querySelectorAll('.phase-list-button');
+        phaseListButton.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                let selectedPhase = button.dataset.phase;
+                elements.forEach(element => {
+                    if (element.dataset.phase !== selectedPhase) {
+                        element.style.filter = 'saturate(50%)'
+                    }
+                    if (element.dataset.phase === selectedPhase) {
+                        element.style.filter = 'saturate(150%)'
+                    }
+                });
+            });
+            button.addEventListener('mouseleave', () => {
+                let selectedPhase = button.dataset.phase;
+                elements.forEach(element => {
+                    if (element.dataset.phase !== selectedPhase) {
+                        element.style.filter = 'saturate(100%)'
+                    }
+                    if (element.dataset.phase === selectedPhase) {
+                        element.style.filter = 'saturate(100%)'
+                    }
+                });
+            });
         });
 
-    });
+
+        const typeListButton = document.querySelectorAll('.type-list-button');
+        typeListButton.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                let selectedType = button.dataset.elemtype;
+                elements.forEach(element => {
+                    if (element.dataset.elemtype !== selectedType) {
+                        element.style.filter = 'saturate(50%)'
+                    }
+                    if (element.dataset.elemtype === selectedType) {
+                        element.style.filter = 'saturate(150%)'
+                    }
+                });
+            });
+            button.addEventListener('mouseleave', () => {
+                let selectedType = button.dataset.elemtype;
+                elements.forEach(element => {
+                    if (element.dataset.elemtype !== selectedType) {
+                        element.style.filter = 'saturate(100%)'
+                    }
+                    if (element.dataset.elemtype === selectedType) {
+                        element.style.filter = 'saturate(100%)'
+                    }
+                });
+            });
+        }); */
 </script>
 
 {% endblock %}

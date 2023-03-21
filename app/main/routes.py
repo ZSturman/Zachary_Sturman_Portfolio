@@ -28,5 +28,5 @@ def favicon():
 
 """ @main.route("/tester_page")
 def testing_page():
-    return render_template("testing_page.html") """
-
+    return render_template("testing_page.html")
+ """
