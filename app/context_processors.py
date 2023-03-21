@@ -37,6 +37,11 @@ front_end_tags = ["User Interface (UI) Design", "User Experience (UX) Design","W
 
 back_end_tags = ["Server-side programming languages (e.g. Python, Java, Ruby, Node.js)","Web frameworks (e.g. Django, Flask, Ruby on Rails, Express.js)","Database management systems (e.g. SQL, NoSQL)","APIs (Application Programming Interfaces)","REST (Representational State Transfer) API design","Authentication and Authorization","Web Security (e.g. HTTPS, SSL, TLS)","Caching (e.g. Redis, Memcached)","DevOps (e.g. Continuous Integration, Continuous Deployment)","Cloud Services (e.g. Amazon Web Services, Google Cloud Platform)","Microservices","Message Queuing","Load Balancing","Scalability","Performance Optimization","Serverless Architecture","Content Management Systems (e.g. WordPress, Drupal)","Version Control (e.g. Git, SVN)","Debugging and Testing","Software Architecture and Design Patterns"]
 
+other_tags = ["crime-data","data-visualization","streamlit","interactive-map","pydeck","altair","pandas","data-analysis","geospatial","los-angeles","public-safety","data-filtering"]
+
+
+
+la_crime_data_proj = Project(title="Los Angeles Crime Data Dashboard", subtitle="Interactive Visualization of LA Crime Data", description="This web application provides an interactive and user-friendly way to explore and analyze crime data in Los Angeles. Utilizing powerful data visualization tools, users can filter and compare crime types, areas, and victim demographics, while examining trends and patterns on an interactive map.", date="March 2023", link="https://zsturman-la-crime-data-crime-data-mv5y1k.streamlit.app/", url_for=None, link_title="Go To Streamlit App", image="static/images/projects/la_crime_data.png", alt="LA Crime Data Dashboard Icon", tags=["crime-data","data-visualization","streamlit","interactive-map","pandas","data-analysis","geospatial","data-filtering"], blank=True)
 
 
 
@@ -65,7 +70,7 @@ project8 = Project(title="Streamlit Test", subtitle="subtitle", description="des
 
 project9 = Project(title="Title", subtitle="subtitle", description="description", date="2022", link="#", url_for=None, link_title="link title", image="img", tags=["Temp"])
 
-projects_list = [tip_redistribution_proj, periodic_table_proj, gamblers_fallacy_proj, productivity_app_proj]
+projects_list = [la_crime_data_proj, tip_redistribution_proj, periodic_table_proj, gamblers_fallacy_proj, productivity_app_proj]
 
 
 

@@ -8,8 +8,8 @@ def data_analytics():
 
 @services.route("/front_end")
 def front_end():
-    return render_template("front_end.html", title="Front End")
+    return render_template("front_end.html", title="User Interface Development")
 
 @services.route("/back_end")
 def back_end():
-    return render_template("back_end.html", title="Back End")
+    return render_template("back_end.html", title="Back-end Engineering")

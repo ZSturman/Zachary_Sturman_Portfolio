@@ -76,9 +76,43 @@
 
 <!-- Services -->
 {% macro data_analytics() %}
-<div class="card d-block d-md-none my-3 border-0 m-3" data-aos="fade-up" data-aos-duration="600">
+
+<div class="card d-block d-sm-none my-3 border-0 m-3 bg-transparent" data-aos="fade-up" data-aos-duration="600">
     <div class="row">
-        <div class="col-5 col-md-12 text-center">
+        <div class=" col-12 text-center">
+            <svg width="125" height="125" viewBox="0 0 220 220">
+                <g id="data_analysis_icon">
+                    <g class="no-anim">
+                        <circle id="bg" cx="110" cy="110" r="110" />
+                        <path id="bar_3"
+                            d="M104 45C104 42.2386 106.239 40 109 40H127C129.761 40 132 42.2386 132 45V115.081C132 119.321 126.217 120.562 124.477 116.696V116.696C123.01 113.436 118.306 113.664 117.162 117.051L113.737 127.187C111.925 132.549 104 131.246 104 125.586L104 45Z" />
+                        <path id="bar_2"
+                            d="M68 64C68 61.2386 70.2386 59 73 59H90C92.7614 59 95 61.2386 95 64V77C95 79.7614 92.7614 82 90 82H73C70.2386 82 68 79.7614 68 77V64Z" />
+                        <path id="bar_4"
+                            d="M141 66C141 63.2386 143.239 61 146 61H164C166.761 61 169 63.2386 169 66V147C169 149.761 166.761 152 164 152H146C143.239 152 141 149.761 141 147V66Z" />
+                        <path id="line"
+                            d="M7 158.103C7 156.446 8.34315 155.103 10 155.103H26.728C28.0939 155.103 29.2874 154.18 29.6314 152.858L45.8767 90.4235C46.66 87.4132 50.9427 87.4374 51.6918 90.4564L67.1671 152.825C67.4991 154.163 68.7003 155.103 70.0788 155.103H79.8674C80.8918 155.103 81.8454 155.625 82.3964 156.489L92.0784 171.663C93.3862 173.712 96.461 173.437 97.3832 171.187L118.085 120.692C119.148 118.099 122.87 118.25 123.72 120.921L133.924 153.012C134.32 154.257 135.476 155.103 136.783 155.103H211C212.657 155.103 214 156.446 214 158.103V160.923C214 162.58 212.657 163.923 211 163.923H131.791C130.384 163.923 129.166 162.946 128.862 161.573L123.176 135.936C122.551 133.116 118.694 132.722 117.511 135.356L104.682 163.923L97.4776 181.437C96.5361 183.726 93.3843 183.954 92.1224 181.825L82.3833 165.393C81.8431 164.482 80.8621 163.923 79.8026 163.923H65.8123C64.4243 163.923 63.2175 162.971 62.8946 161.621L51.9174 115.726C51.1748 112.621 46.7405 112.67 46.0672 115.791L36.1927 161.556C35.8947 162.937 34.6732 163.923 33.2602 163.923H10C8.34315 163.923 7 162.58 7 160.923V158.103Z" />
+                        <path id="bar_1"
+                            d="M68 89C68 86.2386 70.2386 84 73 84H90C92.7614 84 95 86.2386 95 89V153.712C95 159.23 87.3749 160.68 85.3491 155.547L83.7416 151.474C82.9879 149.565 81.1436 148.31 79.0907 148.31H75.963C73.8149 148.31 71.9069 146.938 71.2231 144.901L68.2601 136.078C68.0878 135.565 68 135.027 68 134.486V89Z" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <div class="col col-12 text-center d-flex justify-content-center align-items-center ">
+            <div class="card-body">
+                <h6 class="display-6 opacity-75 text-center">Data Analytics</h6>
+            </div>
+        </div>
+    </div>
+    <a class="stretched-link" href="{{ url_for('services.data_analytics') }}"></a>
+</div>
+
+
+
+
+<div class="card d-none d-sm-block d-md-none my-3 border-0 m-3 bg-transparent" data-aos="fade-up" data-aos-duration="600">
+    <div class="row">
+        <div class=" col col-md-12 text-center">
             <svg width="165" height="165" viewBox="0 0 220 220">
                 <g id="data_analysis_icon">
                     <g class="no-anim">
@@ -99,7 +133,7 @@
         </div>
         <div class="col col-md-12 text-center d-flex justify-content-center align-items-center ">
             <div class="card-body">
-                <h5 class="display-5 opacity-75 text-center">Data Analytics</h5>
+                <h6 class="display-6 opacity-75 text-center">Data Analytics</h6>
             </div>
         </div>
     </div>
@@ -127,7 +161,7 @@
             </svg>
         </div>
 
-        <h4 class="text-center">Data Analytics</h4>
+        <h4 class="text-center fw-light">Data Analytics</h4>
         <p class="d-none d-lg-block">Data analytics is a powerful tool that can help your business make
             informed decisions and stay
             ahead
@@ -137,15 +171,79 @@
 {% endmacro %}
 
 {% macro front_end() %}
-<div class="card d-block d-md-none my-3 border-0 m-3" data-aos="fade-up" data-aos-duration="600">
+<div class="card d-block d-sm-none d-md-none my-3 border-0 m-3 bg-transparent" data-aos="fade-up" data-aos-duration="600">
+    <div class="row">
+
+        <div class="col912 order-md-last text-center d-flex justify-content-center align-items-center ">
+            <div class="card-body">
+                <h6 class="display-6 opacity-75 text-center">User Interface Development</h6>
+            </div>
+        </div>
+        <div class="col col-12 text-center order-first">
+
+            <svg id="UIUX_icon" width="125" height="125" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g class="no-anim">
+
+                    <g >
+                        <rect id="uiux_bg" width="220" height="220" rx="11" fill="white" />
+                        <rect id="uiux_h1" x="7" y="48" width="203" height="28" rx="5" fill="#8C8C8C" />
+                        <rect id="uiux_bt1" x="11" y="191" width="84" height="21" rx="10" fill="#D9D9D9" />
+                        <rect id="uiux_btn2" x="112" y="191" width="87" height="21" rx="10" fill="#D9D9D9" />
+                        <circle id="uiux_circle" cx="50.5" cy="124.5" r="29.5" fill="#D9D9D9" />
+                        <rect id="uiux_top_r" x="49" y="9" width="161" height="35" rx="3" fill="#D9D9D9" />
+                        <rect id="uius_top_l" x="7" y="9" width="33" height="33" rx="3" fill="#D9D9D9" />
+                        <g id="uiux_x">
+                            <path id="x_rec2"
+                                d="M13.9432 15.5518C13.1413 14.5093 13.8845 13 15.1997 13V13C15.6919 13 16.1562 13.2286 16.4562 13.6187L34.0174 36.4482C34.8193 37.4907 34.0761 39 32.7609 39V39C32.2687 39 31.8045 38.7714 31.5044 38.3813L13.9432 15.5518Z"
+                                fill="#070000" />
+                            <path id="x_rec1"
+                                d="M33.0371 15.7495C33.839 14.707 33.0958 13.1977 31.7806 13.1977V13.1977C31.2884 13.1977 30.8242 13.4263 30.5241 13.8164L12.9629 36.6459C12.161 37.6884 12.9042 39.1977 14.2194 39.1977V39.1977C14.7116 39.1977 15.1758 38.9691 15.4759 38.579L33.0371 15.7495Z"
+                                fill="#070000" />
+                        </g>
+                        <g id="uiux_line4" opacity="0.5">
+                            <rect id="line4_rec1" x="92" y="124" width="21" height="2" rx="1" fill="black" />
+                            <rect id="line4_rec2" x="131" y="124" width="18" height="2" rx="1" fill="black" />
+                        </g>
+                        <g id="uiux_line1">
+                            <rect id="line1_rec1" x="84" y="97" width="39" height="1" rx="0.5" fill="black" />
+                            <rect id="line1_rec2" x="128" y="97" width="23" height="1" rx="0.5" fill="black" />
+                            <rect id="line1_rec3" x="156" y="97" width="19" height="1" rx="0.5" fill="black" />
+                        </g>
+                        <g id="uiux_line3">
+                            <rect id="line3_rec2" x="144" y="116" width="21" height="1" rx="0.5"
+                                transform="rotate(-180 144 116)" fill="black" />
+                            <rect id="line3_rec1" x="110" y="116" width="18" height="1" rx="0.5"
+                                transform="rotate(-180 110 116)" fill="black" />
+                        </g>
+                        <g id="uiux_line2">
+                            <rect id="line2_rec3" x="181" y="107" width="37" height="2" rx="1"
+                                transform="rotate(-180 181 107)" fill="black" />
+                            <rect id="line2_rec2" x="139" y="107" width="23" height="2" rx="1"
+                                transform="rotate(-180 139 107)" fill="black" />
+                            <rect id="line2_rec1" x="113" y="107" width="21" height="2" rx="1"
+                                transform="rotate(-180 113 107)" fill="black" />
+                        </g>
+                    </g>
+                </g>
+                <defs>
+                    <clipPath id="clip0_0_1">
+                        <rect width="220" height="220" fill="white" />
+                    </clipPath>
+                </defs>
+            </svg>
+        </div>
+    </div>
+    <a class="stretched-link" href="{{ url_for('services.front_end') }}"></a>
+</div>
+<div class="card d-none d-sm-block d-md-none my-3 border-0 m-3 bg-transparent" data-aos="fade-up" data-aos-duration="600">
     <div class="row">
 
         <div class="col col-md-12 order-md-last text-center d-flex justify-content-center align-items-center ">
             <div class="card-body">
-                <h5 class="display-5 opacity-75 text-center">User Interface Development</h5>
+                <h6 class="display-6 opacity-75 text-center">User Interface Development</h6>
             </div>
         </div>
-        <div class="col-5 col-md-12 text-center">
+        <div class="col col-md-12 text-center">
 
             <svg id="UIUX_icon" width="165" height="165" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g class="no-anim">
@@ -259,7 +357,7 @@
 
 
         </div>
-        <h4 class="text-center">User Interface Development</h4>
+        <h4 class="text-center fw-light">User Interface Development</h4>
         <p class="d-none d-lg-block">Make your site pop! With custom CSS, Sass and Bootstrap I can turn that
             boring interface into an
             exciting user experience for you and your clients. </p>
@@ -268,8 +366,143 @@
 {% endmacro %}
 
 {% macro back_end() %}
-<div class="card d-block d-md-none my-3 border-0 m-3" data-aos="fade-up" data-aos-duration="600">
-    <div class="row">
+<div class="card d-block d-sm-none my-3 border-0 m-3 bg-transparent" data-aos="fade-up" data-aos-duration="600">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">
+
+            <svg id="backend_icon" width="125" height="125" viewBox="0 0 220 220" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g class="no-anim">
+                    <g id="Computer_monitor">
+                        <path id="monitor_stand" d="M95 183H118V201H137.5L153 218H58.5L74.5 201H95V183Z" />
+                        <rect id="monitor_svg" x="16.5" y="11.5" width="185" height="165" rx="28.5"
+                            stroke-width="19" />
+                    </g>
+                    <g id="gear1">
+                        <circle id="Ellipse 1" cx="83.5" cy="105.5" r="41" stroke-width="5" />
+                        <rect id="Rectangle 4" x="77" y="50" width="12" height="15" rx="3" fill="black" />
+                        <rect id="Rectangle 5" x="77" y="146" width="12" height="15" rx="3" fill="black" />
+                        <rect id="Rectangle 6" x="138.5" y="99.5" width="12" height="15" rx="3"
+                            transform="rotate(90 138.5 99.5)" fill="black" />
+                        <rect id="Rectangle 7" x="42.5" y="99.5" width="12" height="15" rx="3"
+                            transform="rotate(90 42.5 99.5)" fill="black" />
+                        <rect id="Rectangle 8" x="105.554" y="54.4356" width="12" height="15" rx="3"
+                            transform="rotate(30 105.554 54.4356)" fill="black" />
+                        <rect id="Rectangle 9" x="57.5538" y="137.574" width="12" height="15" rx="3"
+                            transform="rotate(30 57.5538 137.574)" fill="black" />
+                        <rect id="Rectangle 10" x="134.064" y="128.054" width="12" height="15" rx="3"
+                            transform="rotate(120 134.064 128.054)" fill="black" />
+                        <rect id="Rectangle 11" x="50.926" y="80.0538" width="12" height="15" rx="3"
+                            transform="rotate(120 50.926 80.0538)" fill="black" />
+                        <rect id="Rectangle 12" x="50.0538" y="60.4356" width="12" height="15" rx="3"
+                            transform="rotate(-30 50.0538 60.4356)" fill="black" />
+                        <rect id="Rectangle 13" x="98.0538" y="143.574" width="12" height="15" rx="3"
+                            transform="rotate(-30 98.0538 143.574)" fill="black" />
+                        <rect id="Rectangle 14" x="128.064" y="72.5538" width="12" height="15" rx="3"
+                            transform="rotate(60 128.064 72.5538)" fill="black" />
+                        <rect id="Rectangle 15" x="44.926" y="120.554" width="12" height="15" rx="3"
+                            transform="rotate(60 44.926 120.554)" fill="black" />
+                    </g>
+                    <g id="gear4">
+                        <circle id="Ellipse 1_2" cx="123.622" cy="41.5" r="9.36487" stroke="black"
+                            stroke-width="2" />
+                        <circle id="Ellipse 2" cx="123.5" cy="41.5" r="5.5" stroke="black" stroke-width="2" />
+                        <rect id="Rectangle 4_2" x="122.041" y="28" width="2.91892" height="3.64865"
+                            fill="black" />
+                        <rect id="Rectangle 5_2" x="122.041" y="51.3513" width="2.91892" height="3.64865"
+                            fill="black" />
+                        <rect id="Rectangle 6_2" x="137" y="40.0405" width="2.91892" height="3.64865"
+                            transform="rotate(90 137 40.0405)" fill="black" />
+                        <rect id="Rectangle 7_2" x="113.649" y="40.0405" width="2.91892" height="3.64865"
+                            transform="rotate(90 113.649 40.0405)" fill="black" />
+                        <rect id="Rectangle 8_2" x="128.986" y="29.0789" width="2.91892" height="3.64865"
+                            transform="rotate(30 128.986 29.0789)" fill="black" />
+                        <rect id="Rectangle 9_2" x="117.31" y="49.3018" width="2.91892" height="3.64865"
+                            transform="rotate(30 117.31 49.3018)" fill="black" />
+                        <rect id="Rectangle 10_2" x="135.921" y="46.9861" width="2.91892" height="3.64865"
+                            transform="rotate(120 135.921 46.9861)" fill="black" />
+                        <rect id="Rectangle 11_2" x="115.698" y="35.3104" width="2.91892" height="3.64865"
+                            transform="rotate(120 115.698 35.3104)" fill="black" />
+                        <rect id="Rectangle 12_2" x="115.486" y="30.5384" width="2.91892" height="3.64865"
+                            transform="rotate(-30 115.486 30.5384)" fill="black" />
+                        <rect id="Rectangle 13_2" x="127.162" y="50.7612" width="2.91892" height="3.64865"
+                            transform="rotate(-30 127.162 50.7612)" fill="black" />
+                        <rect id="Rectangle 14_2" x="134.462" y="33.4861" width="2.91892" height="3.64865"
+                            transform="rotate(60 134.462 33.4861)" fill="black" />
+                        <rect id="Rectangle 15_2" x="114.239" y="45.1617" width="2.91892" height="3.64865"
+                            transform="rotate(60 114.239 45.1617)" fill="black" />
+                    </g>
+                    <g id="gear2">
+                        <circle id="Ellipse 1_3" cx="155.694" cy="129.5" r="16.4144" stroke="black"
+                            stroke-width="3" />
+                        <circle id="Ellipse 2_2" cx="155.5" cy="129.5" r="11" stroke="black" stroke-width="3" />
+                        <rect id="Rectangle 4_3" x="153.176" y="108" width="4.64865" height="5.81081"
+                            rx="2.32432" fill="black" />
+                        <rect id="Rectangle 5_3" x="153.176" y="145.189" width="4.64865" height="5.81081"
+                            rx="2.32432" fill="black" />
+                        <rect id="Rectangle 6_3" x="177" y="127.176" width="4.64865" height="5.81081"
+                            rx="2.32432" transform="rotate(90 177 127.176)" fill="black" />
+                        <rect id="Rectangle 7_3" x="139.811" y="127.176" width="4.64865" height="5.81081"
+                            rx="2.32432" transform="rotate(90 139.811 127.176)" fill="black" />
+                        <rect id="Rectangle 8_3" x="164.237" y="109.718" width="4.64865" height="5.81081"
+                            rx="2.32432" transform="rotate(30 164.237 109.718)" fill="black" />
+                        <rect id="Rectangle 9_3" x="145.642" y="141.925" width="4.64865" height="5.81081"
+                            rx="2.32432" transform="rotate(30 145.642 141.925)" fill="black" />
+                        <rect id="Rectangle 10_3" x="175.282" y="138.237" width="4.64865" height="5.81081"
+                            rx="2.32432" transform="rotate(120 175.282 138.237)" fill="black" />
+                        <rect id="Rectangle 11_3" x="143.075" y="119.642" width="4.64865" height="5.81081"
+                            rx="2.32432" transform="rotate(120 143.075 119.642)" fill="black" />
+                        <rect id="Rectangle 12_3" x="142.737" y="112.043" width="4.64865" height="5.81081"
+                            rx="2.32432" transform="rotate(-30 142.737 112.043)" fill="black" />
+                        <rect id="Rectangle 13_3" x="161.332" y="144.249" width="4.64865" height="5.81081"
+                            rx="2.32432" transform="rotate(-30 161.332 144.249)" fill="black" />
+                        <rect id="Rectangle 14_3" x="172.957" y="116.737" width="4.64865" height="5.81081"
+                            rx="2.32432" transform="rotate(60 172.957 116.737)" fill="black" />
+                        <rect id="Rectangle 15_3" x="140.751" y="135.332" width="4.64865" height="5.81081"
+                            rx="2.32432" transform="rotate(60 140.751 135.332)" fill="black" />
+                    </g>
+                    <g id="gear3">
+                        <circle id="Ellipse 1_4" cx="160.703" cy="57.5" r="10.6081" stroke="black"
+                            stroke-width="10" />
+                        <rect id="Rectangle 4_4" x="158.068" y="35" width="4.86486" height="6.08108"
+                            fill="black" />
+                        <rect id="Rectangle 5_4" x="158.068" y="73.9189" width="4.86486" height="6.08108"
+                            fill="black" />
+                        <rect id="Rectangle 6_4" x="183" y="55.0676" width="4.86486" height="6.08108"
+                            transform="rotate(90 183 55.0676)" fill="black" />
+                        <rect id="Rectangle 7_4" x="144.081" y="55.0676" width="4.86486" height="6.08108"
+                            transform="rotate(90 144.081 55.0676)" fill="black" />
+                        <rect id="Rectangle 8_4" x="169.643" y="36.7982" width="4.86486" height="6.08108"
+                            transform="rotate(30 169.643 36.7982)" fill="black" />
+                        <rect id="Rectangle 9_4" x="150.184" y="70.503" width="4.86486" height="6.08108"
+                            transform="rotate(30 150.184 70.503)" fill="black" />
+                        <rect id="Rectangle 10_4" x="181.202" y="66.6434" width="4.86486" height="6.08108"
+                            transform="rotate(120 181.202 66.6434)" fill="black" />
+                        <rect id="Rectangle 11_4" x="147.497" y="47.184" width="4.86486" height="6.08108"
+                            transform="rotate(120 147.497 47.184)" fill="black" />
+                        <rect id="Rectangle 12_4" x="147.143" y="39.2307" width="4.86486" height="6.08108"
+                            transform="rotate(-30 147.143 39.2307)" fill="black" />
+                        <rect id="Rectangle 13_4" x="166.603" y="72.9354" width="4.86486" height="6.08108"
+                            transform="rotate(-30 166.603 72.9354)" fill="black" />
+                        <rect id="Rectangle 14_4" x="178.769" y="44.1434" width="4.86486" height="6.08108"
+                            transform="rotate(60 178.769 44.1434)" fill="black" />
+                        <rect id="Rectangle 15_4" x="145.065" y="63.6029" width="4.86486" height="6.08108"
+                            transform="rotate(60 145.065 63.6029)" fill="black" />
+                    </g>
+
+                </g>
+            </svg>
+        </div>
+        <div class="col-12 d-flex justify-content-center align-items-center ">
+            <div class="card-body">
+                <h5 class="display-5 opacity-75 text-center">Back-end Engineering</h5>
+            </div>
+        </div>
+    </div>
+    <a class="stretched-link" href="{{ url_for('services.back_end') }}"></a>
+</div>
+<div class="card d-none d-sm-block d-md-none my-3 border-0 m-3 bg-transparent" data-aos="fade-up" data-aos-duration="600">
+    <div class="row justify-content-center">
         <div class="col-5 text-center">
 
             <svg id="backend_icon" width="165" height="165" viewBox="0 0 220 220" fill="none"
@@ -531,7 +764,7 @@
 
 
         </div>
-        <h4 class="text-center">Back-end Engineering</h4>
+        <h4 class="text-center fw-light">Back-end Engineering</h4>
         <p class="d-none d-lg-block">Do you have a need for database management? Is your dynamic webpage
             slow and filled with bugs? From SQL to JavaScript to Python, I've got you covered.
         </p>
