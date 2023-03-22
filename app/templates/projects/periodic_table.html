@@ -6,6 +6,7 @@
 <section>
     <h1 class="display-1">The Periodic Table</h1>
     <hr>
+    <p class="d-block d-sm-none"> <em> Mobile verision not so friendly yet</em></p>
 
     <div class="row m-1">
         <div class="col-12 col-lg-3">
@@ -235,119 +236,57 @@
     });
 
     const phaseListButton = document.querySelectorAll('.phase-list-button');
-    const typeListButton = document.querySelectorAll('.type-list-button');
-    const hasMouse = window.matchMedia('(hover: hover)').matches;
-
     phaseListButton.forEach(button => {
-        if (hasMouse) {
-            button.addEventListener('mouseenter', onButtonEnter);
-            button.addEventListener('mouseleave', onButtonLeave);
-        } else {
-            button.addEventListener('touchstart', onButtonEnter);
-            button.addEventListener('touchend', onButtonLeave);
-            button.addEventListener('click', onButtonEnter);
-        }
+        button.addEventListener('mouseenter', () => {
+            let selectedPhase = button.dataset.phase;
+            elements.forEach(element => {
+                if (element.dataset.phase !== selectedPhase) {
+                    element.style.filter = 'saturate(50%)'
+                }
+                if (element.dataset.phase === selectedPhase) {
+                    element.style.filter = 'saturate(150%)'
+                }
+            });
+        });
+        button.addEventListener('mouseleave', () => {
+            let selectedPhase = button.dataset.phase;
+            elements.forEach(element => {
+                if (element.dataset.phase !== selectedPhase) {
+                    element.style.filter = 'saturate(100%)'
+                }
+                if (element.dataset.phase === selectedPhase) {
+                    element.style.filter = 'saturate(100%)'
+                }
+            });
+        });
     });
 
+
+    const typeListButton = document.querySelectorAll('.type-list-button');
     typeListButton.forEach(button => {
-        if (hasMouse) {
-            button.addEventListener('mouseenter', onButtonEnter);
-            button.addEventListener('mouseleave', onButtonLeave);
-        } else {
-            button.addEventListener('touchstart', onButtonEnter);
-            button.addEventListener('touchend', onButtonLeave);
-            button.addEventListener('click', onButtonEnter);
-        }
+        button.addEventListener('mouseenter', () => {
+            let selectedType = button.dataset.elemtype;
+            elements.forEach(element => {
+                if (element.dataset.elemtype !== selectedType) {
+                    element.style.filter = 'saturate(50%)'
+                }
+                if (element.dataset.elemtype === selectedType) {
+                    element.style.filter = 'saturate(150%)'
+                }
+            });
+        });
+        button.addEventListener('mouseleave', () => {
+            let selectedType = button.dataset.elemtype;
+            elements.forEach(element => {
+                if (element.dataset.elemtype !== selectedType) {
+                    element.style.filter = 'saturate(100%)'
+                }
+                if (element.dataset.elemtype === selectedType) {
+                    element.style.filter = 'saturate(100%)'
+                }
+            });
+        });
     });
-
-    function onButtonEnter() {
-        let selectedAttr = this.classList.contains('phase-list-button') ? 'phase' : 'elemtype';
-        let selectedValue = this.dataset[selectedAttr];
-        elements.forEach(element => {
-            if (element.dataset[selectedAttr] !== selectedValue) {
-                element.style.filter = 'saturate(50%)';
-            }
-            if (element.dataset[selectedAttr] === selectedValue) {
-                element.style.filter = 'saturate(150%)';
-            }
-        });
-    }
-
-    function onButtonLeave() {
-        let selectedAttr = this.classList.contains('phase-list-button') ? 'phase' : 'elemtype';
-        let selectedValue = this.dataset[selectedAttr];
-        elements.forEach(element => {
-            if (element.dataset[selectedAttr] !== selectedValue) {
-                element.style.filter = 'saturate(100%)';
-            }
-            if (element.dataset[selectedAttr] === selectedValue) {
-                element.style.filter = 'saturate(100%)';
-            }
-        });
-    }
-
-
-
-
-
-
-
-
-
-
-
-    /*     const phaseListButton = document.querySelectorAll('.phase-list-button');
-        phaseListButton.forEach(button => {
-            button.addEventListener('mouseenter', () => {
-                let selectedPhase = button.dataset.phase;
-                elements.forEach(element => {
-                    if (element.dataset.phase !== selectedPhase) {
-                        element.style.filter = 'saturate(50%)'
-                    }
-                    if (element.dataset.phase === selectedPhase) {
-                        element.style.filter = 'saturate(150%)'
-                    }
-                });
-            });
-            button.addEventListener('mouseleave', () => {
-                let selectedPhase = button.dataset.phase;
-                elements.forEach(element => {
-                    if (element.dataset.phase !== selectedPhase) {
-                        element.style.filter = 'saturate(100%)'
-                    }
-                    if (element.dataset.phase === selectedPhase) {
-                        element.style.filter = 'saturate(100%)'
-                    }
-                });
-            });
-        });
-
-
-        const typeListButton = document.querySelectorAll('.type-list-button');
-        typeListButton.forEach(button => {
-            button.addEventListener('mouseenter', () => {
-                let selectedType = button.dataset.elemtype;
-                elements.forEach(element => {
-                    if (element.dataset.elemtype !== selectedType) {
-                        element.style.filter = 'saturate(50%)'
-                    }
-                    if (element.dataset.elemtype === selectedType) {
-                        element.style.filter = 'saturate(150%)'
-                    }
-                });
-            });
-            button.addEventListener('mouseleave', () => {
-                let selectedType = button.dataset.elemtype;
-                elements.forEach(element => {
-                    if (element.dataset.elemtype !== selectedType) {
-                        element.style.filter = 'saturate(100%)'
-                    }
-                    if (element.dataset.elemtype === selectedType) {
-                        element.style.filter = 'saturate(100%)'
-                    }
-                });
-            });
-        }); */
 </script>
 
 {% endblock %}

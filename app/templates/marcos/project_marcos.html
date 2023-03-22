@@ -168,44 +168,45 @@
 
 {% macro project_preview_2() %}
 <section class="bg-light">
-    <div class="container">
+    <div class="container py-5 ">
         <div class="row p-5">
-            <h1 class="display-5 text-center">Case Study Title</h1>
-            <h5 class="text-center">Case Study Subtitle</h5>
+            <h1 class="display-5 text-center">Los Angeles Crime Data Dashboard</h1>
+            <h5 class="text-center">Interactive Visualization of LA Crime Data</h5>
             <hr class="w-25 mx-auto">
         </div>
         <div class="row">
-            <div class="col-4 bg-dark rounded-5">
-                Img
+            <div class="d-none d-sm-block col-12 col-md-5 col-lg-4 col-xl-5">
+               <img class="d-block d-md-none d-xxl-block rounded-5" src="../../static/images/projects/la_crime_data_preview_lg.png" alt="">
+               <img class="d-none d-xl-block d-xxl-none rounded-5" src="../../static/images/projects/la_crime_data_preview_md.png" alt="">
+               <img class="d-none d-md-block d-xl-none rounded-5" src="../../static/images/projects/la_crime_data_preview_sm.png" alt="">
             </div>
             <div class="col">
                 <div class="row">
-                    <div class="col-1">
-                        <i class="fa-solid fa-image fa-2xl"></i>
+                    <div class="col-5 d-sm-none text-center p-1 pt-sm-5">
+                        <img class="d-block d-sm-none rounded-5" src="../../static/images/projects/la_crime_data_preview_sm.png" alt="">
                     </div>
-                    <div class="col">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vel harum mollitia, quaerat sint
-                        illo nemo laboriosam temporibus earum accusamus. Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Nobis sint sed laborum illo quia minima saepe dolor tempore molestias
-                        molestiae, ducimus, iure numquam ea aliquam officiis. Optio ut quis tenetur.
+                    <div class="d-block d-sm-none col">
+                        This powerful, user-friendly app allows you to explore and analyze crime data with unprecedented ease and precision. This sleek and intuitive interface offers a range of filters that enable you to customize your data exploration. Choose from various parameters, such as year, crime type, area, and victim demographics, to zero in on the information that's most relevant to you.
+                        <br>
+                    </div>
+                    <div class="d-none d-sm-block col lead">
+                        <i class="d-none d-sm-inline fa-solid fa-building-shield"></i>This powerful, user-friendly app allows you to explore and analyze crime data with unprecedented ease and precision. This sleek and intuitive interface offers a range of filters that enable you to customize your data exploration. Choose from various parameters, such as year, crime type, area, and victim demographics, to zero in on the information that's most relevant to you.
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col">
                         <ul>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, quasi id quos facere
-                                sed deleniti adipisci provident cumque illo dolorum, doloribus odio repellat. Facilis,
-                                dolores.</li>
-                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi aspernatur similique
-                                doloribus maiores unde excepturi minus, non reiciendis assumenda sint fuga, qui omnis
-                                perferendis perspiciatis distinctio vel mollitia cum ipsum!</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta voluptate molestias
-                                doloribus molestiae autem! Excepturi accusantium eos nam rerum debitis.</li>
+                            <li> <strong> Customizable Filters:</strong> Tailor your data exploration by selecting from various filter options, such as year, crime type, area, and victim demographics.</li>
+                            <li><strong> Interactive Map Visualization:</strong> Gain quick insights into crime locations and patterns with a visually appealing, interactive map that uses color-coded markers.</li>
+                            <li><strong> Valuable Summary Statistics:</strong> Stay informed with important summary statistics, including total crimes, most common crime types, and most affected areas.</li>
+                            <li><strong> Detailed Comparison Charts:</strong> Delve deeper into the data with crime type and area comparison charts, allowing for a better understanding of the trends and distribution of criminal activity.</li>
                         </ul>
+
+                        <a class="btn btn-outline-primary rounded-4" href="https://zsturman-la-crime-data-crime-data-mv5y1k.streamlit.app/" target="_blank">Go To Dashboard</a>
                     </div>
-                    <div class="col-6">
-                        Graph
+                    <div class="col-6 col-xxl-5 d-none d-lg-block">
+                       <img class="rounded-5" src="../../static/images/projects/la_crime_data_preview_img2.png" alt="La Crime Data Dashboard">
                     </div>
 
                 </div>

@@ -58,21 +58,10 @@ def periodic_table():
     not_displayed = ['display_row', 'display_column']
     in_square = ['atomic_weight', 'atomic_number','element','symbol']
     more_info_list = ['most_stable_crystal', 'isotopes', 'discoverer', 'year_of_discovery', 'electron_configuration']
-    range_list = ['electronegativity', 'melting_point_(k)', 'boiling_point_(k)', 'specific_heat_capacity']
-    not_sure_yet_list = ['ionic_radius', 'atomic_radius', 'density', 'group', 'first_ionization_potential']
-
-    min_values = {}
-    max_values = {}
-    step_value ={}
-    for col in range_list:
-        #for each column I want to find the min and max values
-        min_values[col] = df[col].astype(float).min()
-        max_values[col] = df[col].astype(float).max()
-        step_value[col] = df[col].value_counts()
 
 
     elements = df.to_dict('records')
-    return render_template("projects/periodic_table.html", elements=elements, unique_item_lists=unique_item_lists, column_list=column_list, dropdown_list=dropdown_list, not_displayed=not_displayed, in_square=in_square, more_info_list=more_info_list, min_values=min_values, max_values=max_values, range_list=range_list, step_value=step_value, element_type_list=element_type_list, phase_list=phase_list, title="Periodic Table")
+    return render_template("projects/periodic_table.html", elements=elements, unique_item_lists=unique_item_lists, column_list=column_list, dropdown_list=dropdown_list, not_displayed=not_displayed, in_square=in_square, more_info_list=more_info_list, element_type_list=element_type_list, phase_list=phase_list, title="Periodic Table")
 
 
 @projects.route('/update_selected_element', methods=['POST'])

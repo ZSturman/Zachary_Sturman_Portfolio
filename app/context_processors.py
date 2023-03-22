@@ -87,7 +87,7 @@ periodic_table_proj = Project(
     link_title="Go To Table", 
     image="static/images/projects/periodic_table.png", 
     alt="Periodic Table Image", 
-    tags=["Interactive", "User Interface (UI) Design", "User Experience (UX) Design", "Responsive Design", "HTML", "Jinja2", "Javascript"])
+    tags=["Interactive", "UI/ UX Design", "Responsive Design", "HTML", "Jinja2", "Javascript"])
 
 gamblers_fallacy_proj = Project(
     title="The Gambler's Fallacy", 

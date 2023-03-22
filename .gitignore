@@ -13,3 +13,5 @@ subscribers_list.csv
 subscribers_list.numbers
 instance/site.db
 instance
+tests
+tests/*
