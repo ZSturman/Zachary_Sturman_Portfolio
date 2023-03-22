@@ -1,5 +1,5 @@
 from app import create_app
-from config import DevelopmentConfig, ProductionConfig, TestingConfig
+from config import ProductionConfig
 
 app = create_app(config_class=ProductionConfig)
 app.config.from_object('config.ProductionConfig')
