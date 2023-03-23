@@ -25,6 +25,17 @@
 
   --aboutMeSVGEyeColor: white;
 
+  --svgGry1: rgb(50, 50, 50);
+  --svgGry2: rgb(100, 100, 100);
+  --svgGry3: rgb(175, 175, 175);
+  --svgGry4: rgb(225, 225, 225);
+
+
+  --svgBlu1: rgb(100, 150, 190);
+  --svgBlu2: rgb(121, 183, 234);
+  --svgBlu3: rgb(84, 124, 157);
+  --svgBlu4: rgb(139, 170, 195);
+
 
 
   --blueColor: #729EE0;
@@ -96,31 +107,46 @@ img {
   shape-outside: circle(50%);
 }
 
-
-.footer {
-  width: 100vw;
-  height: 60vh;
-  position: relative;
-  background: linear-gradient(rgba(87, 94, 136, 0) 0%, rgba(10, 41, 73, 0.3) 40%, rgba(10, 41, 73, 0.7) 65%, rgb(10, 41, 73) 65%);
+nav{
+  background: rgb(10, 41, 73);
 }
 
 
-.footer-contact {
-  position: absolute;
-  bottom: 0;
+#resume-nav-btn {
+  max-width: fit-content;
+  align-items: end;
 }
 
 
-.footer-height {
+.nav-link{
+  opacity: .8;
+
+  &:hover{
+    opacity: .5;
+  }
+}
+
+
+
+.footer-div{
+  background: linear-gradient(rgba(87, 94, 136, 0) 0%, rgba(10, 41, 73, 0.3) 40%, rgba(10, 41, 73, 0.7) 55%, rgb(10, 41, 73) 55%);
+  color: white;
   min-height: 30vh;
+
 }
+
+.ftr-btm{
+  background-color: rgb(10, 41, 73);
+
+}
+
 
 
 #bgWaves {
   z-index: -10;
 }
 
-.not-subs-box{
+.not-subs-box {
   max-width: min-content;
 }
 
@@ -128,49 +154,26 @@ img {
 
 
 
-@media (max-height: 600px){
-  .rm-at-h-600{
+@media (max-height: 600px) {
+  .rm-at-h-600 {
     display: none;
   }
 }
 
-@media (max-height: 500px){
-  .rm-at-h-500{
+@media (max-height: 500px) {
+  .rm-at-h-500 {
     display: none;
   }
 }
 
-@media (min-height:300px){
-  .footer-numtwo{
-display: none;
-  }
-  .ftr-2{
-display: none;
-  }
-}
+
 @media (max-height: 300px) {
-  .footer{
-    display: none;
-  }
-  .footer-numtwo{
-    width: 100vw;
-    height: 60vh;
-    position: relative;
-    bottom: 0;
-    background: linear-gradient(rgba(87, 94, 136, 0) 0%, rgba(10, 41, 73, 0.3) 10%, rgba(10, 41, 73, 0.7) 45%, rgb(10, 41, 73) 45%);
-  }
-  .ftr-2{
-    position: absolute;
-    bottom: 0;
-  }
-  .rm-at-h-460{
+
+  .rm-at-h-460 {
     display: none;
   }
 }
 
-.fix-z{
-z-index: 1000;
-}
 
 
 
@@ -186,6 +189,10 @@ z-index: 1000;
 
 #name-logo {
   vertical-align: top;
+}
+
+#home-main{
+  background-image: linear-gradient(to bottom,rgba(52, 67, 135, 0.6) 4%, rgba(117, 178, 244, 0.3) 10%, rgba(226, 57, 57, 0.1) 40%, rgba(53, 80, 191, 0));
 }
 
 #home-sm-screen {
@@ -208,94 +215,116 @@ z-index: 1000;
 
 
 
-#projectPreview{
+#projectPreview {
 
-@media (max-width: $screen-xs-max) {
-  // styles for extra small screens
+  @media (max-width: $screen-xs-max) {
+    // styles for extra small screens
 
-  h1{
-    font-size: 1.5rem !important;
-  }
-  h2{
-    font-size: 1rem !important;
-  }
-  h5{
-    font-size: .75rem !important;
-  }
-  li{
-    font-size: .65rem !important;
-  }
-  p {
-    font-size: 10px !important;
+    h1 {
+      font-size: 1.5rem !important;
+    }
+
+    h2 {
+      font-size: 1rem !important;
+    }
+
+    h5 {
+      font-size: .75rem !important;
+    }
+
+    li {
+      font-size: .65rem !important;
+    }
+
+    p {
+      font-size: 10px !important;
+    }
+
   }
 
-}
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
 
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-  // styles for small screens
-  h1{
-    font-size: 1.5rem !important;
-  }
-  h2{
-    font-size: 1rem !important;
-  }
-  h3{
-    font-size: 1rem !important;
-  }
-  h5{
-    font-size: .75rem !important;
-  }
-  li{
-    font-size: .65rem !important;
-  }
-  p {
-    font-size: 10px !important;
-  }
-}
+    // styles for small screens
+    h1 {
+      font-size: 1.5rem !important;
+    }
 
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-  // styles for medium screens
-  h1{
-    font-size: 1.5rem !important;
-  }
-  h2{
-    font-size: 1rem !important;
-  }
-  h3{
-    font-size: 1rem !important;
-  }
-  h5{
-    font-size: .75rem !important;
-  }
-  li{
-    font-size: .65rem !important;
-  }
-  p {
-    font-size: .7rem !important;
-  }
-}
+    h2 {
+      font-size: 1rem !important;
+    }
 
-@media (min-width: $screen-lg-min) {
-  // styles for large screens
-  h1{
-    font-size: 2rem !important;
+    h3 {
+      font-size: 1rem !important;
+    }
+
+    h5 {
+      font-size: .75rem !important;
+    }
+
+    li {
+      font-size: .65rem !important;
+    }
+
+    p {
+      font-size: 10px !important;
+    }
   }
-  h2{
-    font-size: 1.5rem !important;
+
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+
+    // styles for medium screens
+    h1 {
+      font-size: 1.5rem !important;
+    }
+
+    h2 {
+      font-size: 1rem !important;
+    }
+
+    h3 {
+      font-size: 1rem !important;
+    }
+
+    h5 {
+      font-size: .75rem !important;
+    }
+
+    li {
+      font-size: .65rem !important;
+    }
+
+    p {
+      font-size: .7rem !important;
+    }
   }
-  h3{
-    font-size: 1.5rem !important;
+
+  @media (min-width: $screen-lg-min) {
+
+    // styles for large screens
+    h1 {
+      font-size: 2rem !important;
+    }
+
+    h2 {
+      font-size: 1.5rem !important;
+    }
+
+    h3 {
+      font-size: 1.5rem !important;
+    }
+
+    h5 {
+      font-size: 1rem !important;
+    }
+
+    li {
+      font-size: .75rem !important;
+    }
+
+    p {
+      font-size: .8rem !important;
+    }
   }
-  h5{
-    font-size: 1rem !important;
-  }
-  li{
-    font-size: .75rem !important;
-  }
-  p {
-    font-size: .8rem !important;
-  }
-}
 }
 
 
@@ -377,12 +406,11 @@ z-index: 1000;
 
 .connect-with-link:hover {
   transform: translateY(20%);
-
 }
 
 .connect-with-link:before {
   content: attr(data-text);
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(53, 53, 53, 0.65);
   position: absolute;
   left: 0;
   width: 100%;
@@ -393,9 +421,20 @@ z-index: 1000;
   padding-bottom: 20px;
 }
 
+
 .connect-with-link:hover:before {
   transform: translateY(-50%);
   opacity: 1;
+}
+
+.footer-contact-info{
+  color: white;
+  opacity: .7;
+
+  &:hover{
+    color: white;
+    opacity: 1;
+  }
 }
 
 
@@ -421,7 +460,7 @@ z-index: 1000;
 
 -----------------------------------------------------
 ---------------------------------------------------*/
-.blue-grad{
+.blue-grad {
   background: var(--blue-gradient1);
 }
 
@@ -499,93 +538,116 @@ z-index: 1000;
 -----------------------------------------------------
 ---------------------------------------------------*/
 
-.proj_card{
+.proj_card {
   @media (max-width: $screen-xs-max) {
     // styles for extra small screens
-  
-    h1{
+
+    h1 {
       font-size: 1.5rem !important;
     }
-    h2{
+
+    h2 {
       font-size: 1rem !important;
     }
-    h5{
+
+    h5 {
       font-size: 1rem !important;
     }
-    li{
+
+    li {
       font-size: .65rem !important;
     }
+
     p {
       font-size: 10px !important;
     }
-    a{
+
+    a {
       font-size: .75rem !important;
 
     }
-  
+
   }
-  
+
   @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+
     // styles for small screens
-    h1{
+    h1 {
       font-size: 1.5rem !important;
     }
-    h2{
+
+    h2 {
       font-size: 1rem !important;
     }
-    h3{
+
+    h3 {
       font-size: 1rem !important;
     }
-    h5{
+
+    h5 {
       font-size: .75rem !important;
     }
-    li{
+
+    li {
       font-size: .65rem !important;
     }
+
     p {
       font-size: 10px !important;
     }
   }
-  
+
   @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+
     // styles for medium screens
-    h1{
+    h1 {
       font-size: 1.5rem !important;
     }
-    h2{
+
+    h2 {
       font-size: 1rem !important;
     }
-    h3{
+
+    h3 {
       font-size: 1rem !important;
     }
-    h5{
+
+    h5 {
       font-size: .75rem !important;
     }
-    li{
+
+    li {
       font-size: .65rem !important;
     }
+
     p {
       font-size: .7rem !important;
     }
   }
-  
+
   @media (min-width: $screen-lg-min) {
+
     // styles for large screens
-    h1{
+    h1 {
       font-size: 2rem !important;
     }
-    h2{
+
+    h2 {
       font-size: 1.5rem !important;
     }
-    h3{
+
+    h3 {
       font-size: 1.5rem !important;
     }
-    h5{
+
+    h5 {
       font-size: 1rem !important;
     }
-    li{
+
+    li {
       font-size: .75rem !important;
     }
+
     p {
       font-size: .8rem !important;
     }
@@ -627,12 +689,17 @@ z-index: 1000;
   filter: grayscale(80%);
 }
 
+@media screen and (max-width: 345px){
+  #testimonials {
+    max-height: 50vh;
+  }
+}
+
 @media screen and (max-width: 813px) and (orientation: landscape) {
   #testimonials {
     max-height: 35vh;
   }
 }
-
 
 
 
@@ -703,25 +770,6 @@ svg {
 
 
 
-/* ---------------------------------------------------
------------------------------------------------------
-
-        NAV Bar
-
------------------------------------------------------
----------------------------------------------------*/
-
-#resume-nav-btn {
-  max-width: fit-content;
-  align-items: end;
-}
-
-
-
-
-
-
-
 
 
 
@@ -735,23 +783,6 @@ svg {
 
 -----------------------------------------------------
 ---------------------------------------------------*/
-
-
-
-
-:root {
-  --svgGry1: rgb(50, 50, 50);
-  --svgGry2: rgb(100, 100, 100);
-  --svgGry3: rgb(175, 175, 175);
-  --svgGry4: rgb(225, 225, 225);
-
-
-  --svgBlu1: rgb(100, 150, 190);
-  --svgBlu2: rgb(121, 183, 234);
-  --svgBlu3: rgb(84, 124, 157);
-  --svgBlu4: rgb(139, 170, 195);
-
-}
 
 
 #gearAnim1 {
@@ -849,67 +880,78 @@ svg {
 
 
 
-
-
-
-
-
-
-
 /* ---------------------------------------------------
-        About Me SVG
+        CPA SVG
 ---------------------------------------------------*/
 
 
-#aboutMeSVG {
-  #about_icon_2 {
-    text {
-      opacity: 0;
-      transform: scaleY(0);
-      transform: translateY(25%);
-      fill: var(--blueColor);
-      transition: all 0.2s ease-in-out;
+.with-hover {
+  @media(hover: none) {
+    display: none;
+    #aboutMeSVG {
+      display: none;
     }
 
-    #about_me_border {
-      stroke: var(--greyColor);
+    #portfolioSVG {
+      display: none;
     }
 
-    #about_me_bg {
-      fill: var(--greyColor);
+    #contactMeSVG {
+      display: none;
     }
+  }
 
-    #about_me_right_eye_white {
-      fill: var(--aboutMeSVGEyeColor);
-      transition: all 0.3s ease-in-out;
-    }
+  @media(hover: hover) {
+    #aboutMeSVG {
+      #about_icon_2 {
+        text {
+          opacity: 0;
+          transform: scaleY(0);
+          transform: translateY(25%);
+          fill: var(--blueColor);
+          transition: all 0.2s ease-in-out;
+        }
 
-    #about_me_right_eye_pupil {
-      fill: var(--blueColor);
-      transform: rotate(-76.2668 69.6119 30.7613);
-      transition: all 0.3s ease-in-out;
-    }
+        #about_me_border {
+          stroke: var(--greyColor);
+        }
 
-    #about_me_left_eye {
-      g {
-        #about_me_left_eye_white {
+        #about_me_bg {
+          fill: var(--greyColor);
+        }
+
+        #about_me_right_eye_white {
           fill: var(--aboutMeSVGEyeColor);
           transition: all 0.3s ease-in-out;
         }
 
-        #about_me_left_pupil {
+        #about_me_right_eye_pupil {
+          fill: var(--blueColor);
+          transform: rotate(-76.2668 69.6119 30.7613);
+          transition: all 0.3s ease-in-out;
+        }
+
+        #about_me_left_eye {
           g {
-            #about_me_left_pupil_shape {
-              fill: var(--blueColor);
-              transform: rotate(-82.8913 71.1629 75.3453);
+            #about_me_left_eye_white {
+              fill: var(--aboutMeSVGEyeColor);
               transition: all 0.3s ease-in-out;
+            }
+
+            #about_me_left_pupil {
+              g {
+                #about_me_left_pupil_shape {
+                  fill: var(--blueColor);
+                  transform: rotate(-82.8913 71.1629 75.3453);
+                  transition: all 0.3s ease-in-out;
+                }
+              }
             }
           }
         }
-      }
-    }
 
-    @media(hover: hover) {
+       
+      }
       &:hover {
         text {
           opacity: 1 !important;
@@ -962,112 +1004,47 @@ svg {
       }
     }
 
-    @media(hover: none) {
-      text {
-        opacity: 1 !important;
-        transform: scaleY(1) !important;
-        transform: translateY(0) !important;
-      }
+    #portfolioSVG {
+      #portfolio_icon {
+        text {
+          opacity: 0;
+          transform: scaleY(0);
+          transform: translateY(25%);
+          fill: var(--blueColor);
+          transition: all 0.2s ease-in-out;
+        }
 
-      #about_me_bg {
-        fill: var(--blueColor) !important;
-      }
+        #portfolio_suitcase {
+          transition: all 0.3s ease-in-out;
+          fill: var(--greyColor);
+        }
 
-      #about_me_border {
-        stroke: var(--blueColor) !important;
-      }
+        #portfolio_handle {
+          stroke: var(--greyColor);
+          transition: all 0.3s ease-in-out;
+        }
 
-      #about_me_right_eye_white {
-        cx: 88;
-        cy: 61;
-        r: 27;
-      }
+        #portfolio_paper_3 {
+          transition: all 0.3s ease-in-out;
+        }
 
-      #about_me_right_eye_pupil {
-        cx: 83.5;
-        cy: 64;
-        rx: 8.5;
-        ry: 11;
-      }
+        #portfolio_paper_2 {
+          transition: all 0.25s ease-in-out;
+        }
 
-      #about_me_left_eye {
-        g {
-          #about_me_left_eye_white {
-            cx: 44.5;
-            cy: 61;
-            rx: 27.5;
-            ry: 28;
-          }
+        #portfolio_paper_1 {
+          transition: all 0.3s ease-in-out;
+        }
 
-          #about_me_left_pupil {
-            g {
-              #about_me_left_pupil_shape {
-                cx: 47.5;
-                cy: 64;
-                rx: 8.5;
-                ry: 11;
-              }
-            }
-          }
+        #portfolio_front_flap_shadow {
+          transition: all 0.3s ease-in-out;
+        }
+
+        #portfolio_front_flap {
+          fill: var(--greyColor);
+          transition: all 0.3s ease-in-out;
         }
       }
-    }
-  }
-}
-
-
-
-
-/* ---------------------------------------------------
-        Portfolio SVG
----------------------------------------------------*/
-
-
-
-#portfolioSVG {
-  #portfolio_icon {
-    text {
-      opacity: 0;
-      transform: scaleY(0);
-      transform: translateY(25%);
-      fill: var(--blueColor);
-      transition: all 0.2s ease-in-out;
-    }
-
-    #portfolio_suitcase {
-      transition: all 0.3s ease-in-out;
-      fill: var(--greyColor);
-    }
-
-    #portfolio_handle {
-      stroke: var(--greyColor);
-      transition: all 0.3s ease-in-out;
-    }
-
-    #portfolio_paper_3 {
-      transition: all 0.3s ease-in-out;
-    }
-
-    #portfolio_paper_2 {
-      transition: all 0.25s ease-in-out;
-    }
-
-    #portfolio_paper_1 {
-      transition: all 0.3s ease-in-out;
-    }
-
-    #portfolio_front_flap_shadow {
-      transition: all 0.3s ease-in-out;
-    }
-
-    #portfolio_front_flap {
-      fill: var(--greyColor);
-      transition: all 0.3s ease-in-out;
-    }
-
-
-
-    @media(hover: hover) {
       &:hover {
         text {
           opacity: 1 !important;
@@ -1122,7 +1099,161 @@ svg {
       }
     }
 
-    @media(hover: none) {
+    #contactMeSVG {
+      #contact_me_icon {
+        text {
+          opacity: 0;
+          transform: scaleY(0);
+          transform: translateY(25%);
+          fill: var(--blueColor);
+          transition: all 0.2s ease-in-out;
+        }
+
+        #contact_me_full {
+          #contact_me_phone_icon {
+            fill: rgb(255, 255, 255);
+            opacity: 1;
+            transition: all 0.25s ease-in-out;
+          }
+
+          path {
+            fill: var(--greyColor);
+            transition: all 0.25s ease-in-out;
+          }
+        }
+      }
+      &:hover {
+        #contact_me_icon {
+          text {
+            opacity: 1 !important;
+            transform: scaleY(1) !important;
+            transform: translateY(0) !important;
+          }
+
+          #contact_me_full {
+            #contact_me_phone_icon {
+              opacity: 0 !important;
+              d: path('M0.500024 24C2.00005 19 7.65549 3.5 10.5 3.49999C13.3445 3.49999 28.5 -0.999982 29 1.5C29.5 3.99998 37 21 36.5 23C36 25 25 24.5 27.5 27.5C30 30.5 36.5 32 38.5 32C40.5 32 50 36 51.5 36C53 36 48.5 37.5 47 38.5C45.5 39.5 42.5 38.5 36.5 38.5C30.5 38.5 29.4999 36.5 22 39.5C14.5 42.5 -0.999997 29 0.500024 24Z') !important;
+            }
+
+            #contact_me_index {
+              fill: var(--blueColor) !important;
+              d: path('M78.2737 37.4683C83.0036 35.9406 88.0765 38.5366 89.6042 43.2665L90.855 47.1391C91.1945 48.1902 90.6176 49.3175 89.5665 49.657L57.0166 60.1701C56.4911 60.3398 55.9274 60.0514 55.7577 59.5258L53.5849 52.7985C52.3967 49.1197 54.4157 45.1741 58.0946 43.9859L78.2737 37.4683Z') !important;
+            }
+
+            #contact_me_middle {
+              fill: var(--blueColor) !important;
+              d: path('M94.5816 51.6916C98.786 50.3337 103.295 52.6412 104.653 56.8456L106.211 61.6697C106.551 62.7208 105.974 63.8481 104.923 64.1876L62.7171 77.8194C62.1916 77.9892 61.6279 77.7007 61.4582 77.1752L57.4413 64.7383C57.2715 64.2127 57.5599 63.6491 58.0855 63.4793L94.5816 51.6916Z') !important;
+            }
+
+            #contact_me_ring {
+              fill: var(--blueColor) !important;
+              d: path('M104.197 85.1307C108.402 83.7727 110.709 79.2635 109.351 75.0591L107.793 70.235C107.453 69.1839 106.326 68.607 105.275 68.9465L64.1423 82.2318C63.6167 82.4015 63.3283 82.9652 63.498 83.4907L65.6708 90.218C66.8591 93.8969 70.8046 95.916 74.4835 94.7277L104.197 85.1307Z') !important;
+            }
+
+            #contact_me_hand {
+              fill: var(--blueColor) !important;
+              d: path('M44.3058 25.9036C44.8463 22.0745 41.2855 9.2158 41.2855 9.2158C41.2855 9.2158 40.7551 3.9054 47.7287 1.65302C54.264 -0.457792 57.4944 4.91784 57.8747 5.60195C57.9007 5.6488 57.9188 5.69086 57.9353 5.74187C58.3105 6.90348 63.2908 22.3231 64.1478 24.9766C65.0385 27.7343 63.4211 35.5656 62.1681 37.1885C60.9151 38.8113 55.3726 39.9924 52.5083 43.9629C49.644 47.9335 49.9962 52.6923 49.9962 52.6923L60.6806 89.4406C60.6806 89.4406 63.711 96.9889 68.5349 99.0854C73.3587 101.182 76.519 100.052 79.2595 99.2759C82 98.5 96.9618 93.5583 99.644 92.692C102.326 91.8257 121.466 97.2276 123.233 97.8638C125 98.5 128.057 99.9602 126.978 105.79C125.899 111.621 121.073 111.352 121.073 111.352C121.073 111.352 106.239 109.443 97.6603 108.56C89.0814 107.676 55.6343 127.006 53.6687 126.423C51.7031 125.84 43.4926 115.092 41.527 114.508C39.5614 113.925 23.2882 120.399 23.2882 120.399C23.2882 120.399 11.4867 124.211 3.1121 100.116C-5.2625 76.0218 7.07749 70.2089 7.07749 70.2089C7.07749 70.2089 19.7738 65.4991 24.2474 61.0088C28.721 56.5185 43.7653 29.7326 44.3058 25.9036Z') !important;
+            }
+          }
+        }
+
+      }
+
+    
+    }
+  }
+
+}
+
+
+.without-hover {
+  @media(hover: hover) {
+    display: none;
+    #aboutMeSVG {
+      display: none;
+    }
+
+    #portfolioSVG {
+      display: none;
+    }
+
+    #contactMeSVG {
+      display: none;
+    }
+  }
+
+  @media(hover: none) {
+    #aboutMeSVG {
+      text {
+        opacity: 0;
+        transform: scaleY(0);
+        transform: translateY(25%);
+        fill: var(--blueColor);
+        transition: all 0.2s ease-in-out;
+      }
+      text {
+        opacity: 1 !important;
+        transform: scaleY(1) !important;
+        transform: translateY(0) !important;
+      }
+
+      #about_me_bg {
+        fill: var(--blueColor) !important;
+      }
+
+      #about_me_border {
+        stroke: var(--blueColor) !important;
+      }
+
+      #about_me_right_eye_white {
+        fill: var(--aboutMeSVGEyeColor);
+        cx: 88;
+        cy: 61;
+        r: 27;
+      }
+
+      #about_me_right_eye_pupil {
+        fill: var(--blueColor);
+        cx: 83.5;
+        cy: 64;
+        rx: 8.5;
+        ry: 11;
+      }
+
+      #about_me_left_eye {
+        g {
+          #about_me_left_eye_white {
+            fill: var(--aboutMeSVGEyeColor);
+            cx: 44.5;
+            cy: 61;
+            rx: 27.5;
+            ry: 28;
+          }
+
+          #about_me_left_pupil {
+            g {
+              #about_me_left_pupil_shape {
+                fill: var(--blueColor);
+                cx: 47.5;
+                cy: 64;
+                rx: 8.5;
+                ry: 11;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #portfolioSVG {
+      text {
+        opacity: 0;
+        transform: scaleY(0);
+        transform: translateY(25%);
+        fill: var(--blueColor);
+        transition: all 0.2s ease-in-out;
+      }
       text {
         opacity: 1 !important;
         transform: scaleY(1) !important;
@@ -1174,53 +1305,20 @@ svg {
         d: path('M17.6008 55.2439C17.9742 52.8028 20.0738 51 22.5432 51H55.0022C56.091 51 57.1046 51.5555 57.6904 52.4733V52.4733C64.833 63.6634 80.5889 65.1645 89.7161 55.5245L92.8898 52.1725C93.5985 51.424 94.5839 51 95.6147 51H121.923C124.809 51 127.095 53.4364 126.913 56.3165L123.297 113.317C123.13 115.95 120.946 118 118.307 118H13.8231C10.7604 118 8.41744 115.271 8.8806 112.244L17.6008 55.2439Z') !important;
       }
     }
-  }
-}
-
-
-
-
-
-
-
-/* ---------------------------------------------------
-        Contact SVG
----------------------------------------------------*/
-
-
-#contactMeSVG {
-  #contact_me_icon {
-    text {
-      opacity: 0;
-      transform: scaleY(0);
-      transform: translateY(25%);
-      fill: var(--blueColor);
-      transition: all 0.2s ease-in-out;
-    }
-
-    #contact_me_full {
-      #contact_me_phone_icon {
-        fill: rgb(255, 255, 255);
-        opacity: 1;
-        transition: all 0.25s ease-in-out;
-      }
-
-      path {
-        fill: var(--greyColor);
-        transition: all 0.25s ease-in-out;
-      }
-    }
-  }
-
-  @media(hover: hover) {
-    &:hover {
+    #contactMeSVG {
       #contact_me_icon {
+        text {
+          opacity: 0;
+          transform: scaleY(0);
+          transform: translateY(25%);
+          fill: var(--blueColor);
+          transition: all 0.2s ease-in-out;
+        }
         text {
           opacity: 1 !important;
           transform: scaleY(1) !important;
           transform: translateY(0) !important;
         }
-
         #contact_me_full {
           #contact_me_phone_icon {
             opacity: 0 !important;
@@ -1251,54 +1349,7 @@ svg {
 
     }
   }
-
-  @media(hover: none) {
-    #contact_me_icon {
-      #contact_me_full {
-        text {
-          opacity: 1 !important;
-          transform: scaleY(1) !important;
-          transform: translateY(0) !important;
-        }
-
-        #contact_me_phone_icon {
-          opacity: 0 !important;
-          d: path('M0.500024 24C2.00005 19 7.65549 3.5 10.5 3.49999C13.3445 3.49999 28.5 -0.999982 29 1.5C29.5 3.99998 37 21 36.5 23C36 25 25 24.5 27.5 27.5C30 30.5 36.5 32 38.5 32C40.5 32 50 36 51.5 36C53 36 48.5 37.5 47 38.5C45.5 39.5 42.5 38.5 36.5 38.5C30.5 38.5 29.4999 36.5 22 39.5C14.5 42.5 -0.999997 29 0.500024 24Z') !important;
-        }
-
-        #contact_me_index {
-          fill: var(--blueColor) !important;
-          d: path('M78.2737 37.4683C83.0036 35.9406 88.0765 38.5366 89.6042 43.2665L90.855 47.1391C91.1945 48.1902 90.6176 49.3175 89.5665 49.657L57.0166 60.1701C56.4911 60.3398 55.9274 60.0514 55.7577 59.5258L53.5849 52.7985C52.3967 49.1197 54.4157 45.1741 58.0946 43.9859L78.2737 37.4683Z') !important;
-        }
-
-        #contact_me_middle {
-          fill: var(--blueColor) !important;
-          d: path('M94.5816 51.6916C98.786 50.3337 103.295 52.6412 104.653 56.8456L106.211 61.6697C106.551 62.7208 105.974 63.8481 104.923 64.1876L62.7171 77.8194C62.1916 77.9892 61.6279 77.7007 61.4582 77.1752L57.4413 64.7383C57.2715 64.2127 57.5599 63.6491 58.0855 63.4793L94.5816 51.6916Z') !important;
-        }
-
-        #contact_me_ring {
-          fill: var(--blueColor) !important;
-          d: path('M104.197 85.1307C108.402 83.7727 110.709 79.2635 109.351 75.0591L107.793 70.235C107.453 69.1839 106.326 68.607 105.275 68.9465L64.1423 82.2318C63.6167 82.4015 63.3283 82.9652 63.498 83.4907L65.6708 90.218C66.8591 93.8969 70.8046 95.916 74.4835 94.7277L104.197 85.1307Z') !important;
-        }
-
-        #contact_me_hand {
-          fill: var(--blueColor) !important;
-          d: path('M44.3058 25.9036C44.8463 22.0745 41.2855 9.2158 41.2855 9.2158C41.2855 9.2158 40.7551 3.9054 47.7287 1.65302C54.264 -0.457792 57.4944 4.91784 57.8747 5.60195C57.9007 5.6488 57.9188 5.69086 57.9353 5.74187C58.3105 6.90348 63.2908 22.3231 64.1478 24.9766C65.0385 27.7343 63.4211 35.5656 62.1681 37.1885C60.9151 38.8113 55.3726 39.9924 52.5083 43.9629C49.644 47.9335 49.9962 52.6923 49.9962 52.6923L60.6806 89.4406C60.6806 89.4406 63.711 96.9889 68.5349 99.0854C73.3587 101.182 76.519 100.052 79.2595 99.2759C82 98.5 96.9618 93.5583 99.644 92.692C102.326 91.8257 121.466 97.2276 123.233 97.8638C125 98.5 128.057 99.9602 126.978 105.79C125.899 111.621 121.073 111.352 121.073 111.352C121.073 111.352 106.239 109.443 97.6603 108.56C89.0814 107.676 55.6343 127.006 53.6687 126.423C51.7031 125.84 43.4926 115.092 41.527 114.508C39.5614 113.925 23.2882 120.399 23.2882 120.399C23.2882 120.399 11.4867 124.211 3.1121 100.116C-5.2625 76.0218 7.07749 70.2089 7.07749 70.2089C7.07749 70.2089 19.7738 65.4991 24.2474 61.0088C28.721 56.5185 43.7653 29.7326 44.3058 25.9036Z') !important;
-        }
-      }
-    }
-  }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1318,57 +1369,67 @@ svg {
     fill: var(--icon-gry1);
     transition: all 0.3s ease-in-out;
   }
+
   #bar_1 {
     fill: var(--icon-gry4);
     transition: all 0.2s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
   }
+
   #bar_2 {
     fill: var(--icon-gry3);
     transition: all 0.25s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
   }
+
   #bar_3 {
     fill: var(--icon-gry3);
     transition: all 0.3s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
   }
+
   #bar_4 {
     fill: var(--icon-gry3);
     transition: all 0.3s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
   }
+
   #line {
     fill: var(--icon-gry4);
     transition: all 0.15s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
   }
 
-  @media(hover: hover){
-    &:hover{
+  @media(hover: hover) {
+    &:hover {
       #bg {
         fill: var(--icon-blu1);
       }
+
       #bar_1 {
         fill: var(--icon-blu6);
         filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
         transform: translate(-15px, -10px) scale(1.075);
       }
+
       #bar_2 {
         fill: var(--icon-blu2);
         filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
         transform: translate(-19px, -15px) scale(1.1);
       }
+
       #bar_3 {
         fill: var(--icon-blu3);
         filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
         transform: translate(-12px, -10px) scale(1.075);
       }
+
       #bar_4 {
         fill: var(--icon-blu6);
         filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
         transform: translate(-10px, -10px) scale(1.075);
       }
+
       #line {
         fill: var(--icon-blu5);
         filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
@@ -1377,30 +1438,36 @@ svg {
       }
     }
   }
-  @media(hover: none){
+
+  @media(hover: none) {
     #bg {
       fill: var(--icon-blu1);
     }
+
     #bar_1 {
       fill: var(--icon-blu6);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-15px, -10px) scale(1.075);
     }
+
     #bar_2 {
       fill: var(--icon-blu2);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-19px, -15px) scale(1.1);
     }
+
     #bar_3 {
       fill: var(--icon-blu3);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-12px, -10px) scale(1.075);
     }
+
     #bar_4 {
       fill: var(--icon-blu6);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-10px, -10px) scale(1.075);
     }
+
     #line {
       fill: var(--icon-blu5);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
@@ -1408,30 +1475,36 @@ svg {
       overflow: visible;
     }
   }
-  .no-anim{
+
+  .no-anim {
     #bg {
       fill: var(--icon-blu1);
     }
+
     #bar_1 {
       fill: var(--icon-blu6);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-15px, -10px) scale(1.075);
     }
+
     #bar_2 {
       fill: var(--icon-blu2);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-19px, -15px) scale(1.1);
     }
+
     #bar_3 {
       fill: var(--icon-blu3);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-12px, -10px) scale(1.075);
     }
+
     #bar_4 {
       fill: var(--icon-blu6);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-10px, -10px) scale(1.075);
     }
+
     #line {
       fill: var(--icon-blu5);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
@@ -1455,36 +1528,43 @@ svg {
     fill: var(--icon-gry1);
     transition: all 0.3s ease-in-out;
   }
+
   #uiux_h1 {
     fill: var(--icon-gry3);
     transition: all 0.2s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
   }
+
   #uiux_bt1 {
     fill: var(--icon-gry3);
     transition: all 0.2s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
   }
+
   #uiux_btn2 {
     fill: var(--icon-gry3);
     transition: all 0.2s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
   }
+
   #uiux_circle {
     fill: var(--icon-gry3);
     transition: all 0.2s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
   }
+
   #uiux_top_r {
     fill: var(--icon-gry3);
     transition: all 0.2s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
   }
+
   #uius_top_l {
     fill: var(--icon-gry3);
     transition: all 0.2s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
   }
+
   #uiux_x {
     transition: all 0.2s ease-in-out;
 
@@ -1500,11 +1580,13 @@ svg {
       filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
     }
   }
+
   #uiux_line5 {
     fill: var(--icon-gry2);
     transition: all 0.2s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
   }
+
   #uiux_line4 {
     rect {
       fill: var(--icon-gry2);
@@ -1526,6 +1608,7 @@ svg {
       filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
     }
   }
+
   #uiux_line2 {
     rect {
       fill: var(--icon-gry2);
@@ -1535,90 +1618,90 @@ svg {
   }
 
 
-  @media(hover: hover){
-    &:hover{
+  @media(hover: hover) {
+    &:hover {
       #uiux_bg {
         fill: var(--icon-blu7);
         transition: all 0.3s ease-in-out;
       }
-    
+
       #uiux_h1 {
         fill: var(--icon-blu1);
         filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
         transform: translate(-5px, 0px) scale(1.025);
       }
-    
+
       #uiux_bt1 {
         fill: var(--icon-blu1);
         filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
         transform: translate(-10px, -10px) scale(1.075);
       }
-    
+
       #uiux_btn2 {
         fill: var(--icon-blu3);
         filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
         transform: translate(-10px, -10px) scale(1.075);
-    
+
       }
-    
+
       #uiux_circle {
         fill: var(--icon-blu5);
         filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
         transform: translate(-15px, -10px) scale(1.075);
-    
+
       }
-    
+
       #uiux_top_r {
         fill: var(--icon-blu3);
         filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
         transform: translate(-5px, -5px) scale(1.025);
-    
+
       }
-    
+
       #uius_top_l {
         fill: var(--icon-blu1);
         filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
         transform: translate(-5px, -5px) scale(1.025);
-    
+
       }
-    
+
       #uiux_x {
         transform: translate(-5px, -5px) scale(1.025);
         filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
-    
+
         #uiux_x_1 {
           fill: var(--icon-blu7);
           stroke: var(--icon-blu7);
         }
-    
+
         #uiux_x_2 {
           fill: var(--icon-blu7);
           stroke: var(--icon-blu7);
         }
       }
-    
+
       #uiux_line5 {
         fill: var(--icon-blu1);
       }
-    
+
       #uiux_line4 {
         rect {
           fill: var(--icon-blu1);
         }
       }
-    
+
       #uiux_line1 {
         rect {
           fill: var(--icon-blu1);
         }
       }
-    
+
       #uiux_line3 {
         rect {
           fill: var(--icon-blu1);
         }
       }
-    
+
       #uiux_line2 {
         rect {
           fill: var(--icon-blu1);
@@ -1627,89 +1710,90 @@ svg {
 
     }
   }
-  @media(hover: none){
+
+  @media(hover: none) {
     #uiux_bg {
       fill: var(--icon-blu7);
       transition: all 0.3s ease-in-out;
     }
-  
+
     #uiux_h1 {
       fill: var(--icon-blu1);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-5px, 0px) scale(1.025);
     }
-  
+
     #uiux_bt1 {
       fill: var(--icon-blu1);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-10px, -10px) scale(1.075);
     }
-  
+
     #uiux_btn2 {
       fill: var(--icon-blu3);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-10px, -10px) scale(1.075);
-  
+
     }
-  
+
     #uiux_circle {
       fill: var(--icon-blu5);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-15px, -10px) scale(1.075);
-  
+
     }
-  
+
     #uiux_top_r {
       fill: var(--icon-blu3);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-5px, -5px) scale(1.025);
-  
+
     }
-  
+
     #uius_top_l {
       fill: var(--icon-blu1);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-5px, -5px) scale(1.025);
-  
+
     }
-  
+
     #uiux_x {
       transform: translate(-5px, -5px) scale(1.025);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
-  
+
       #uiux_x_1 {
         fill: var(--icon-blu7);
         stroke: var(--icon-blu7);
       }
-  
+
       #uiux_x_2 {
         fill: var(--icon-blu7);
         stroke: var(--icon-blu7);
       }
     }
-  
+
     #uiux_line5 {
       fill: var(--icon-blu1);
     }
-  
+
     #uiux_line4 {
       rect {
         fill: var(--icon-blu1);
       }
     }
-  
+
     #uiux_line1 {
       rect {
         fill: var(--icon-blu1);
       }
     }
-  
+
     #uiux_line3 {
       rect {
         fill: var(--icon-blu1);
       }
     }
-  
+
     #uiux_line2 {
       rect {
         fill: var(--icon-blu1);
@@ -1717,89 +1801,90 @@ svg {
     }
 
   }
-  .no-anim{
+
+  .no-anim {
     #uiux_bg {
       fill: var(--icon-blu7);
       transition: all 0.3s ease-in-out;
     }
-  
+
     #uiux_h1 {
       fill: var(--icon-blu1);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-5px, 0px) scale(1.025);
     }
-  
+
     #uiux_bt1 {
       fill: var(--icon-blu1);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-10px, -10px) scale(1.075);
     }
-  
+
     #uiux_btn2 {
       fill: var(--icon-blu3);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-10px, -10px) scale(1.075);
-  
+
     }
-  
+
     #uiux_circle {
       fill: var(--icon-blu5);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-15px, -10px) scale(1.075);
-  
+
     }
-  
+
     #uiux_top_r {
       fill: var(--icon-blu3);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-5px, -5px) scale(1.025);
-  
+
     }
-  
+
     #uius_top_l {
       fill: var(--icon-blu1);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
       transform: translate(-5px, -5px) scale(1.025);
-  
+
     }
-  
+
     #uiux_x {
       transform: translate(-5px, -5px) scale(1.025);
       filter: drop-shadow(3px 5px 3px rgba(10, 41, 73, 0.7));
-  
+
       #uiux_x_1 {
         fill: var(--icon-blu7);
         stroke: var(--icon-blu7);
       }
-  
+
       #uiux_x_2 {
         fill: var(--icon-blu7);
         stroke: var(--icon-blu7);
       }
     }
-  
+
     #uiux_line5 {
       fill: var(--icon-blu1);
     }
-  
+
     #uiux_line4 {
       rect {
         fill: var(--icon-blu1);
       }
     }
-  
+
     #uiux_line1 {
       rect {
         fill: var(--icon-blu1);
       }
     }
-  
+
     #uiux_line3 {
       rect {
         fill: var(--icon-blu1);
       }
     }
-  
+
     #uiux_line2 {
       rect {
         fill: var(--icon-blu1);
@@ -1831,44 +1916,56 @@ svg {
       transition: all 0.2s ease-in-out;
     }
   }
+
   #gear1 {
     animation-play-state: paused;
     transform-box: fill-box;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
+
     circle {
       stroke: var(--icon-gry2);
     }
+
     rect {
       fill: var(--icon-gry2);
     }
   }
+
   #gear2 {
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
+
     circle {
       stroke: var(--icon-gry3);
       transition: all 0.2s ease-in-out;
     }
+
     rect {
       fill: var(--icon-gry3);
       transition: all 0.2s ease-in-out;
     }
   }
+
   #gear3 {
     transition: all 0.2s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
+
     circle {
       stroke: var(--icon-gry2);
     }
+
     rect {
       fill: var(--icon-gry2);
     }
   }
+
   #gear4 {
     transition: all 0.2s ease-in-out;
     filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.0));
+
     circle {
       stroke: var(--icon-gry1);
     }
+
     rect {
       fill: var(--icon-gry1);
     }
@@ -1876,15 +1973,17 @@ svg {
 
 
 
-  @media(hover: hover){
-    &:hover{
+  @media(hover: hover) {
+    &:hover {
       #Computer_monitor {
         stroke: var(--icon-blu7);
+
         #monitor_stand {
           fill: var(--icon-blu7);
           stroke: var(--icon-blu7);
         }
       }
+
       #gear1 {
         transform-origin: center;
         transform: translate(-20px, 0px) scale(1.075);
@@ -1894,50 +1993,64 @@ svg {
         animation-timing-function: linear;
         animation-duration: 5s;
         animation-iteration-count: infinite;
+
         circle {
           stroke: var(--icon-blu3);
         }
+
         rect {
           fill: var(--icon-blu3);
         }
       }
+
       #gear2 {
         transform: translate(-20px, -10px) scale(1.15);
+
         circle {
           stroke: var(--icon-blu3);
         }
+
         rect {
           fill: var(--icon-blu3);
         }
       }
+
       #gear3 {
         transform: translate(-10px, -10px) scale(1.075);
+
         circle {
           stroke: var(--icon-blu4);
         }
+
         rect {
           fill: var(--icon-blu4);
         }
       }
+
       #gear4 {
         transform: translate(-10px, -10px) scale(1.075);
+
         circle {
           stroke: var(--icon-blu2);
         }
+
         rect {
           fill: var(--icon-blu2);
         }
       }
     }
   }
-  @media(hover: none){
+
+  @media(hover: none) {
     #Computer_monitor {
       stroke: var(--icon-blu7);
+
       #monitor_stand {
         fill: var(--icon-blu7);
         stroke: var(--icon-blu7);
       }
     }
+
     #gear1 {
       transform-origin: center;
       transform: translate(-20px, 0px) scale(1.075);
@@ -1947,49 +2060,63 @@ svg {
       animation-timing-function: linear;
       animation-duration: 5s;
       animation-iteration-count: infinite;
+
       circle {
         stroke: var(--icon-blu3);
       }
+
       rect {
         fill: var(--icon-blu3);
       }
     }
+
     #gear2 {
       transform: translate(-20px, -10px) scale(1.15);
+
       circle {
         stroke: var(--icon-blu3);
       }
+
       rect {
         fill: var(--icon-blu3);
       }
     }
+
     #gear3 {
       transform: translate(-10px, -10px) scale(1.075);
+
       circle {
         stroke: var(--icon-blu4);
       }
+
       rect {
         fill: var(--icon-blu4);
       }
     }
+
     #gear4 {
       transform: translate(-10px, -10px) scale(1.075);
+
       circle {
         stroke: var(--icon-blu2);
       }
+
       rect {
         fill: var(--icon-blu2);
       }
     }
   }
-  .no-anim{
+
+  .no-anim {
     #Computer_monitor {
       stroke: var(--icon-blu7);
+
       #monitor_stand {
         fill: var(--icon-blu7);
         stroke: var(--icon-blu7);
       }
     }
+
     #gear1 {
       transform-origin: center;
       transform: translate(-20px, 0px) scale(1.075);
@@ -1999,36 +2126,47 @@ svg {
       animation-timing-function: linear;
       animation-duration: 5s;
       animation-iteration-count: infinite;
+
       circle {
         stroke: var(--icon-blu3);
       }
+
       rect {
         fill: var(--icon-blu3);
       }
     }
+
     #gear2 {
       transform: translate(-20px, -10px) scale(1.15);
+
       circle {
         stroke: var(--icon-blu3);
       }
+
       rect {
         fill: var(--icon-blu3);
       }
     }
+
     #gear3 {
       transform: translate(-10px, -10px) scale(1.075);
+
       circle {
         stroke: var(--icon-blu4);
       }
+
       rect {
         fill: var(--icon-blu4);
       }
     }
+
     #gear4 {
       transform: translate(-10px, -10px) scale(1.075);
+
       circle {
         stroke: var(--icon-blu2);
       }
+
       rect {
         fill: var(--icon-blu2);
       }

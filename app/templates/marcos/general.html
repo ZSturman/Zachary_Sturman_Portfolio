@@ -1,3 +1,5 @@
+{% from "marcos/svgs.html" import c_p_a_svg %}
+
 
 <!-- Testimonials -->
 {% macro testimonials(reviews_list) %}
@@ -817,5 +819,118 @@
 {% endif %}
 {% endmacro %}
 
+{% macro footer(mailing_list_txt, reviews_list) %}
 
+<section class="d-flex flex-column justify-content-end gap-3">
+
+    <div class="container">
+
+        {{ testimonials(reviews_list) }}
+    </div>
+
+
+    <div>
+        <div>
+
+            {% if subscribed == True %}
+
+            <h4 class="display-4 text-center">Thank You For Being Part Of ZSDynamics!</h4>
+
+
+            <br>
+            <br>
+
+            <div class="rounded-3 p-4 text-center mx-auto">
+                <h4 class="fw-light">Not subscribed?</h4>
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#subscribeModal">
+                    Click Here
+                </button>
+
+            </div>
+
+
+            {% else %}
+            <div class="container text-center" data-aos="fade-down" data-aos-duration="400">
+                <h3 class="fw-light">{{ mailing_list_txt }}</h3>
+            </div>
+
+            <div class="container">
+                <form id="subscribe-form" action="{{ url_for('zs_mail.subscribe') }}" method="POST">
+                    <div class="row g-3 px-md-5">
+                        <div class="col-12 col-sm-6  mx-auto">
+                            <label for="contact-form-name" class="form-label">Name</label>
+                            <input name="new-subscribers-name" type="text" class="form-control" id="contact-form-name"
+                                placeholder="John Smith" required>
+                        </div>
+                        <div class="col-12 col-sm-6  mx-auto">
+                            <label for="contact-form-email" class="form-label">Email address</label>
+                            <input name="new-subscribers-email" type="email" class="form-control"
+                                id="contact-form-email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-lg btn-success rounded-5 ">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+
+                <form action="{{ url_for('zs_mail.already_subscribed') }}" method="POST">
+                    <div class="text-center">
+                        <button type="submit" class="m-2 btn btn-sm btn-outline-secondary rounded-5 opacity-50"
+                            name="already_subscribed">Already subscribed</button>
+                    </div>
+                </form>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+    <div>
+        {{ c_p_a_svg() }}
+    </div>
+
+    <div class="w-100 d-flex flex-column footer-div justify-content-center gap-5 ">
+            <div class="d-inline-flex justify-content-center gap-3 flex-wrap">
+                <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+                    href="https://www.linkedin.com/in/zacharysturman/" target="_blank" data-text="linkedin">
+                    <i class="fa-brands fa-linkedin fa-lg"></i>
+                </a>
+                <a class="btn btn-info rounded-circle btn-lg  perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+                    href="https://twitter.com/zachary_sturman" target="_blank" data-text="twitter">
+                    <i class="fa-brands fa-twitter fa-lg"></i>
+                </a>
+                <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+                    href="mailto:zacharysturman@zsdynamics.com?subject={{ email_subject_line }}&body={{ email_body }}"
+                    data-text="email">
+                    <i class="fa-solid fa-envelope fa-lg"></i>
+                </a>
+                <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+                    href="https://github.com/ZSturman" data-text="github">
+
+                    <i class="fa-brands fa-github fa-lg"></i>
+                </a>
+                <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+                    href="../static/assets/Zachary_Sturman_Resume_2023.pdf" target="_blank" data-text="resume">
+                    <i class="fa-solid fa-file-contract fa-lg"></i>
+                </a>
+            </div>
+
+        <div class="d-inline-flex justify-content-center flex-wrap ftr-btm gap-5">
+            <a class="footer-contact-info" href="tel:8168720826"> 816•872•0826</a>
+            <a class="footer-contact-info" href="mailto:zacharysturman@zsdynamics.com">zacharysturman@zsdynamics.com</a>
+        </div>
+
+    </div>
+
+
+
+
+
+
+</section>
+
+
+{% endmacro %}
 

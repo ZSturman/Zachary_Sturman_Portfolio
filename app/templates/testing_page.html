@@ -1,44 +1,9 @@
 {% extends "layout.html" %}
+{% from "marcos/svgs.html" import c_p_a_svg %}
+
 {% block content %}
 
-
-
-
-
-
-
-
-
-<svg width="100%" height="100%" viewBox="0 0 3510 861" fill="none" transform="translate(0, 150)">
-    <g>
-        <linearGradient id="svg-gradient-test" x1="0" x2="0" y="0" y2="1">
-            <stop stop-color="rgba(45, 122, 255, 1)" offset="0"></stop>
-            <stop stop-color="rgba(136, 178, 247, 0)" offset="1"></stop>
-        </linearGradient>
-        <path d="" fill="url(#svg-gradient-test)">
-
-        <animate attributeName="d" dur="10s" repeatCount="indefinite"
-            values="M0 374L439.5 321.5L877.5 203L1316.25 237.5L1755 0.5L2193.75 271.5L2632.5 187.25L3071.25 337.5L3510 374V436L3071.25 479.5L2632.5 648.5L2193.75 521.5L1755 861L1316.25 537.5L877.5 748L439.5 500L0 436V374Z; M0 316L358 0.5L871 242.5L1302.5 37.5L1734 129.25L2193.75 0.5L2632.5 213.5L3104.5 71.5L3510 316V378L3070.5 569L2632.5 400.5L2193.75 632L1734 463.5L1315.5 603L857.5 421.5L358 663.5L0 378V316Z; M0 374L439.5 321.5L877.5 203L1316.25 237.5L1755 0.5L2193.75 271.5L2632.5 187.25L3071.25 337.5L3510 374V436L3071.25 479.5L2632.5 648.5L2193.75 521.5L1755 861L1316.25 537.5L877.5 748L439.5 500L0 436V374Z; ">
-        </animate>
-        </path>
-        <path d="" fill="url(#svg-gradient-test)" class="scroll" data-rate=".5" data-direction="vertical"
-        opacity="0.4">
-
-            <animate attributeName="d" dur="30s" repeatCount="indefinite"
-                values="M0 374L439.5 321.5L877.5 203L1316.25 237.5L1755 0.5L2193.75 271.5L2632.5 187.25L3071.25 337.5L3510 374V436L3071.25 479.5L2632.5 648.5L2193.75 521.5L1755 861L1316.25 537.5L877.5 748L439.5 500L0 436V374Z; M0 316L358 0.5L871 242.5L1302.5 37.5L1734 129.25L2193.75 0.5L2632.5 213.5L3104.5 71.5L3510 316V378L3070.5 569L2632.5 400.5L2193.75 632L1734 463.5L1315.5 603L857.5 421.5L358 663.5L0 378V316Z; M0 374L439.5 321.5L877.5 203L1316.25 237.5L1755 0.5L2193.75 271.5L2632.5 187.25L3071.25 337.5L3510 374V436L3071.25 479.5L2632.5 648.5L2193.75 521.5L1755 861L1316.25 537.5L877.5 748L439.5 500L0 436V374Z; ">
-            </animate>
-            </path>
-    </g>
-
-</svg>
-
-
-
-
-
-
-
-
+{{ c_p_a_svg() }}
 
 
 {% endblock %}
