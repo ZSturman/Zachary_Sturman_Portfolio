@@ -943,6 +943,13 @@ svg #data-analysis-icon #mag_glass_full #mag_handle {
 }
 
 @media (hover: none) {
+  .without-hover #aboutMeSVG {
+    /*       text {
+        opacity: 1 !important;
+        transform: scaleY(1) !important;
+        transform: translateY(0) !important;
+      } */
+  }
   .without-hover #aboutMeSVG text {
     opacity: 0;
     -webkit-transform: scaleY(0);
@@ -952,13 +959,6 @@ svg #data-analysis-icon #mag_glass_full #mag_handle {
     fill: var(--blueColor);
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-  }
-  .without-hover #aboutMeSVG text {
-    opacity: 1 !important;
-    -webkit-transform: scaleY(1) !important;
-            transform: scaleY(1) !important;
-    -webkit-transform: translateY(0) !important;
-            transform: translateY(0) !important;
   }
   .without-hover #aboutMeSVG #about_me_bg {
     fill: var(--blueColor) !important;
@@ -993,7 +993,14 @@ svg #data-analysis-icon #mag_glass_full #mag_handle {
     rx: 8.5;
     ry: 11;
   }
-  .without-hover #portfolioSVG text {
+  .without-hover #portfolioSVG {
+    /*       #text {
+        opacity: 1 !important;
+        transform: scaleY(1) !important;
+        transform: translateY(0) !important;
+      } */
+  }
+  .without-hover #portfolioSVG #text {
     opacity: 0;
     -webkit-transform: scaleY(0);
             transform: scaleY(0);
@@ -1002,13 +1009,6 @@ svg #data-analysis-icon #mag_glass_full #mag_handle {
     fill: var(--blueColor);
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-  }
-  .without-hover #portfolioSVG text {
-    opacity: 1 !important;
-    -webkit-transform: scaleY(1) !important;
-            transform: scaleY(1) !important;
-    -webkit-transform: translateY(0) !important;
-            transform: translateY(0) !important;
   }
   .without-hover #portfolioSVG #portfolio_suitcase {
     fill: var(--blueColor) !important;
@@ -1050,6 +1050,13 @@ svg #data-analysis-icon #mag_glass_full #mag_handle {
     fill: var(--blueColor) !important;
     d: path("M17.6008 55.2439C17.9742 52.8028 20.0738 51 22.5432 51H55.0022C56.091 51 57.1046 51.5555 57.6904 52.4733V52.4733C64.833 63.6634 80.5889 65.1645 89.7161 55.5245L92.8898 52.1725C93.5985 51.424 94.5839 51 95.6147 51H121.923C124.809 51 127.095 53.4364 126.913 56.3165L123.297 113.317C123.13 115.95 120.946 118 118.307 118H13.8231C10.7604 118 8.41744 115.271 8.8806 112.244L17.6008 55.2439Z") !important;
   }
+  .without-hover #contactMeSVG #contact_me_icon {
+    /*         text {
+          opacity: 1 !important;
+          transform: scaleY(1) !important;
+          transform: translateY(0) !important;
+        } */
+  }
   .without-hover #contactMeSVG #contact_me_icon text {
     opacity: 0;
     -webkit-transform: scaleY(0);
@@ -1059,13 +1066,6 @@ svg #data-analysis-icon #mag_glass_full #mag_handle {
     fill: var(--blueColor);
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-  }
-  .without-hover #contactMeSVG #contact_me_icon text {
-    opacity: 1 !important;
-    -webkit-transform: scaleY(1) !important;
-            transform: scaleY(1) !important;
-    -webkit-transform: translateY(0) !important;
-            transform: translateY(0) !important;
   }
   .without-hover #contactMeSVG #contact_me_icon #contact_me_full #contact_me_phone_icon {
     opacity: 0 !important;

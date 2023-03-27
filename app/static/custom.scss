@@ -1184,7 +1184,7 @@ svg {
   }
 
   @media(hover: none) {
-    #aboutMeSVG {
+    #aboutMeSVG{
       text {
         opacity: 0;
         transform: scaleY(0);
@@ -1192,11 +1192,11 @@ svg {
         fill: var(--blueColor);
         transition: all 0.2s ease-in-out;
       }
-      text {
+/*       text {
         opacity: 1 !important;
         transform: scaleY(1) !important;
         transform: translateY(0) !important;
-      }
+      } */
 
       #about_me_bg {
         fill: var(--blueColor) !important;
@@ -1247,19 +1247,18 @@ svg {
     }
 
     #portfolioSVG {
-      text {
+      #text {
         opacity: 0;
         transform: scaleY(0);
         transform: translateY(25%);
         fill: var(--blueColor);
         transition: all 0.2s ease-in-out;
       }
-      text {
+/*       #text {
         opacity: 1 !important;
         transform: scaleY(1) !important;
         transform: translateY(0) !important;
-      }
-
+      } */
       #portfolio_suitcase {
         fill: var(--blueColor) !important;
         d: path('M0.0579818 36.5316C-0.245722 30.2551 4.76124 25 11.0451 25H101.981C107.446 25 112.082 29.0117 112.867 34.4198L123.174 105.42C124.137 112.054 118.992 118 112.288 118H14.4806C8.61215 118 3.77709 113.393 3.49347 107.532L0.0579818 36.5316Z') !important;
@@ -1314,11 +1313,11 @@ svg {
           fill: var(--blueColor);
           transition: all 0.2s ease-in-out;
         }
-        text {
+/*         text {
           opacity: 1 !important;
           transform: scaleY(1) !important;
           transform: translateY(0) !important;
-        }
+        } */
         #contact_me_full {
           #contact_me_phone_icon {
             opacity: 0 !important;
