@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 {% from 'marcos/general.html' import testimonials %}
 {% from 'marcos/project_marcos.html' import project_card %}
+
+{% block og_url %}
+<meta property="og:url" content="https://www.zsdynamics.com/home">
+{% endblock %}
+
+
 {% block content %}
 <section>
   <div class="container mt-5">

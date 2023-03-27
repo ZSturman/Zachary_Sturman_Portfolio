@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 {% from 'marcos/general.html' import services %}
 {% from 'marcos/project_marcos.html' import project_preview_1, project_preview_2 %}
+
+{% block og_url %}
+<meta property="og:url" content="https://www.zsdynamics.com/home">
+{% endblock %}
+
+
 {% block content %}
 <section class="d-none d-md-block" id="home-main">
     <div class="position-absolute top-50 start-50 translate-middle">

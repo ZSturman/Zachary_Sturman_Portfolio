@@ -1,4 +1,7 @@
 {% extends "layout.html" %}
+{% block og_url %}
+<meta property="og:url" content="https://www.zsdynamics.com/home">
+{% endblock %}
 {% block content %}
 
 <link rel="stylesheet" href="{{url_for('static', filename='tip_redistribution.css')}}" type="text/css">
