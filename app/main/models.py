@@ -11,6 +11,7 @@ class Subscribers(db.Model):
     updated = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     welcome_basket_sent = db.Column(db.Boolean, default=False)
     last_email_sent = db.Column(db.DateTime, nullable=True)
+    confirmed = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return f"<Subscribers(name='{self.name}', email='{self.email}', subscribed='{self.subscribed}', created='{self.created}', updated='{self.updated}')>"

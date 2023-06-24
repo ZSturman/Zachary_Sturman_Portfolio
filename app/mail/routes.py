@@ -6,6 +6,8 @@ from flask_mail import Mail, Message
 from config import get_settings
 from app.main.models import Subscribers, db
 
+
+
 zs_mail = Blueprint("zs_mail", __name__)
 
 settings = get_settings()
@@ -176,6 +178,14 @@ def resubscribe(id):
 
 @zs_mail.route('/subscribe', methods=["GET", "POST"])
 def subscribe():
+    honeypot_email = request.form.get("honeypot_email")
+    honeypot_name = request.form.get("honeypot_name")
+    if honeypot_email:
+        flash('Mail not accepted.', 'danger')
+        return redirect(redirect_url())
+    if honeypot_name:
+        flash('Mail not accepted.', 'danger')
+        return redirect(redirect_url())
     name = request.form.get("new-subscribers-name")
     email = request.form.get("new-subscribers-email")
     if email is None or email == '':
@@ -220,11 +230,19 @@ def subscribe():
 
 @zs_mail.route('/send_mail', methods=["GET", "POST"])
 def send_mail():
+    honeypot_email = request.form.get("honeypot_email")
+    honeypot_name = request.form.get("honeypot_name")
+    if honeypot_email:
+        flash('Mail not accepted.', 'danger')
+        return redirect(redirect_url())
+    if honeypot_name:
+        flash('Mail not accepted.', 'danger')
+        return redirect(redirect_url())
     date = datetime.today()
     name = request.form.get("name")
     email = request.form.get("email")
     input_message = request.form.get("message")
-    
+
     def to_emailer():
         emailer = Subscribers.query.filter_by(email=email).first()
         if emailer:
