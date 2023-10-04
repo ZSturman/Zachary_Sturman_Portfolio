@@ -2,13 +2,14 @@ from pathlib import Path
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from app.context_processors import portfolio_context_processor
-from config import Configure, get_settings
+#from config import Configure, get_settings
+from config import get_settings
 
 settings = get_settings()
 
 db = SQLAlchemy()
 
-def create_app(config_class=Configure):
+def create_app(config_class=settings):
     app = Flask(__name__)
     app.config.from_object(config_class)
     app.config['SQLALCHEMY_DATABASE_URI'] = settings.SQLALCHEMY_DATABASE_URI
