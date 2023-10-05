@@ -16,3 +16,6 @@ instance
 tests
 tests/*
 config.py
+app/mail/routes_old.py
+cut_out_items.txt
+to_remove

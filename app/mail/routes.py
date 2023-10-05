@@ -1,12 +1,10 @@
+
 import random
 from datetime import datetime, date, timedelta
 import secrets
 from flask import Blueprint, render_template, flash, redirect, request, url_for, session, current_app, abort
 from flask_mail import Mail, Message
 from config import get_settings
-from app.main.models import Subscribers, db
-
-
 
 zs_mail = Blueprint("zs_mail", __name__)
 
@@ -33,8 +31,6 @@ def record(state):
     with app.app_context():
         current_app.mail = mail
 
-
-
 def msg_attachments(msg, welcome_basket=False):
     msg.attach('githubicon.png','image/png',open('app/static/images/githubicon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Mailgithub>'],])
     msg.attach('linkedinicon.png','image/png',open('app/static/images/linkedinicon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Maillinkedin>'],])
@@ -48,52 +44,11 @@ def msg_attachments(msg, welcome_basket=False):
         msg.attach('mail_learn.png','image/png',open('app/static/images/mail_learn.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailLearn>'],])
         msg.attach('mail_flame.png','image/png',open('app/static/images/mail_flame.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailFlame>'],])
 
-
-
 def redirect_url(default='main.home'):
     return request.args.get('next') or \
            request.referrer or \
            url_for(default)
 
-@zs_mail.route('/already_subscribed', methods=['POST'])
-def already_subscribed():
-    set_subscribed(True)
-    return redirect(redirect_url())
-
-def set_subscribed(sub=False):
-    session['subscribed'] = sub
-    session.permanent = True
-    return sub
-
-@zs_mail.route("/unsubscribe/<string:id>")
-def unsubscribe(id):
-    date = datetime.today()
-    unsubscriber = Subscribers.query.filter_by(id=id).first()
-    if not unsubscriber:
-        abort(404)
-    unsubscriber.updated = datetime.utcnow()
-    unsubscriber.subscribed = False
-    db.session.commit()
-    set_subscribed(False)
-    to_me(unsubscriber, "Unsubscribing")
-    return render_template("mail/unsubscribe.html", title="Unsubscribe", person = unsubscriber, date=date)
-
-@zs_mail.route("/unsubscribe_reason/<string:id>", methods=["GET", "POST"])
-def unsubscribe_reason(id):
-    date = datetime.today()
-    person = Subscribers.query.filter_by(id=id).first()
-    if not person:
-        abort(404)
-    if request.method == 'POST':
-        if 'Send' in request.form:
-            message = request.form['message']
-            to_me(person, "Unsubscribe Reason", message)
-        elif "No Answer" in request.form:
-            message = person.name + "Do Not Want To Answer\n\n" + request.form['message']
-            to_me(person, "Unsubscribe Reason", message)
-        return render_template("mail/unsubscribe.html", title="Unsubscribe", person = person, date=date, sent=True)
-    return redirect(redirect_url())
-        
 
 def to_me(person, subj, messg=None):
     date = datetime.today()
@@ -105,126 +60,6 @@ def to_me(person, subj, messg=None):
     msg_attachments(msg)
     current_app.mail.send(msg)
 
-
-
-
-
-
-
-@zs_mail.route("/thanks_for_subscribing/<string:id>", methods=['GET', 'POST'])
-def thanks_for_subscribing(id):
-    date = datetime.today()
-    subscriber = Subscribers.query.filter_by(id=id).first()
-    if not subscriber:
-        abort(404)
-    subscriber.updated = datetime.utcnow()
-    subscriber.subscribed = True
-    if subscriber.welcome_basket_sent == False:
-        unsubscribe_link = "unsubscribe/" + subscriber.id
-        msg = Message(
-           subject = 'Welcome '+subscriber.name+"!",
-           recipients= [subscriber.email],
-           html = render_template("mail/welcome_basket.html", title="Thanks For Subscribing!", subscriber=subscriber, date=date,unsubscribe_link=unsubscribe_link)
-        )
-        msg_attachments(msg, welcome_basket=True)
-        current_app.mail.send(msg)
-        subscriber.welcome_basket_sent = True
-    db.session.commit()
-    to_me(subscriber, "New Subscriber")
-    set_subscribed(True)
-    flash(f'You have successfully subscribed to ZSDynamics', 'success')
-    return render_template('thanks_for_subscribing.html', title="Thanks For Subscribing!", person=subscriber, subscribing = True, date=date)
-
-
-@zs_mail.route("/subscribe_frm_email/<string:id>", methods=["GET", "POST"])
-def subscribe_frm_email(id):
-    date = datetime.today()
-    person = Subscribers.query.filter_by(id=id).first()
-    if not person:
-        abort(404)
-    person.updated = datetime.utcnow()
-    person.subscribed = True
-    if person.welcome_basket_sent == False:
-        unsubscribe_link = "unsubscribe/" + person.id
-        msg = Message(
-           subject = 'Welcome '+person.name+"!",
-           recipients= [person.email],
-           html = render_template("mail/welcome_basket.html", title="Thanks For Subscribing!", person=person, date=date,unsubscribe_link=unsubscribe_link)
-       )
-        msg_attachments(msg, welcome_basket=True)
-        current_app.mail.send(msg)
-        person.welcome_basket_sent = True
-    db.session.commit()
-    to_me(person, "New Subscriber")
-    set_subscribed(True)
-    flash(f'You have successfully subscribed to ZSDynamics', 'success')
-    return render_template('thanks_for_subscribing.html', title="Thanks For Subscribing!", person=person, subscribing = True, date=date)
-
-@zs_mail.route("/resubscribe/<string:id>", methods=["GET", "POST"])
-def resubscribe(id):
-    date = datetime.today()
-    person = Subscribers.query.filter_by(id=id).first()
-    if not person:
-        abort(404)
-    if person.subscribed == False:
-        person.updated = datetime.utcnow()
-        person.subscribed = True
-        db.session.commit()
-        to_me(person, "ReSubscriber")
-        set_subscribed(True)
-        flash(f'You have successfully resubscribed to ZSDynamics', 'success')
-    return render_template('thanks_for_subscribing.html', title="Thanks For Subscribing!", person=person, subscribing = True, date=date, resubscribing=True)
-
-
-@zs_mail.route('/subscribe', methods=["GET", "POST"])
-def subscribe():
-    honeypot_email = request.form.get("honeypot_email")
-    honeypot_name = request.form.get("honeypot_name")
-    if honeypot_email:
-        flash('Mail not accepted.', 'danger')
-        return redirect(redirect_url())
-    if honeypot_name:
-        flash('Mail not accepted.', 'danger')
-        return redirect(redirect_url())
-    name = request.form.get("new-subscribers-name")
-    email = request.form.get("new-subscribers-email")
-    if email is None or email == '':
-        flash('Please enter a valid email', 'danger')
-        return redirect(redirect_url())
-    def to_emailer():
-        date = datetime.today()
-        subscriber = Subscribers.query.filter_by(email=email).first()
-        if subscriber:
-            subscriber.updated = datetime.utcnow()
-            subscriber.subscribed = True
-            if subscriber.name != name:
-                subscriber.name = name
-        else:
-            subscriber = Subscribers(
-                    name = name,
-                    email = email,
-                    subscribed = True,
-                    created = datetime.utcnow(),
-                    updated=datetime.utcnow()
-                )
-            db.session.add(subscriber)
-        db.session.commit()
-        unsubscribe_link = "unsubscribe/" + subscriber.id
-        if subscriber.welcome_basket_sent == False:
-            msg = Message(
-               subject = 'Welcome To ZSDynamics!',
-               recipients= [subscriber.email],
-               html = render_template("mail/welcome_basket.html", title="Thanks For Subscribing!", person=subscriber, date=date,unsubscribe_link=unsubscribe_link)
-            )    
-            msg_attachments(msg, welcome_basket=True)
-            current_app.mail.send(msg)
-            subscriber.welcome_basket_sent = True
-        db.session.commit()
-        to_me(subscriber, "New Subscriber")
-    to_emailer()
-    set_subscribed(True)
-    flash(f'Check your email for your welcome basket', 'success')
-    return redirect(redirect_url())
 
 
 
@@ -243,64 +78,16 @@ def send_mail():
     email = request.form.get("email")
     input_message = request.form.get("message")
 
-    def to_emailer():
-        emailer = Subscribers.query.filter_by(email=email).first()
-        if emailer:
-            emailer.updated = datetime.utcnow()
-            if emailer.name != name:
-                emailer.name = name
-        else:
-            emailer = Subscribers(
-                name = name,
-                email = email,
-                subscribed = False,
-                created = datetime.utcnow(),
-                updated=datetime.utcnow()
-            )
-            db.session.add(emailer)
-            db.session.commit()
-        if emailer.email == "zasturman@gmail.com":
-            subscribe_link = "subscribe_frm_email/" + emailer.id
-            unsubscribe_link = "unsubscribe/" + emailer.id
-            msg = Message(
-                    subject = 'Thanks for reaching out!',
-                    recipients= [email,settings.MAIL_USERNAME],
-                    html = render_template("mail/thanks_for_reaching_out.html", person=emailer, reaching_out=True, date=date, subscribe_link=subscribe_link, unsubscribe_link=unsubscribe_link)
-                )
-            msg_attachments(msg)
-            current_app.mail.send(msg)
-            emailer.last_email_sent = datetime.utcnow()
-            db.session.commit()
-        elif emailer.last_email_sent and datetime.utcnow() - emailer.last_email_sent < timedelta(minutes=1):
-            to_me(emailer, "Trying to send message within 'do not send window'")
-        else:
-            subscribe_link = "subscribe_frm_email/" + emailer.id
-            unsubscribe_link = "unsubscribe/" + emailer.id
-            msg = Message(
-                    subject = 'Thanks for reaching out!',
-                    recipients= [email,settings.MAIL_USERNAME],
-                    html = render_template("mail/thanks_for_reaching_out.html", person=emailer, reaching_out=True, date=date, subscribe_link=subscribe_link, unsubscribe_link=unsubscribe_link)
-                )
-            msg_attachments(msg)
-            current_app.mail.send(msg)
-            emailer.last_email_sent = datetime.utcnow()
-            db.session.commit()
-        to_me(emailer, "New Message", input_message)
-    to_emailer()
+    person = {'name': name, 'email': email}
+
+    msg = Message(
+            subject = 'Thanks for reaching out!',
+            recipients= [email, settings.MAIL_USERNAME],
+            html = render_template("mail/thanks_for_reaching_out.html", reaching_out=True, date=date, person=person)
+        )
+    msg_attachments(msg)
+    current_app.mail.send(msg)
+    to_me(name, "New Message", input_message)
+
     flash(f"Thanks for reaching out! A reply will be sent to your email soon", 'success')
     return redirect(redirect_url())
-
-
-@zs_mail.route("/news_letter")
-def news_letter():
-    return render_template("mail/news_letter.html", title="News Letter")
-
-""" @zs_mail.route("/mail_tests")
-def mail_tests():
-    person = Subscribers.query.first()
-    if person:
-        print(person.name)
-    else:
-        print("NOOOOOPE")
-    return render_template("mail/welcome_basket.html", resubscribing=False, person=person, reaching_out=True, font_link2='https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap', font_link='https://fonts.googleapis.com/css?family=Font1|Font2', testing_mail=True)
- """

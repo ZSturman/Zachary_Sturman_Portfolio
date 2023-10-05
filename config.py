@@ -7,7 +7,6 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     MAIL_USERNAME: str
     MAIL_PASSWORD: str
-    SQLALCHEMY_DATABASE_URI: str
 
     class Config:
         env_file = "app/.env"

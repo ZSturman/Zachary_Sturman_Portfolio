@@ -1,4 +1,4 @@
-from datetime import datetime
+""" from datetime import datetime
 import secrets
 from app import db
 
@@ -14,3 +14,4 @@ class Subscribers(db.Model):
 
     def __repr__(self):
         return f"<Subscribers(name='{self.name}', email='{self.email}', subscribed='{self.subscribed}', created='{self.created}', updated='{self.updated}')>"
+ """
