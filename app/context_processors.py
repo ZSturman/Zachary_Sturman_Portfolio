@@ -173,5 +173,4 @@ def portfolio_context_processor(config):
     mailing_list_txt = random.choice(mailing_list_txt_list)
     call_to_action_txt = random.choice(call_to_action_list)
     current_date = today.strftime("%B %d, %Y")
-    subscribed = session.get('subscribed', False)
-    return {'dev_test': dev_test, 'dev_status':dev_status, 'mailing_list_txt':mailing_list_txt, 'email_body_list':email_body_list, 'email_subject_line':email_subject_line, 'call_to_action_txt':call_to_action_txt, 'reviews_list':reviews_list, 'projects_list':projects_list, "current_date":current_date, "subscribed":subscribed, "backend_toolbox":backend_toolbox}
+    return {'dev_test': dev_test, 'dev_status':dev_status, 'mailing_list_txt':mailing_list_txt, 'email_body_list':email_body_list, 'email_subject_line':email_subject_line, 'call_to_action_txt':call_to_action_txt, 'reviews_list':reviews_list, 'projects_list':projects_list, "current_date":current_date, "backend_toolbox":backend_toolbox}
