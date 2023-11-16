@@ -118,6 +118,19 @@ productivity_app_proj = Project(
     tags=["Server-side programming", "Database management systems", "Accessibility", "Flask", "SQL", "NGINX"], 
     blank=True)
 
+knife_grinder_proj = Project(
+    title = "Knife Grinder",
+    subtitle= "A Data-Driven Transformation Story",
+    description= "From a struggling start-up to a profitable venture, this is a story of transformation powered by data analysis and modern marketing strategies.",
+    date = "UPDATE: October 2023",
+    link = None,
+    url_for = "projects.knife_grinder",
+    link_title = "Check It Out",
+    image = "static/images/projects/knife_grinder/knife_grinder_business.png",
+    alt = "Knife Grinder Business Image",
+    tags = ['Python', 'Javascript', 'Data Analysis', 'Business'],
+)
+
 
 
 
@@ -132,7 +145,7 @@ project8 = Project(title="Streamlit Test", subtitle="subtitle", description="des
 
 project9 = Project(title="Title", subtitle="subtitle", description="description", date="2022", link="#", url_for=None, link_title="link title", image="img", tags=["Temp"])
 
-projects_list = [la_crime_data_proj, knowledge_navigator_proj, tip_redistribution_proj, periodic_table_proj, gamblers_fallacy_proj, productivity_app_proj]
+projects_list = [knife_grinder_proj, la_crime_data_proj, knowledge_navigator_proj, tip_redistribution_proj, periodic_table_proj, gamblers_fallacy_proj, productivity_app_proj]
 
 
 

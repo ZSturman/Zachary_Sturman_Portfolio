@@ -191,9 +191,9 @@ nav{
   vertical-align: top;
 }
 
-#home-main{
-  background-image: linear-gradient(to bottom,rgba(52, 67, 135, 0.6) 4%, rgba(117, 178, 244, 0.3) 10%, rgba(226, 57, 57, 0.1) 40%, rgba(53, 80, 191, 0));
-}
+/* #home-main{
+  background-image: linear-gradient(to bottom,rgba(112, 118, 146, 0.6)8) 4%, rgba(117, 178, 244, 0.3) 10%, rgba(255, 255, 255, 0.1) 40%, rgba(53, 80, 191, 0);
+} */
 
 #home-sm-screen {
   background-image: url("../static/images/circle-graph-bg-2.png"), url("../static/images/circle-graph-bg-3.png");
@@ -209,6 +209,10 @@ nav{
 .headshot {
   max-width: 100%;
   height: auto;
+}
+
+.list-style-none {
+  list-style: none;
 }
 
 

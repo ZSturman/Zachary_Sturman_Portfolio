@@ -11,6 +11,9 @@ def portfolio():
 def tip_redistribution():
     return render_template("projects/tip_redistribution.html", title="Tip Redistribution")
 
+@projects.route('/knife_grinder', methods=['GET'])
+def knife_grinder():
+    return render_template("projects/knife_grider.html", title="Knife Grinder")
 
 
 
@@ -75,3 +78,5 @@ def update_selected_element():
     filter_data = df['element'] == element_name
     selected_element = df[filter_data].to_dict()
     return selected_element
+
+

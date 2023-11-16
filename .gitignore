@@ -21,3 +21,5 @@ cut_out_items.txt
 to_remove
 supervisor/*
 zsdynamics.supervisor.conf
+supervisor/
+supervisor/zsdynamics.supervisor.conf
