@@ -1,8 +1,5 @@
-
-import random
-from datetime import datetime, date, timedelta
-import secrets
-from flask import Blueprint, render_template, flash, redirect, request, url_for, session, current_app, abort
+from datetime import datetime
+from flask import Blueprint, render_template, flash, redirect, request, url_for, current_app
 from flask_mail import Mail, Message
 from config import get_settings
 
@@ -31,18 +28,6 @@ def record(state):
     with app.app_context():
         current_app.mail = mail
 
-def msg_attachments(msg, welcome_basket=False):
-    msg.attach('githubicon.png','image/png',open('app/static/images/githubicon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Mailgithub>'],])
-    msg.attach('linkedinicon.png','image/png',open('app/static/images/linkedinicon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Maillinkedin>'],])
-    msg.attach('twittericon.png','image/png',open('app/static/images/twittericon.png', 'rb').read(), 'inline', headers=[['Content-ID','<Mailtwitter>'],])
-    msg.attach('emailbanner_logo.png','image/png',open('app/static/images/emailbanner_logo.png', 'rb').read(), 'inline', headers=[['Content-ID','<Emailbanner>'],])
-    msg.attach('zssignature.png','image/png',open('app/static/images/zssignature.png', 'rb').read(), 'inline', headers=[['Content-ID','<Signature>'],])
-    if welcome_basket == True:
-        msg.attach('mail_tips.png','image/png',open('app/static/images/mail_tips.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailTips>'],])
-        msg.attach('mail_science.png','image/png',open('app/static/images/mail_science.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailScience>'],])
-        msg.attach('mail_project.png','image/png',open('app/static/images/mail_project.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailProject>'],])
-        msg.attach('mail_learn.png','image/png',open('app/static/images/mail_learn.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailLearn>'],])
-        msg.attach('mail_flame.png','image/png',open('app/static/images/mail_flame.png', 'rb').read(), 'inline', headers=[['Content-ID','<MailFlame>'],])
 
 def redirect_url(default='main.home'):
     return request.args.get('next') or \
@@ -57,37 +42,44 @@ def to_me(person, subj, messg=None):
         recipients=[settings.MAIL_USERNAME],
         html = render_template("mail/to_me.html", title="To Me", person=person, message=messg, subject=subj, to_me = True, date=date)
     )
-    msg_attachments(msg)
     current_app.mail.send(msg)
-
-
 
 
 @zs_mail.route('/send_mail', methods=["GET", "POST"])
 def send_mail():
-    honeypot_email = request.form.get("honeypot_email")
-    honeypot_name = request.form.get("honeypot_name")
-    if honeypot_email:
-        flash('Mail not accepted.', 'danger')
+    if request.method == 'POST':
+        honeypot_email = request.form.get("honeypot_email")
+        honeypot_name = request.form.get("honeypot_name")
+        name = request.form.get("name")
+        email = request.form.get("email")
+        input_message = request.form.get("message")
+
+        # Check for honeypot fields first to trap bots
+        if honeypot_email or honeypot_name:
+            flash('Mail not accepted.', 'danger')
+            return redirect(redirect_url())
+        
+
+        # Validate that name, email, and message are not empty
+        if not name or not email or not input_message:
+            flash('Please fill in all the fields.', 'danger')
+            return redirect(redirect_url())
+
+        # Remaining part of your code for sending email
+        person = {'name': name, 'email': email}
+        date = datetime.today()
+
+        msg = Message(
+                subject='Thanks for reaching out!',
+                recipients=[email],
+                bcc=[settings.MAIL_USERNAME],
+                html=render_template("mail/thanks_for_reaching_out.html", reaching_out=True, date=date, person=person)
+            )
+        current_app.mail.send(msg)
+        flash(f"Thanks for reaching out! A reply will be sent to your email soon", 'success')
+        subject_to_me = "New Message from " + name
+        to_me(person, subject_to_me, input_message)
         return redirect(redirect_url())
-    if honeypot_name:
-        flash('Mail not accepted.', 'danger')
-        return redirect(redirect_url())
-    date = datetime.today()
-    name = request.form.get("name")
-    email = request.form.get("email")
-    input_message = request.form.get("message")
-
-    person = {'name': name, 'email': email}
-
-    msg = Message(
-            subject = 'Thanks for reaching out!',
-            recipients= [email, settings.MAIL_USERNAME],
-            html = render_template("mail/thanks_for_reaching_out.html", reaching_out=True, date=date, person=person)
-        )
-    msg_attachments(msg)
-    current_app.mail.send(msg)
-    to_me(name, "New Message", input_message)
-
-    flash(f"Thanks for reaching out! A reply will be sent to your email soon", 'success')
+    
+    # If it's not a POST request, just redirect to the default URL
     return redirect(redirect_url())

@@ -19,7 +19,7 @@
     <title>ZSDynamics</title>
     {% endif %}
 
-    <link rel="shortcut icon" href="{{ url_for('static', filename='twitter.png') }}">
+    <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='twitter.png') }}"> -->
     <style>
         body {
             padding: 2%;
@@ -62,10 +62,12 @@
             min-width: 200px;
             background-color: white;
             border: 2px solid black;
+            color: black;
         }
 
         .ftr-btn:hover {
-            scale: 1.05;
+            background-color: black;
+            color: white;
         }
 
         p{
@@ -99,6 +101,11 @@
 
         .quote_citation {
             text-align: end;
+            opacity: .5;
+            font-size: .75rem;
+        }
+
+        .contact-key {
             opacity: .5;
             font-size: .75rem;
         }
@@ -221,16 +228,17 @@
                     </a>
                     {% else %}
                     <a class="header-link" href="https://www.zsdynamics.com">
-                        <img src="cid:Emailbanner" alt="ZSdynamics">
+                        <img src="https://www.zsdynamics.com/static/images/emailbanner_logo.png" alt="ZSdynamics Banner">
+                        <!-- <img src="cid:Emailbanner" alt="ZSdynamics"> -->
                     </a>
                     {% endif %}
                 </td>
             </tr>
         </table>
        
+        
 
-
-
+        
         <div>
             <p class="curr_date">{{ current_date }}</p>
             {% block mailcontent %}
@@ -241,24 +249,13 @@
                         {% if testing_mail == True %}
                         <img src="../../static/images/zssignature.png" alt="Zachary Sturman Signature">
                         {% else %}
-                        <img src="cid:Signature" alt="Zachary Sturman Signature">
+                        <img src="https://www.zsdynamics.com/static/images/zssignature.png" alt="Zachary Sturman Signature ">
+                        <!-- <img src="cid:Signature" alt="Zachary Sturman Signature"> -->
                         {% endif %}
                     </tr>
                 </td>
             </table>
             
-            <br>
-            <hr>
-
-            <h4 class="quote"><em>"Ignorance is bliss until you die" </em></h4>
-            <p class="quote_citation"><em>- Jamy Lee</em></p>
-
-            <br>
-            <br>
-
-
-
-            <br>
             <br>
             <br>
             {% if testing_mail == True %}
@@ -312,8 +309,8 @@
                         <a class="nav-link" href="https://www.zsdynamics.com/about">About</a>
                     </td>
                     <td width="50%">
-                        <a style="cursor: pointer;" href="https://www.zsdynamics.com/static/assets/ZacharySturman_Resume.pdf">
-                            <button class="ftr-btn" style="cursor: pointer;">
+                        <a  href="https://www.zsdynamics.com/static/assets/ZacharySturman_Resume.pdf">
+                            <button class="ftr-btn">
                                 Resume
                             </button>
                         </a>
@@ -330,20 +327,20 @@
                     <td width="50%">
                         <div>
                             <a class="social_png" href="https://github.com/ZSturman?tab=repositories">
-                                <img alt="github" src="cid:Mailgithub">
+                                <!-- <img alt="Github Icon" src="cid:Mailgithub"> -->
+                                <img alt="Github Icon" src="https://www.zsdynamics.com/static/images/githubicon.png">
                             </a>
                             <a class="social_png" href="https://www.linkedin.com/in/zacharysturman/">
-                                <img alt="linkedin" src="cid:Maillinkedin"></a>
+                                <img alt="Linkedin Icon" src="https://www.zsdynamics.com/static/images/linkedinicon.png">
+                                <!-- <img alt="Linkedin Icon" src="cid:Maillinkedin"></a> -->
                             <a class="social_png" href="https://twitter.com/zachary_sturman">
-                                <img alt="twitter" src="cid:Mailtwitter">
+                                <img alt="Twitter Icon" src="https://www.zsdynamics.com/static/images/twittericon.png">
+                                <!-- <img alt="Twitter Icon" src="cid:Mailtwitter"> -->
                             </a>
                         </div>
                     </td>
                 </tr>
             </table>
-
-
-
 
 
             {% endif %}
@@ -355,11 +352,13 @@
             <br>
             <br>
 
-            <div class="footer_contact_section">
-                <a class="footer_contact" href="https://www.zsdynamics.com">ZSDynamics</a>
-                <p class="footer_contact">| </p>
-                <a class="footer_contact" href="mailto:zacharysturman@zsdynamics.com">zacharysturman@zsdynamics.com</a>
-                <p class="footer_contact">| </p>
+            <!-- <div class="footer_contact_section"> -->
+            <div>
+
+                <p class="contact-key">email:</p> 
+                <a class="footer_contact" href="mailto:zasturman@gmail.com">ZASturman@gmail.com</a>
+                <br>
+                <p class="contact-key">phone:</p> 
                 <a class="footer_contact" href="tel:+61426233374">+61 426 233 374</a>
             </div>
             <br>

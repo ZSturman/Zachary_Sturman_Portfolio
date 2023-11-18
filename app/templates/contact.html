@@ -130,16 +130,16 @@
                         <div class="mb-1 mx-sm-4">
                             <label for="contact-form-name" class="form-label">Name</label>
                             <input name="name" type="text" class="form-control" id="contact-form-name"
-                                placeholder="John Smith">
+                                placeholder="John Smith" required>
                             <label for="contact-form-email" class="form-label">Email address</label>
                             <input name="email" type="email" class="form-control" id="contact-form-email"
-                                placeholder="name@example.com">
+                                placeholder="name@example.com" required>
                             <input name="honeypot_email" type="email" style="display:none;">
                             <input name="honeypot_name" type="text" style="display:none;">
                         </div>
                         <div class="mb-1 mx-sm-4">
                             <label for="contact-form-message" class="form-label">Message</label>
-                            <textarea name="message" class="form-control" id="contact-form-message" rows="8"></textarea>
+                            <textarea name="message" class="form-control" id="contact-form-message" rows="8" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary mx-4 my-2">Send Message</button>
                     </form>
@@ -315,15 +315,9 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-
     <script>
         AOS.init();
     </script>
-
-
-
-
-
 
 </body>
 

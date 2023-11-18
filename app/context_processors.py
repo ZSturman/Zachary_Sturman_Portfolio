@@ -1,6 +1,5 @@
 import random
 from datetime import date
-from flask import session
 
 class Toolbox:
     def __init__(self, item, img, description, service):
@@ -13,9 +12,6 @@ class Toolbox:
 python = Toolbox(item="Python", img="pyhon-con", description="#", service="backend")
 
 backend_toolbox = [python]
-
-
-
 
 class Project:
     def __init__(self, title, subtitle, description, date, link, url_for, link_title, tags, image, alt="Project image", blank=False):
