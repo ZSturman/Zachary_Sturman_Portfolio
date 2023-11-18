@@ -23,3 +23,5 @@ supervisor/*
 zsdynamics.supervisor.conf
 supervisor/
 supervisor/zsdynamics.supervisor.conf
+old_requirements.txt
+venv
