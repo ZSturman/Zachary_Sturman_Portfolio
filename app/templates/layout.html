@@ -93,33 +93,33 @@
 
                 <ul class="navbar-nav ms-md-auto mb-2 mb-lg-0 me-5 gap-3 ps-4 text-start">
                     <li class="nav-item">
-                        <a class="nav-link text-light" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
+                        <a class="nav-link text-light gtm-nav-bar-link" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="{{ url_for('projects.portfolio') }}">Portfolio</a>
+                        <a class="nav-link text-light gtm-nav-bar-link" href="{{ url_for('projects.portfolio') }}">Portfolio</a>
                     </li>
                     <li class="nav-item dropdown">
 
-                        <a class="nav-link dropdown-toggle text-light" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle text-light gtm-nav-bar-link" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Services
                         </a>
                         <ul class="dropdown-menu ms-1" style="background-color: rgb(10, 41, 73);">
-                            <li><a class="nav-link text-light" href="{{ url_for('services.data_analytics') }}">Data Analytics</a></li>
-                            <li><a class="nav-link text-light" href="{{ url_for('services.front_end') }}">User Interface
+                            <li><a class="nav-link text-light gtm-nav-bar-link" href="{{ url_for('services.data_analytics') }}">Data Analytics</a></li>
+                            <li><a class="nav-link text-light gtm-nav-bar-link" href="{{ url_for('services.front_end') }}">User Interface
                                     Development</a></li>
-                            <li><a class="nav-link text-light" href="{{ url_for('services.back_end') }}">Back-end Engineering</a></li>
+                            <li><a class="nav-link text-light gtm-nav-bar-link" href="{{ url_for('services.back_end') }}">Back-end Engineering</a></li>
 
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="{{ url_for('main.about') }}">About</a>
+                        <a class="nav-link text-light gtm-nav-bar-link" href="{{ url_for('main.about') }}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="{{ url_for('main.contact') }}">Contact</a>
+                        <a class="nav-link text-light gtm-nav-bar-link" href="{{ url_for('main.contact') }}">Contact</a>
                     </li>
                     <li>
-                        <a id="resume-nav-btn" href="../static/assets/ZacharySturman_Resume.pdf" target="_blank"
+                        <a id="resume-nav-btn gtm-nav-bar-link" href="../static/assets/ZacharySturman_Resume.pdf" target="_blank"
                     class="btn btn-outline-light opacity-50">Resume</a>
                     </li>
                 </ul>
@@ -133,7 +133,7 @@
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
     {% for category, message in messages %}
-    <div class="alert alert-{{ category }}">
+    <div class="alert alert-{{ category }} gtm-flash-message">
         {{ message }}
     </div>
     {% endfor %}

@@ -59,6 +59,10 @@ def send_mail():
             flash('Mail not accepted.', 'danger')
             return redirect(redirect_url())
         
+        if email == "ericjonesmyemail@gmail.com":
+            flash('Mail not accepted Eric Jones.', 'danger')
+            return redirect(redirect_url())
+        
 
         # Validate that name, email, and message are not empty
         if not name or not email or not input_message:

@@ -13,7 +13,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <p class="lead mb-0">
-                    This portfolio was created using Flask. A new site, built with React, is coming soon! If you want to be notified when it's live, <a href="{{ url_for('main.contact') }}">click here</a>.
+                    This portfolio was created using Flask. A new site, built with React, is coming soon! If you want to be notified when it's live, <a class="gtm-link-btn" href="{{ url_for('main.contact') }}">click here</a>.
                 </p>
             </div>
         </div>
@@ -124,29 +124,29 @@
         <hr data-aos="fade" data-aos-delay="500" data-aos-easing="ease-in-out-back">
 
         <div class="d-inline-flex justify-content-center gap-3 m-2 flex-wrap">
-            <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link "
+            <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link gtm-social-media-icon"
                 href="https://www.linkedin.com/in/zacharysturman/" target="_blank" data-text="linkedin"
                 data-aos-delay="500" data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-out-back">
                 <i class="fa-brands fa-linkedin fa-lg"></i>
             </a>
-            <a class="btn btn-info rounded-circle btn-lg  perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+            <a class="btn btn-info rounded-circle btn-lg  perf-circle-sm d-flex justify-content-center align-items-center connect-with-link gtm-social-media-icon"
                 href="https://twitter.com/zachary_sturman" target="_blank" data-text="twitter" data-aos-delay="550"
                 data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-out-back">
                 <i class="fa-brands fa-twitter fa-lg"></i>
             </a>
-            <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+            <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link gtm-social-media-icon"
                 href="mailto:zacharysturman@zsdynamics.com?subject={{ email_subject_line }}&body={{ email_body }}"
                 data-text="email" data-aos-delay="600" data-aos="fade-up" data-aos-duration="1500"
                 data-aos-easing="ease-in-out-back">
                 <i class="fa-solid fa-envelope fa-lg"></i>
             </a>
-            <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+            <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link gtm-social-media-icon"
                 href="https://github.com/ZSturman" data-text="github" data-aos-delay="650" data-aos="fade-up"
                 data-aos-duration="1500" data-aos-easing="ease-in-out-back">
 
                 <i class="fa-brands fa-github fa-lg"></i>
             </a>
-            <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link"
+            <a class="btn btn-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center connect-with-link gtm-social-media-icon"
                 href="../static/assets/ZacharySturman_Resume.pdf" target="_blank" data-text="resume"
                 data-aos-delay="700" data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-out-back">
                 <i class="fa-solid fa-file-contract fa-lg"></i>
@@ -157,7 +157,7 @@
         <div class="text-center" data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-out-back"
             data-aos-delay="750">
             <h4 class="fw-light"><em> Discover what I can do</em></h4>
-            <a href="{{ url_for('projects.portfolio') }}" class="btn btn-lg btn-success rounded-5">
+            <a href="{{ url_for('projects.portfolio') }}" class="btn btn-lg btn-success rounded-5 gtm-link-btn">
                 <h5 class="m-0 p-0 fw-light">Click here</h5>
             </a>
         </div>
@@ -222,9 +222,9 @@
     
         <div class="row my-2">
             <div class="d-inline-flex gap-3">
-                <a class="btn btn-outline-info rounded-4" href="{{ url_for('main.about') }}" data-aos="fade-right"
+                <a class="btn btn-outline-info rounded-4 gtm-link-btn" href="{{ url_for('main.about') }}" data-aos="fade-right"
                     data-aos-duration="800" data-aos-delay="100">About Me Page</a>
-                <a class="btn btn-primary rounded-4" href="{{ url_for('projects.portfolio') }}" data-aos="fade-right"
+                <a class="btn btn-primary rounded-4 gtm-link-btn" href="{{ url_for('projects.portfolio') }}" data-aos="fade-right"
                     data-aos-duration="800" data-aos-delay="150">See My Work</a>
             </div>
         </div>

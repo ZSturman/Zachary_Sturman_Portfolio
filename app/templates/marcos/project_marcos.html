@@ -3,12 +3,12 @@
 <div class="row my-4 proj_card justify-content-center">
     <div class="col-12 col-md-3">
         {% if project.link %}
-            <a class="p-0" href="{{ project.link }}" {% if project.blank %} target="_blank" {% endif %}>
+            <a class="p-0 gtm-project-link" href="{{ project.link }}" {% if project.blank %} target="_blank" {% endif %}>
                 <img src="{{ project.image }}" alt="{{ project.alt }}"></a>
         {% endif %}
 
         {% if project.url_for %}
-            <a class="p-0" href="{{ url_for(project.url_for) }}">
+            <a class="p-0 gtm-project-link" href="{{ url_for(project.url_for) }}">
                 <img  src="{{ project.image }}" alt="{{ project.alt }}"></a>
         {% endif %}
 
@@ -31,13 +31,13 @@
 
         {% if project.link %}
         <button class="btn btn-outline-info p-0 px-1">
-            <a class="p-0 text-decoration-none text-dark" href="{{ project.link }}" {% if project.blank %} target="_blank" {% endif %}>
+            <a class="p-0 text-decoration-none text-dark gtm-project-link" href="{{ project.link }}" {% if project.blank %} target="_blank" {% endif %}>
                 {{ project.link_title }}</a></button>
         {% endif %}
 
         {% if project.url_for %}
         <button class="btn btn-outline-info p-0 px-1">
-            <a class="p-0 text-decoration-none text-dark" href="{{ url_for(project.url_for) }}">
+            <a class="p-0 text-decoration-none text-dark gtm-project-link" href="{{ url_for(project.url_for) }}">
                 {{ project.link_title }}</a></button>
         {% endif %}
     </div>
