@@ -46,7 +46,7 @@ class DevelopmentConfig(Configure):
     PERMANENT_SESSION_LIFETIME = 60
     
 class ProductionConfig(Configure):
-    STATIC_BASE="/outdated_portfolio/"
+    STATIC_BASE="/outdated_portfolio"
     
 class TestingConfig(Configure):
     DEV_TEST = True
