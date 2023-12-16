@@ -153,7 +153,7 @@ class Review:
         self.name = name
         self.business = business
         img_name = name.replace(" ","_").lower()
-        self.img = "../static/images/reviews/"+img_name+".jpeg"
+        self.img = "static/images/reviews/"+img_name+".jpeg"
 
 review1 = Review("As a Python beginner, I appreciated Zachary's patience and clear explanations. Zachary helped me understand complex concepts and execute a successful project.", "Frew Arega", "Freelancer")
 review2 = Review("Working with Zachary on our data visualization project was a pleasure. The final product exceeded expectations and was delivered on time.", "Shawn Victor", "Ameristar Casino")
@@ -182,4 +182,5 @@ def portfolio_context_processor(config):
     mailing_list_txt = random.choice(mailing_list_txt_list)
     call_to_action_txt = random.choice(call_to_action_list)
     current_date = today.strftime("%B %d, %Y")
-    return {'dev_test': dev_test, 'dev_status':dev_status, 'mailing_list_txt':mailing_list_txt, 'email_body_list':email_body_list, 'email_subject_line':email_subject_line, 'call_to_action_txt':call_to_action_txt, 'reviews_list':reviews_list, 'projects_list':projects_list, "current_date":current_date, "backend_toolbox":backend_toolbox}
+    static_base = config.STATIC_BASE
+    return {'static_base': static_base, 'dev_test': dev_test, 'dev_status':dev_status, 'mailing_list_txt':mailing_list_txt, 'email_body_list':email_body_list, 'email_subject_line':email_subject_line, 'call_to_action_txt':call_to_action_txt, 'reviews_list':reviews_list, 'projects_list':projects_list, "current_date":current_date, "backend_toolbox":backend_toolbox}

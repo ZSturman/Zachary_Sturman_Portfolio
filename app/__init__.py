@@ -1,10 +1,8 @@
-from pathlib import Path
 from flask import Flask
 from app.context_processors import portfolio_context_processor
 from config import get_settings
 
 settings = get_settings()
-
 
 def create_app(config_class=settings):
     app = Flask(__name__)

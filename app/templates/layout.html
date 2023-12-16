@@ -21,7 +21,9 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}" type="text/css">
+    
+
+    <link rel="stylesheet" href="{{ static_base }}{{ static_base }}{{url_for('static', filename='custom.css')}}" type="text/css">
 
     <title>
     {% if title %}
@@ -33,7 +35,7 @@
 
     <meta property="og:title" content="Zachary Sturman Portfolio">
     <meta property="og:description" content="Explore my data science portfolio, showcasing projects in machine learning, data visualization, and analytics. Learn how I leverage data-driven insights to solve real-world problems.">
-    <meta property="og:image" content="https://www.ZSdynamics.com{{url_for('static', filename='images/og_img.png')}}">
+    <meta property="og:image" content="https://www.ZSdynamics.com{{ static_base }}{{url_for('static', filename='images/og_img.png')}}">
 
     {% block og_url %}
     <meta property="og:url" content="https://www.zsdynamics.com/home">
@@ -41,7 +43,7 @@
 
     <meta property="og:type" content="website">
 
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="shortcut icon" href="{{ static_base }}{{ url_for('static', filename='favicon.png') }}">
 
     
 </head>
@@ -139,6 +141,18 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
+
+    <div class="p-3 m-3 overlay-notification">
+        <div class="container">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <p class="lead mb-0">
+                        This portfolio iis outdated. <a class="gtm-link-btn" href="https://www.zsdynamics.com">Click here to</a> to see the new site created with React.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

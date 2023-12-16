@@ -25,7 +25,7 @@ class Configure(object):
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    HOST = 'https://www.zsdynamics.com'
+    #HOST = 'https://www.zsdynamics.com'
 
     MAIL_SERVER = "smtp.gmail.com"
     MAIL_PORT = 587
@@ -37,13 +37,17 @@ class Configure(object):
 
     APP_CONTEXT_PROCESSORS = ['app.context_processors.portfolio_context_processor']
 
+    STATIC_BASE=""
+
+
 class DevelopmentConfig(Configure):
     DEBUG = True
     DEV_STATUS = False
     PERMANENT_SESSION_LIFETIME = 60
     
 class ProductionConfig(Configure):
-    pass
+    STATIC_BASE="/outdated_portfolio/"
+    
 class TestingConfig(Configure):
     DEV_TEST = True
     PERMANENT_SESSION_LIFETIME = 20

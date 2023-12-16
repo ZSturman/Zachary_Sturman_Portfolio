@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-services = Blueprint("services", __name__)
+services = Blueprint("services", __name__, url_prefix='/outdated_portfolio')
 
 @services.route("/data_analytics")
 def data_analytics():
